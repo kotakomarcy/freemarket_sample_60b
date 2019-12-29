@@ -48,7 +48,7 @@
 |category_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :categories, through: :products_categories
+- has_many :categories
 
 ## Categoriesテーブル
 |Column|Type|Options|
@@ -56,7 +56,7 @@
 |name|string|null: false|
 |ancestry|string|null: false|
 ### Association
-- has_many :products, through: :products_categories
+- has_many :products
 
 ## Brandsテーブル
 |Column|Type|Options|
@@ -65,13 +65,6 @@
 ### Association
 - has_many :products
 
-## Products_Categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|catergory|references|null: false, foreign_key: true|
-|brand|references|null: false, foreign_key: true|
-### Association
-- has_many :products
 
 ## Products_images
 |Column|Type|Options|
