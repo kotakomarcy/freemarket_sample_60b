@@ -48,31 +48,30 @@
 |category_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :categories, through: :categories_brands
+- has_many :categories, through: :products_categories
 
 ## Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|null: false|
 ### Association
-- belongs_to :product
-- has_many :brands, through: :categories_brands
+- has_many :products, through: :products_categories
 
 ## Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- belongs_to :product
-- has_many :categories, through: :categories_brands
+- has_many :products
 
-## Categories_Brandsテーブル
+## Prodacts_Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |catergory_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :product
+- has_many :products
 
 ## Product_image
 |Column|Type|Options|
@@ -84,7 +83,7 @@
 
 
 
-## Paymentテーブル
+## Paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_num|integer|null: false, foreign_key: true|
@@ -94,10 +93,11 @@
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :product
+- belongs_to :user
 
 
 
-## Adressテーブル
+## Adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |plofiletext|string|null: false|
