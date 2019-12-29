@@ -3,9 +3,9 @@
 ## Usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|unique: false|
 |mail|string|unique: false|
-|password|string|null: false|
+|password|string|unique: false|
 |lastname|string|null: false|
 |firstname|string|null: false|
 |lastname_kana|string|null: false|
@@ -23,6 +23,7 @@
 |building_name|string|
 ### Association
 - has_many :products, :dependent => destroy
+- has_one :users, :dependent => destroy
 - has_one :address, :dependent => destroy
 - has_one :profile, :dependent => destroy
 - has_many :byuing_list, :dependent => destroy
@@ -35,7 +36,7 @@
 |------|----|-------|
 |name|string|null: false|
 |description|string|null: false|
-|size|string|null: false|
+|size|string|
 |condition|string|null: false|
 |delivery_charge|string|null: false|
 |delivery_way|string|null: false|
@@ -98,7 +99,7 @@
 |use_year|integer|null: false, foreign_key: true|
 |use_month|integer|null: false, foreign_key: true|
 |security_code|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 ### Association
 - has_many :products
 
