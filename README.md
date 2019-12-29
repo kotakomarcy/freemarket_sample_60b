@@ -13,13 +13,11 @@
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|phone_num|string|null: false|
+|phone_num|integer|null: false|
 |authentication_code|string|null: false|
 ### Association
-- has_many :products, through: :products_users
-- has_one :users, dependent: :destroy
+- has_many :products　
 - has_one :address, dependent: :destroy
-- has_many :reference, dependent: :destroy
 
 ## Adressesテーブル
 |Column|Type|Options|
@@ -31,7 +29,8 @@
 |block|string|null: false|
 |building_name|string|
 ### Association
-- belongs_to :users
+- belongs_to :user
+
 
 ## Productsテーブル
 |Column|Type|Options|
@@ -49,29 +48,15 @@
 |category_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :product
-- has_many :users, through: :products_users
-- has_many :buying_coment_id, :refrence, :null: false
-- has_many :product_image_id, :refrence, :null: false
-- has_many favorite_id, :refrence, :null: false
+- has_many :categories, through: :categories_brands
 
-## Products_Usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :product
-
-
-## Categoryテーブル
+## Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
 - belongs_to :product
-- has_many :brands, through: :category_brands
+- has_many :brands, through: :categories_brands
 
 ## Brandsテーブル
 |Column|Type|Options|
@@ -79,9 +64,9 @@
 |name|string|null: false|
 ### Association
 - belongs_to :product
-- has_many :category, through: :category_brands
+- has_many :categories, through: :categories_brands
 
-## Category_Brandsテーブル
+## Categories_Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |catergory_id|references|null: false, foreign_key: true|
@@ -96,6 +81,7 @@
 |image|string|
 ### Association
 - belongs_to :product
+
 
 
 ## Paymentテーブル
@@ -121,4 +107,4 @@
 |block|string|null: false|
 |building_name|string|
 ### Association
-- belongs_to :users
+- belongs_to :user
