@@ -22,7 +22,7 @@
 |block|string|null: false|
 |building_name|string|
 ### Association
-- has_many :products, :dependent => destroy
+- has_many :products, through: :products_users
 - has_one :users, :dependent => destroy
 - has_one :address, :dependent => destroy
 - has_one :profile, :dependent => destroy
@@ -48,7 +48,7 @@
 ### Association
 - belongs_to :users
 - belongs_to :products
-- has_many :products
+- has_many :users, through: :products_users
 - has_many :buying_coment_id, :refrence, :null: false
 - has_many :product_image_id, :refrence, :null: false
 - has_many favorite_id, :refrence, :null: false
@@ -69,6 +69,7 @@
 |name|string|null: false|
 ### Association
 - belongs_to :products
+- has_many :brands, through: :category_brand
 
 ## Brandテーブル
 |Column|Type|Options|
@@ -76,6 +77,7 @@
 |name|string|null: false|
 ### Association
 - belongs_to :products
+- has_many :category, through: :category_brand
 
 ## Category_Brandテーブル
 |Column|Type|Options|
@@ -84,6 +86,7 @@
 |brand_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :products
+- has_many :
 
 ## Product_image
 |Column|Type|Options|
