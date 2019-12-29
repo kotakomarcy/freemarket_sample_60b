@@ -92,6 +92,5 @@
 |security_code|integer|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
-- has_many :products
 - belongs_to :user
 
