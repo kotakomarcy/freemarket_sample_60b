@@ -90,8 +90,8 @@
 |use_year|integer|null: false|
 |use_month|integer|null: false|
 |security_code|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 ### Association
-- has_many :product
+- has_many :products
 - belongs_to :user
 
