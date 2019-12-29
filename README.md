@@ -49,6 +49,7 @@
 ### Association
 - belongs_to :user
 - has_many :categories
+- belongs_to :brand
 
 ## Categoriesテーブル
 |Column|Type|Options|
