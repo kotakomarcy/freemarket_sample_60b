@@ -69,17 +69,17 @@
 |name|string|null: false|
 ### Association
 - belongs_to :product
-- has_many :brands, through: :category_brand
+- has_many :brands, through: :category_brands
 
-## Brandテーブル
+## Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
 - belongs_to :product
-- has_many :category, through: :category_brand
+- has_many :category, through: :category_brands
 
-## Category_Brandテーブル
+## Category_Brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |catergory_id|references|null: false, foreign_key: true|
@@ -90,7 +90,7 @@
 ## Product_image
 |Column|Type|Options|
 |------|----|-------|
-|product_id|reference|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 |image|string|
 ### Association
 - belongs_to :product
@@ -103,7 +103,7 @@
 |use_year|integer|null: false, foreign_key: true|
 |use_month|integer|null: false, foreign_key: true|
 |security_code|integer|null: false, foreign_key: true|
-|user_id|reference|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :product
 
