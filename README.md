@@ -48,7 +48,7 @@
 |category|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :categories
+- belongs_to :category
 - belongs_to :brand
 
 ## Categoriesテーブル
