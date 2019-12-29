@@ -15,6 +15,15 @@
 |birth_day|integer|null: false|
 |phone_num|string|null: false|
 |authentication_code|string|null: false|
+### Association
+- has_many :products, through: :products_users
+- has_one :users, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_many :reference, dependent: :destroy
+
+## Adressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |plofiletext|string|null: false|
 |zip_code|string|null: false|
 |prefectures|string|null: false|
@@ -22,14 +31,7 @@
 |block|string|null: false|
 |building_name|string|
 ### Association
-- has_many :products, through: :products_users
-- has_one :users, dependent: :destroy
-- has_one :address, dependent: :destroy
-- has_one :profile, dependent: :destroy
-- has_many :byuing_list, dependent: :destroy
-- has_many :selling_list, dependent: :destroy
-- has_many :reference, dependent: :destroy
-- has_many :fovorite, dependent: :destroy
+- belongs_to :users
 
 ## Productsテーブル
 |Column|Type|Options|
@@ -108,7 +110,7 @@
 - has_many :product
 
 
-<!-- 
+
 ## Adressテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -119,43 +121,4 @@
 |block|string|null: false|
 |building_name|string|
 ### Association
-- belongs_to :users -->
-
-<!-- 
-## Profileテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|nickname|string|null: false|
-|coment|string|
-### Association
-- belongs_to :users -->
-
-
-<!-- ## Favoriteテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :product -->
-
-<!-- ## Selling_listテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :user
-- belongs_to :product
-
-## Buying_commentテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|product_id|references|null: false, foreign_key: true|
-|coment|string|
-### Association
-- belongs_to :user
-- belongs_to :product 
+- belongs_to :users
