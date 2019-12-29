@@ -22,7 +22,7 @@
 ## Adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|plofiletext|string|null: false|
+|profiletext|string|null: false|
 |zip_code|string|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
@@ -36,13 +36,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|description|string|null: false|
-|size|string|
-|condition|string|null: false|
-|delivery_charge|string|null: false|
-|delivery_way|string|null: false|
-|delivery_area|string|null: false|
-|delivery_days|string|null: false|
+|description|integer|null: false|
+|size|integer|
+|condition|integer|null: false|
+|delivery_charge|integer|null: false|
+|delivery_way|integer|null: false|
+|delivery_area|integer|null: false|
+|delivery_days|integer|null: false|
 |price|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
@@ -68,19 +68,18 @@
 ## Products_Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|catergory_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
+|catergory|references|null: false, foreign_key: true|
+|brand|references|null: false, foreign_key: true|
 ### Association
 - has_many :products
 
 ## Products_images
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false, foreign_key: true|
+|product|references|null: false, foreign_key: true|
 |image|string|
 ### Association
 - belongs_to :product
-
 
 
 ## Paymentsテーブル
