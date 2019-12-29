@@ -36,7 +36,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|description|integer|null: false|
+|description|text|null: false|
 |size|integer|
 |condition|integer|null: false|
 |delivery_charge|integer|null: false|
@@ -44,8 +44,8 @@
 |delivery_area|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - has_many :categories
