@@ -79,32 +79,19 @@
 |product_id|references|null: false, foreign_key: true|
 |image|string|
 ### Association
-- belongs_to :products
+- belongs_to :product
 
 
 
 ## Paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_num|integer|null: false, foreign_key: true|
-|use_year|integer|null: false, foreign_key: true|
-|use_month|integer|null: false, foreign_key: true|
-|security_code|integer|null: false, foreign_key: true|
+|card_num|integer|null: false|
+|use_year|integer|null: false|
+|use_month|integer|null: false|
+|security_code|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - has_many :product
 - belongs_to :user
 
-
-
-## Adressesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|plofiletext|string|null: false|
-|zip_code|string|null: false|
-|prefectures|string|null: false|
-|city|string|null: false|
-|block|string|null: false|
-|building_name|string|
-### Association
-- belongs_to :user
