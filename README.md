@@ -23,13 +23,13 @@
 |building_name|string|
 ### Association
 - has_many :products, through: :products_users
-- has_one :users, :dependent => destroy
-- has_one :address, :dependent => destroy
-- has_one :profile, :dependent => destroy
-- has_many :byuing_list, :dependent => destroy
-- has_many :selling_list, :dependent => destroy
-- has_many :reference, :dependent => destroy
-- has_many :fovorite, :dependent => destroy
+- has_one :users, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_one :profile, dependent: :destroy
+- has_many :byuing_list, dependent: :destroy
+- has_many :selling_list, dependent: :destroy
+- has_many :reference, dependent: :destroy
+- has_many :fovorite, dependent: :destroy
 
 ## Productsテーブル
 |Column|Type|Options|
@@ -46,8 +46,8 @@
 |user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
-- belongs_to :products
+- belongs_to :user
+- belongs_to :product
 - has_many :users, through: :products_users
 - has_many :buying_coment_id, :refrence, :null: false
 - has_many :product_image_id, :refrence, :null: false
@@ -59,8 +59,8 @@
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :users
-- belongs_to :products
+- belongs_to :user
+- belongs_to :product
 
 
 ## Categoryテーブル
@@ -68,7 +68,7 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- belongs_to :products
+- belongs_to :product
 - has_many :brands, through: :category_brand
 
 ## Brandテーブル
@@ -76,7 +76,7 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- belongs_to :products
+- belongs_to :product
 - has_many :category, through: :category_brand
 
 ## Category_Brandテーブル
@@ -85,14 +85,15 @@
 |catergory_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :products
-- has_many :
+- belongs_to :product
 
 ## Product_image
 |Column|Type|Options|
 |------|----|-------|
-|product_id|string|null: false|
+|product_id|reference|null: false, foreign_key: true|
 |image|string|
+### Association
+- belongs_to :product
 
 
 ## Paymentテーブル
@@ -104,7 +105,8 @@
 |security_code|integer|null: false, foreign_key: true|
 |user_id|reference|null: false, foreign_key: true|
 ### Association
-- has_many :products
+- has_many :product
+
 
 <!-- 
 ## Adressテーブル
