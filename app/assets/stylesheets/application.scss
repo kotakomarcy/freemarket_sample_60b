@@ -1,6 +1,10 @@
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
-@import "./mixin";
-@import "./variable";
-@import "./header";
+@import "./mixins/mixin";
+@import "./configs/variable";
+
+
+* {
+  box-sizing: border-box;
+}
