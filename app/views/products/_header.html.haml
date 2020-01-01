@@ -1,0 +1,46 @@
+.header
+  .header-top
+    .header-top__logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"150px", class: "header-top__logo--image"
+    %form.header-top__search
+      %input{type: "text", class: "header-top__search--text", placeholder:"何かお探しですか？"}
+        %label.header-top__search__icon
+          = fa_icon "search", class: "header-top__search__icon--img"
+          %input{type: "submit", class: "header-top__search--btn"}
+
+  .header-bottom
+    .header-bottom__left
+      %ul.header-bottom__left__contents
+        %li.header-bottom__left__contents--categorys
+          = link_to "=" do
+            = fa_icon "list-ul", class: "header-bottom__left__contents--categorys-icon"
+            %span.header-bottom__left__contents--categorys-caption
+            カテゴリーから探す
+        %li.header-bottom__left__contents--blands
+          = link_to "=" do
+            = fa_icon "tag" , class: "header-bottom__left__contents--blands-icon"
+            %span.header-bottom__left__contents--blands-caption 
+            ブランドから探す
+    
+    .header-bottom__right
+      %ul.header-bottom__right__contents
+        %li.header-bottom__right__contents--good
+          = link_to "=" do
+            = fa_icon "heart"
+            %span.header-bottom__right__contents--good-caption
+            いいね
+        %li.header-bottom__right__contents--news
+          = link_to "=" do
+            = fa_icon "bell", class: "header-bottom__right__contents--news-icon"
+            %span.header-bottom__right__contents--news-caption
+            お知らせ
+        %li.header-bottom__right__contents--todo
+          = link_to "=" do
+            = fa_icon "check"
+            %span.header-bottom__right__contents--todo-caption
+            やることリスト
+        %li.header-bottom__right__contents--mypage
+          = link_to "=" do
+            %span.header-bottom__right__contents--mypage-caption
+            マイページ
