@@ -49,6 +49,10 @@
   }
 }
 
+input::placeholder{
+  color: gray;
+}
+
 .header-bottom{
   margin: 10px 0;
   padding-bottom: 5px;
@@ -61,6 +65,7 @@
     &--categorys{
       margin-right: 15px;
       font-size: 15px;
+      padding-top: 5px;
     }
 
     &--categorys-icon{
@@ -78,6 +83,7 @@
 
     &--blands{
       font-size: 15px;
+      padding-top: 5px;
     }
 
     &--blands-icon{
@@ -94,73 +100,36 @@
     }
   }
 
-  
-
   &__right__contents{
     display: flex;
     font-size: 15px;
     margin: 0 auto;
 
-    &--good{
-      padding-right: 20px;
+    &--new-acount{
+      height: 27px;
+      width: 100px;
+      padding: 5px;
+      margin-right: 15px;
+      border-radius: 5px;
+      background-color: red;
     }
 
-    &--good-icon{
-      color: rgb(204, 204, 204);
-      float: left;
-      margin-right: 5px;
-    }
-
-    &--good-caption{
-      color: black;
-      float: right;
+    &--new-acount-btn{
       text-decoration: none;
+      color: white;
     }
 
-    &--news{
-      padding-right: 20px;
+    &--login{
+      height: 27px;
+      width: 75px;
+      padding: 5px 5px 5px 7px;
+      border-radius: 5px;
+      border: solid 1px blue;
     }
 
-    &--news-icon{
-      color: rgb(204, 204, 204);
-      float: left;
-      padding-right: 5px;
-    }
-
-    &--news-caption{
-      color: black;
-      float: right;
+    &--login-btn{
       text-decoration: none;
-    }
-
-    &--todo{
-      padding-right: 20px;
-    }
-
-    &--todo-icon{
-      color: rgb(204, 204, 204);
-      float: left;
-      margin-right: 5px;
-    }
-
-    &--todo-caption{
-      color: black;
-      float: right;
-      text-decoration: none;
-    }
-
-    &--mypage{
-      padding-right: 20px;
-    }
-
-    &--mypage-caption{
-      color: black;
-      float: right;
-      text-decoration: none;
+      color: blue;
     }
   }
-}
-
-input::placeholder{
-  color: gray;
 }
