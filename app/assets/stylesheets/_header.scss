@@ -1,6 +1,166 @@
 .header{
+  width: 100%;
+  border-bottom: solid 1px;
+  overflow: auto;
 }
 
-.header-top__search--icon {
-  font-size: 1.3rem;
+.header-wapper{
+  width: 1020px;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+.header-top{
+  display: flex;
+  justify-content: space-between;
+
+  &__logo{
+    margin-right: 50px;
+    align-items: center;
+  }
+
+  &__search{
+    display: flex;
+    padding: 5px;
+    
+    &--filed{
+      width: 800px;
+      height: 40px;
+      padding: 5px 40px 5px 5px;
+      background-color: rgb(245, 245, 245);
+      border: solid 1px rgb(204, 204, 204);
+    }
+  }
+
+  &__search__icon{
+    position: relative;
+    top: 13px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  &__search__icon--image{
+      position: absolute;
+  }
+
+  &__search__icon--btn{
+      position: absolute;
+      display: none;
+  }
+}
+
+.header-bottom{
+  margin: 10px 0;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  &__left{
+    display: flex;
+    
+    &--categorys{
+      margin-right: 15px;
+      font-size: 15px;
+    }
+
+    &--categorys-icon{
+      padding-right: 5px;
+      color: red;
+      float:left;
+    }
+
+    &--categorys-caption{
+      float: right;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+
+    &--blands{
+      font-size: 15px;
+    }
+
+    &--blands-icon{
+      padding-right: 5px;
+      color: red;
+      float: left;
+    }
+
+    &--blands-caption{
+      float: right;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+  }
+
+  
+
+  &__right__contents{
+    display: flex;
+    font-size: 15px;
+    margin: 0 auto;
+
+    &--good{
+      padding-right: 20px;
+    }
+
+    &--good-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      margin-right: 5px;
+    }
+
+    &--good-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--news{
+      padding-right: 20px;
+    }
+
+    &--news-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      padding-right: 5px;
+    }
+
+    &--news-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--todo{
+      padding-right: 20px;
+    }
+
+    &--todo-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      margin-right: 5px;
+    }
+
+    &--todo-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--mypage{
+      padding-right: 20px;
+    }
+
+    &--mypage-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+  }
+}
+
+input::placeholder{
+  color: gray;
 }
