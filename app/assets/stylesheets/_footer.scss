@@ -18,12 +18,12 @@
   font-size: 35px;
   margin-bottom: 20px;
 }
-.aside_left__icon__log1 {
+.aside_left__icon__logo {
   height: 68px;
   margin-right: 20px;
   width: 68px;
 }
-.aside_left__icon__log2 {
+.aside_left__icon__logo2 {
   height: 40px;
   margin-right: 8px;
   width: 144px;
@@ -40,13 +40,13 @@
   background-color:black;
   padding-top
 }
-&__top {
+.toppage__footer__top {
   width: 80px;
   display
   padding-top
 }
   
-&__list {
+.toppage__footer__top__list {
   color: white;
   font-size: 16px;
   margin: 0px 20px;
@@ -74,6 +74,12 @@
   width: 26px;
 }
 
+.toppage__footer__top__list__box {
+  color: white;
+  font-size: 16px;
+  margin: 0px 20px;
+  text-align :left;
+}
 
 .footer__bottom {
     width: 1020px;
