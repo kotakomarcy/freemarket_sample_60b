@@ -5,12 +5,14 @@
 @import "./configs/variable";
 @import "./header";
 @import "./categorys-list";
+@import "./item_body";
 
 * {
   box-sizing: border-box;
 }
 
 body{
+  height: 100vh;
   position: relative;
   min-height: 100%;
   font-size: 14px;

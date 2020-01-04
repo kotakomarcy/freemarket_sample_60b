@@ -1,0 +1,53 @@
+.upper-info {
+  width: 100vw;
+  height: 134px;
+  box-sizing: border-box;
+  padding: 40px,20px,20px;
+
+  &__title {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 20px; 
+    font-weight: 600;
+    line-height: 28px;
+  
+  }
+
+
+  &__category-lists {
+    font-size: 14px;
+    list-style: none;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+
+    &__ladies {
+      background-color: rgb(245,245,245);
+      border-radius: 15px;
+      padding: 8px 16px;
+      
+    }
+
+    &__mens {
+      background-color: rgb(245,245,245);
+      margin-left: 10px;
+      border-radius: 15px;
+      padding: 8px 16px;
+    }
+
+    &__camera {
+      background-color: rgb(245,245,245);
+      margin-left: 10px;
+      border-radius: 15px;
+      padding: 8px 16px;
+    }
+
+    &__toy {
+      background-color: rgb(245,245,245);
+      margin-left: 10px;
+      border-radius: 15px;
+      padding: 8px 16px;
+    }
+  }
+}
