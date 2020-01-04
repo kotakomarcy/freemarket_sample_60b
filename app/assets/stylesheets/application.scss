@@ -4,6 +4,7 @@
 @import "./mixins/mixin";
 @import "./configs/variable";
 @import "./header";
+@import "./categorys-list";
 
 * {
   box-sizing: border-box;
@@ -12,7 +13,6 @@
 body{
   position: relative;
   min-height: 100%;
-  background-color: #f5f5f5;
   font-size: 14px;
   color: #333;
   line-height: 1;

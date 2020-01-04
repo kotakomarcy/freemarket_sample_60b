@@ -1,30 +1,32 @@
 .header{
-  width: 100%;
+  height: 100px;
+  max-width: 100%;
   border-bottom: solid 1px;
-  overflow: auto;
+  z-index: 2;
 }
 
 .header-wapper{
-  width: 1020px;
+  width: 75%;
   margin: 0 auto;
-  padding-top: 5px;
 }
 
 .header-top{
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
   &__logo{
     margin-right: 50px;
-    align-items: center;
   }
 
   &__search{
+    width: 100%;
     display: flex;
     padding: 5px;
+    position: relative;
     
     &--filed{
-      width: 800px;
+      width: 100%;
       height: 40px;
       padding: 5px 40px 5px 5px;
       background-color: rgb(245, 245, 245);
@@ -54,6 +56,7 @@ input::placeholder{
 }
 
 .header-bottom{
+  width: 100%;
   margin: 10px 0;
   padding-bottom: 5px;
   display: flex;
@@ -79,6 +82,10 @@ input::placeholder{
       text-decoration: none;
       color: black;
       font-weight: bold;
+    }
+
+    &--categorys-list{
+      display: block;
     }
 
     &--blands{
