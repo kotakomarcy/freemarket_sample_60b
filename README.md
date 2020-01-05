@@ -1,24 +1,89 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|unique: false|
+|mail|string|unique: false|
+|password|string|unique: false|
+|lastname|string|null: false|
+|firstname|string|null: false|
+|lastname_kana|string|null: false|
+|firstname_kana|string|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
+|phone_num|integer|null: false|
+|authentication_code|string|null: false|
+### Association
+- has_many :products　
+- has_one :address, dependent: :destroy
 
-Things you may want to cover:
+## Adressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|profiletext|string|null: false|
+|zip_code|string|null: false|
+|prefectures|string|null: false|
+|city|string|null: false|
+|block|string|null: false|
+|building_name|string|
+### Association
+- belongs_to :user
 
-* Ruby version
 
-* System dependencies
+## Productsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|description|text|null: false|
+|size|integer|
+|condition|integer|null: false|
+|delivery_charge|integer|null: false|
+|delivery_way|integer|null: false|
+|delivery_area|integer|null: false|
+|delivery_days|integer|null: false|
+|price|integer|null: false|
+|user|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :category
+- belongs_to :brand
 
-* Configuration
+## Categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|ancestry|string|null: false|
+### Association
+- has_many :products
 
-* Database creation
+## Brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+- has_many :products
 
-* Database initialization
 
-* How to run the test suite
+## Products_images
+|Column|Type|Options|
+|------|----|-------|
+|product|references|null: false, foreign_key: true|
+|image|string|
+### Association
+- belongs_to :product
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Paymentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|card_num|integer|null: false|
+|use_year|integer|null: false|
+|use_month|integer|null: false|
+|security_code|integer|null: false|
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
-* ...
