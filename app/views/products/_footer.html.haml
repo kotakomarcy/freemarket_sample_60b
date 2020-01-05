@@ -1,21 +1,20 @@
 .aside
   .aside__left
-    .aside_left__text1
+    .aside__left__text1
       スマホでかんたんフリマアプリ
-    .aside_left__text2
+    .aside__left__text2
       今すぐ無料ダウンロード！
-    .aside_left__icon
-      .aside_left__icon__logo
-        = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/mercari_icon-f75780e32e41e052c8aaa8b446331cd8.png', class: ''
-      .aside_left__icon__logo2
+    .aside__left__icon
+      .aside__left__icon__logo
+        = image_tag 'logo_red.svg', width: "50px"
+      .aside__left__icon__logo2
         = link_to 'https://apps.apple.com/jp/app/%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA-%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA-%E3%82%B9%E3%83%9E%E3%83%9B%E6%B1%BA%E6%B8%88%E3%83%A1%E3%83%AB%E3%83%9A%E3%82%A4/id667861049', class: '' do
           = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", alt: '', class: ''
         = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: '' do
           = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", alt: '', class: ''
 
   .aside__right
-    = image_tag 'https://www.google.com/search?rlz=1C5CHFA_enJP832JP832&biw=1440&bih=657&tbm=isch&sxsrf=ACYBGNSRq04hCUwt-IuLngn582VQMb8zeA%3A1578199714922&sa=1&ei=omoRXuf1N4q2mAXgzIrQBA&q=%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%8A%E3%83%94%E3%83%A1%E3%83%8E%E3%83%B4%E3%82%A1+&oq=%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%86%E3%82%A3%E3%83%BC%E3%83%8A%E3%83%94%E3%83%A1%E3%83%8E%E3%83%B4%E3%82%A1+&gs_l=img.3..35i39j0j0i4j0l2j0i4j0l4.2032.2168..2435...0.0..0.99.328.4......0....1..gws-wiz-img.cz0xN79PPz0&ved=0ahUKEwjnzpGL1OvmAhUKG6YKHWCmAkoQ4dUDCAY&uact=5#imgrc=zBcqxwqOLM3BkM:'
-
+    = image_tag 'toppage-footer-front.png', height: "260px", width: "260px"
 
 .toppage__footer
   .toppage__footer__top
@@ -27,10 +26,10 @@
         %li プレスリリース
         %li 公式ブログ
         %li メルカリロゴ利用ガイドライン
-      .toppage__footer__top__image
-        .toppage__footer__top__image__t
+      .toppage__footer__top__list__image
+        .toppage__footer__top__list__image__t
           %i.fa.fa-twitter
-        .toppage__footer__top__image__f
+        .toppage__footer__top__list__image__f
           %i.fa.fa-facebook-square
 
     .toppage__footer__top__list
@@ -46,19 +45,20 @@
         %li メルカリボックス
       
     .toppage__footer__top__list
+      プライバシーと利用規約
       .toppage__footer__top__list__box
-        プライバシーと利用規約
-        %ul
         .toppage__footer__top__list__box__left
-          %li プライバシーポリシー
-          %li メルカリ利用規約
-          %li あんしんスマホサポート制度に関する利用特約
-          %li コンプライアンスポリシー
+          %ul
+            %li プライバシーポリシー
+            %li メルカリ利用規約
+            %li あんしんスマホサポート制度に関する利用特約
+            %li コンプライアンスポリシー
         .toppage__footer__top__list__box__right
-          %li 個人データの安全管理に係る基本方針
-          %li 特定商取引に関する表記
-          %li 資金決済法に基づく表示
-          %li 法令順守と犯罪抑止のために
+          %ul
+            %li 個人データの安全管理に係る基本方針
+            %li 特定商取引に関する表記
+            %li 資金決済法に基づく表示
+            %li 法令順守と犯罪抑止のために
 
     .toppage__footer__top__list
       国
@@ -67,8 +67,8 @@
         %li United States
 
   .toppage__footer__bottom
-    .toppage__footer__bottom__image
-      = image_tag 'https://www.google.com/search?q=%E3%82%AC%E3%83%83%E3%82%AD%E3%83%BC&rlz=1C5CHFA_enJP832JP832&sxsrf=ACYBGNTlhsjqpDbnpBiMsRK5NiP71bc7TQ:1578199827169&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjMxdTA1OvmAhVCG6YKHXdfCoMQ_AUoAXoECBMQAw&biw=1440&bih=657&dpr=2#imgrc=AOo8ujAC3ajQ-M:'
+    -# .toppage__footer__bottom__image
+    = image_tag('fmarket_logo_white.svg', width: '120px')
     .toppage__footer__bottom__logo
       © Mercari, Inc.
   
