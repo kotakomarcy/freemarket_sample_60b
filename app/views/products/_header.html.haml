@@ -8,7 +8,7 @@
         %input{type: "search", class: "header-top__search--filed", placeholder:"何かお探しですか？"}
         %label.header-top__search__icon
           = fa_icon "search", class: "header-top__search__icon--img"
-          %input{type: "submit", class: "header-top__search__icon--btn"}
+          = button_tag type: "submit", class: "header-top__search__icon--btn"
 
     .header-bottom
       .header-bottom__left
