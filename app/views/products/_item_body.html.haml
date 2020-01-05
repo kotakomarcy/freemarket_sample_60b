@@ -9,6 +9,70 @@
         %li.upper-info__category-lists__camera 家電・スマホ・カメラ
         %li.upper-info__category-lists__toy おもちゃ・ホビー・グッズ
 
-  .item-info
-    .item-info__title
-      %h3 レディース新着アイテム
+  .item-wrapper
+    .item-section
+      .item-section__header
+        .item-section__header__title
+          %h3 レディース新着アイテム
+        .item-section__header__link
+          = link_to root_path do
+            もっと見る＞
+
+      .item-section__groups
+        .item-section__groups__group
+          .item-section__groups__group__image
+            = link_to root_path do
+              = image_tag "fmarket_logo_red.svg", width: "188px"
+          .item-section__groups__group__price
+            %h4 ￥1,900
+          .item-section__groups__group__title
+            %h4 週末値下げ　クーカイ　ワンピース
+
+        .item-section__groups__group
+          .item-section__groups__group__image
+            = link_to root_path do
+              = image_tag "fmarket_logo_red.svg",width: "188px"
+          .item-section__groups__group__price
+            %h4 ￥2,500
+          .item-section__groups__group__title
+            %h4 バジーレ28牛革ブレザー
+
+
+
+
+        
+        -# .item-groups__group
+        -#   .item-groups__group__image
+        -#     = link_to root_path do
+        -#       = image_tag "fmarket_logo_red.svg"
+        -#   .item-groups__group__price
+        -#     %h4 ￥2,500
+        -#   .item-groups__group__title
+        -#     %h4 バジーレ28牛革ブレザー
+
+        -# .item-groups__group
+        -#   .item-groups__group__image
+        -#     = link_to root_path do
+        -#       = image_tag "logo_gray.svg"
+        -#   .item-groups__group__price
+        -#     %h4 ￥1,000
+        -#   .item-groups__group__title
+        -#     %h4 新品　ショートコート
+
+        -# .item-groups__group
+        -#   .item-groups__group__image
+        -#     = link_to root_path do
+        -#       = image_tag "fmarket_logo_red.svg"
+        -#   .item-groups__group__price
+        -#     %h4 ￥7,900
+        -#   .item-groups__group__title
+        -#     %h4 ショルダーバッグ
+
+        -# .item-groups__group
+        -#   .item-groups__group__image
+        -#     = link_to root_path do
+        -#       = image_tag "logo_gray.svg"
+        -#   .item-groups__group__price
+        -#     %h4 ￥4,900
+        -#   .item-groups__group__title
+        -#     %h4 バーバリー　トレーナー
