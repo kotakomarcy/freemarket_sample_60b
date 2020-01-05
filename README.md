@@ -15,6 +15,7 @@
 |birth_day|integer|null: false|
 |phone_num|integer|null: false|
 |authentication_code|string|null: false|
+|profiletext|string|null: false|
 ### Association
 - has_many :products　
 - has_one :address, dependent: :destroy
@@ -23,7 +24,6 @@
 ## Adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|profiletext|string|null: false|
 |zip_code|string|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
@@ -45,6 +45,7 @@
 |delivery_area|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
+|status|string|null: false|
 |user|references|null: false, foreign_key: true|
 |customer|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
