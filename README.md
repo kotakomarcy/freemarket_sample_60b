@@ -18,7 +18,7 @@
 ### Association
 - has_many :products　
 - has_one :address, dependent: :destroy
-- has_one :payments
+- has_one :paymentss
 
 ## Adressesテーブル
 |Column|Type|Options|
@@ -85,8 +85,8 @@
 |card_num|integer|null: false|
 |use_year|integer|null: false|
 |use_month|integer|null: false|
-<!-- |security_code|integer|null: false| -->
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
+<!-- |security_code|integer|null: false| -->
