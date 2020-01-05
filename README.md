@@ -18,6 +18,7 @@
 ### Association
 - has_many :products　
 - has_one :address, dependent: :destroy
+- has_one :payment
 
 ## Adressesテーブル
 |Column|Type|Options|
@@ -45,11 +46,13 @@
 |delivery_days|integer|null: false|
 |price|integer|null: false|
 |user|references|null: false, foreign_key: true|
+|customer|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
+- has_many :product_image
 
 ## Categoriesテーブル
 |Column|Type|Options|
@@ -67,7 +70,7 @@
 - has_many :products
 
 
-## Products_images
+## Product_images
 |Column|Type|Options|
 |------|----|-------|
 |product|references|null: false, foreign_key: true|
@@ -82,7 +85,7 @@
 |card_num|integer|null: false|
 |use_year|integer|null: false|
 |use_month|integer|null: false|
-|security_code|integer|null: false|
+<!-- |security_code|integer|null: false| -->
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
