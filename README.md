@@ -19,7 +19,7 @@
 ### Association
 - has_many :products　
 - has_one :address, dependent: :destroy
-- has_one :paymentss
+- has_many :payments
 
 ## Adressesテーブル
 |Column|Type|Options|
