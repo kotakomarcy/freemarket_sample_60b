@@ -15,15 +15,15 @@
 |birth_day|integer|null: false|
 |phone_num|integer|null: false|
 |authentication_code|string|null: false|
+|profiletext|string|null: false|
 ### Association
 - has_many :products　
 - has_one :address, dependent: :destroy
-- has_one :payment
+- has_many :payments
 
 ## Adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|profiletext|string|null: false|
 |zip_code|string|null: false|
 |prefectures|string|null: false|
 |city|string|null: false|
@@ -45,6 +45,7 @@
 |delivery_area|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
+|status|string|null: false|
 |user|references|null: false, foreign_key: true|
 |customer|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
@@ -85,8 +86,8 @@
 |card_num|integer|null: false|
 |use_year|integer|null: false|
 |use_month|integer|null: false|
-<!-- |security_code|integer|null: false| -->
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 
+<!-- |security_code|integer|null: false| -->
