@@ -21,11 +21,21 @@
     .toppage__footer__top__list
       メルカリについて
       %ul
-        %li 会社概要（運営会社）
-        %li 採用情報
-        %li プレスリリース
-        %li 公式ブログ
-        %li メルカリロゴ利用ガイドライン
+        %li
+          = link_to root_path, class: '' do
+            会社概要（運営会社）
+        %li 
+          = link_to root_path, class: '' do
+            採用情報
+        %li 
+          = link_to root_path, class: '' do
+            プレスリリース
+        %li 
+          = link_to root_path, class: '' do
+            公式ブログ
+        %li 
+          = link_to root_path, class: '' do
+            メルカリロゴ利用ガイドライン
       .toppage__footer__top__list__image
         .toppage__footer__top__list__image__t
           %i.fa.fa-twitter
@@ -35,40 +45,76 @@
     .toppage__footer__top__list
       ヘルプ＆ガイド
       %ul
-        %li メルカリガイド
-        %li らくらくメルカリ便
-        %li ゆうゆうメルカリ便
-        %li 大型メルカリ便
-        %li 車体取引ガイド
-        %li メルカリあんしん・あんぜん宣言！
-        %li 偽ブランド品撲滅への取り組み
-        %li メルカリボックス
+        %li 
+          = link_to root_path, class: '' do
+            メルカリガイド
+        %li 
+          = link_to root_path, class: '' do
+            らくらくメルカリ便
+        %li 
+          = link_to root_path, class: '' do
+            ゆうゆうメルカリ便
+        %li 
+          = link_to root_path, class: '' do
+            大型メルカリ便
+        %li 
+          = link_to root_path, class: '' do
+            車体取引ガイド
+        %li 
+          = link_to root_path, class: '' do
+            メルカリあんしん・あんぜん宣言！
+        %li 
+          = link_to root_path, class: '' do
+            偽ブランド品撲滅への取り組み
+        %li 
+          = link_to root_path, class: '' do
+            メルカリボックス
       
     .toppage__footer__top__list
       プライバシーと利用規約
       .toppage__footer__top__list__box
         .toppage__footer__top__list__box__left
           %ul
-            %li プライバシーポリシー
-            %li メルカリ利用規約
-            %li あんしんスマホサポート制度に関する利用特約
-            %li コンプライアンスポリシー
+            %li 
+              = link_to root_path, class: '' do
+                プライバシーポリシー
+            %li 
+              = link_to root_path, class: '' do
+                メルカリ利用規約
+            %li 
+              = link_to root_path, class: '' do
+                あんしんスマホサポート制度に関する利用特約
+            %li 
+              = link_to root_path, class: '' do
+                コンプライアンスポリシー
         .toppage__footer__top__list__box__right
           %ul
-            %li 個人データの安全管理に係る基本方針
-            %li 特定商取引に関する表記
-            %li 資金決済法に基づく表示
-            %li 法令順守と犯罪抑止のために
+            %li 
+              = link_to root_path, class: '' do
+                個人データの安全管理に係る基本方針
+            %li 
+              = link_to root_path, class: '' do
+                特定商取引に関する表記
+            %li 
+              = link_to root_path, class: '' do
+                資金決済法に基づく表示
+            %li 
+              = link_to root_path, class: '' do
+                法令順守と犯罪抑止のために
 
     .toppage__footer__top__list
       国
       %ul
-        %li 日本
-        %li United States
+        %li 
+          = link_to root_path, class: '' do
+            日本
+        %li 
+          = link_to root_path, class: '' do
+            United States
 
   .toppage__footer__bottom
-    -# .toppage__footer__bottom__image
-    = image_tag('fmarket_logo_white.svg', width: '120px')
+    = link_to root_path, class: '' do
+      = image_tag('fmarket_logo_white.svg', width: '120px')
     .toppage__footer__bottom__logo
       © Mercari, Inc.
   
