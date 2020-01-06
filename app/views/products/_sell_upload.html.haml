@@ -1,0 +1,51 @@
+.header
+  .header__logo
+    = link_to root_path do
+      = image_tag "fmarket_logo_red.svg", width:"150px", class: "header-top__logo--image"
+
+
+
+
+.main
+  .main__top
+    商品の情報を入力
+    .main__top__form
+      .main__top__form__image
+        %ul
+          %li 出品画像
+          %li 必須
+          .main__top__form__image__2
+          %li 最大10枚までアップロードできます
+          .main___top__form_image__3
+            %ul
+              %li ドラッグ&ドロップ
+              %li またはクリックしてファイルをアップロード
+      .main__top__form__detail
+        商品の詳細
+        .main__top__form__detail__1
+          %ul
+            %li カテゴリー
+            %li 必須
+            %li 商品の状態
+            %li 必須
+      .main__top__form__delivery
+      .main__top__form__price
+      .main__top__form__attention
+
+
+.footer
+  .footer__top
+    %ul
+      %li 
+        = link_to root_path do
+          プライバシーポリシー
+      %li 
+        = link_to root_path do
+          メルカリ利用規約
+      %li 
+        = link_to root_path do
+          特定商取引に関する表記 
+  .footer__image
+    = image_tag "logo_red.svg", width: "80px", height: "65px"
+  .footer__bottom
+    © Mercari, Inc.
