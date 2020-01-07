@@ -75,3 +75,4 @@ gem "font-awesome-rails"
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'active_hash'
+gem 'fog-aws'
