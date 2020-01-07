@@ -38,10 +38,14 @@
 
 
 .toppage__footer {
-  background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
+  background-color: rgb(34, 34, 34);
   font-size: 12px;
   padding: 0px 20px 10px;
+  a, a:hover, a:visited {
+    color: white;
+    text-decoration: none;
+  }
 
   &__top {
     width: 1020px;
@@ -49,7 +53,6 @@
     margin: 0px auto;
   
     &__list {
-      color: white;
       width: auto;
       padding: 0px 40px 0px 0px;
       font-size: 16px;
@@ -61,6 +64,7 @@
         opacity: 0.7;
         font-size: 12px;
         li {
+          color: rgb(255, 255, 255);
           line-height: 1.4em;
           margin: 16px 0px 0px;
         }
