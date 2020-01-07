@@ -122,9 +122,17 @@ input::placeholder{
       border: solid 1px blue;
     }
 
+    &--login:hover{
+      background-color: aqua;
+    }
+
     &--login-btn{
       text-decoration: none;
       color: blue;
+    }
+
+    &--login-btn:hover{
+      color: white;
     }
   }
 }
