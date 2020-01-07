@@ -3,9 +3,6 @@
     = link_to root_path do
       = image_tag "fmarket_logo_red.svg", width:"150px", class: "header-top__logo--image"
 
-
-
-
 .main
   .main__top
     商品の情報を入力
@@ -29,9 +26,45 @@
             %li 商品の状態
             %li 必須
       .main__top__form__delivery
+        配送について
+        .main__top__form__delivery__1
+          %ul
+            %li 配送料の負担
+            %li 必須
+            = link_to root_path do 
+        .main__top__form__delivery__2
+          %ul
+            %li 発送元の地域
+            %li 必須
+            = link_to root_path do
+        .main__top__form__delivery__3
+          %ul
+            %li 発送までの日数
+            %li 必須
+            = link_to root_path do
       .main__top__form__price
-      .main__top__form__attention
+        販売価格(300〜9,999,999)
+          .main__top__form__price__1
+            %ul
+              %li 価格
+              %li 必須
+          .main__top__form__price__2
+            %ul
+              %li 販売手数料 (10%)
+          .main__top__form__price__3
+            %ul
+              %li 販売利益
 
+      .main__top__form__attention
+        %ul
+          %li 禁止されている出品、行為を必ずご確認ください
+          %li またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+          %li また、出品をもちまして加盟店規約に同意したことになります。
+          .main__top__form__attention__1
+            = f.submit '出品する', class: 'form__submit'
+          .main__top__form__attention__２
+            = f.submit '戻る', class: 'form__submit'
+            
 
 .footer
   .footer__top
