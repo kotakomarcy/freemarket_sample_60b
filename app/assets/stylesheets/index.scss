@@ -1,24 +1,28 @@
 .slide-banner{
   height: 200px;
   overflow: hidden;
-
+  position: relative;
 
   &__link{
     display: block;
 
     &--sakura{
       background: image_url("banner1.jpg");
-      @include slide-banner-owl-items-background();
-      height: 100%;
+      @include slide-background;
     }
 
     &--blue{
       background: image_url("banner2.jpg");
-      @include slide-banner-owl-items-background();
+      @include slide-background;
+    }
+
+    &--logo{
+      background: image_url("logo_red.svg");
+      @include slide-background;
     }
   }
 
-  & .owl-stage-outer, .owl-stage, .owl-item, .owl-item > a{
+  & .owl-stage-outer, .owl-stage, .owl-item, .owl-item>a{
     height: 100%;
   }
 }
@@ -28,7 +32,6 @@
     height: 390px;
   }
 }
-
 @media screen and (min-width: 768px) and (max-width: 1068px) {
   .slide-banner {
     height: 290px;

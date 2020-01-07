@@ -5,10 +5,11 @@
 @import "owl.theme.default";
 @import "./mixins/mixin";
 @import "./configs/variable";
+@import "./index";
 @import "./header";
+@import "./footer";
 @import "./items";
 @import "./sell_​​button";
-@import "./index";
 
 * {
   box-sizing: border-box;
@@ -16,6 +17,7 @@
 
 body{
   height: 100vh;
+  width: 100vw;
   position: relative;
   min-height: 100%;
   font-size: 14px;
