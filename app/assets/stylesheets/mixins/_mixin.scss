@@ -1,0 +1,30 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin flex-between() {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin left-icon() {
+  padding-right: 5px;
+  color: red;
+  float:left;
+}
+
+@mixin left-caption() {
+  float: right;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+@mixin slide-banner-owl-items-background() {
+  background-size: auto 100%;
+  background-position: center;
+}

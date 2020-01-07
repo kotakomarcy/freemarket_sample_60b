@@ -12,8 +12,7 @@
 
 .header-top{
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  @include flex-between;
 
   &__logo{
     margin-right: 50px;
@@ -59,8 +58,7 @@ input::placeholder{
   width: 100%;
   margin: 10px 0;
   padding-bottom: 5px;
-  display: flex;
-  justify-content: space-between;
+  @include flex-between;
 
   &__left{
     display: flex;
@@ -72,16 +70,11 @@ input::placeholder{
     }
 
     &--categorys-icon{
-      padding-right: 5px;
-      color: red;
-      float:left;
+      @include left-icon();
     }
 
     &--categorys-caption{
-      float: right;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
+      @include left-caption
     }
 
     &--categorys-list{
@@ -94,16 +87,11 @@ input::placeholder{
     }
 
     &--blands-icon{
-      padding-right: 5px;
-      color: red;
-      float: left;
+      @include left-icon();
     }
 
     &--blands-caption{
-      float: right;
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
+      @include left-caption
     }
   }
 
@@ -134,9 +122,17 @@ input::placeholder{
       border: solid 1px blue;
     }
 
+    &--login:hover{
+      background-color: aqua;
+    }
+
     &--login-btn{
       text-decoration: none;
       color: blue;
+    }
+
+    &--login-btn:hover{
+      color: white;
     }
   }
 }

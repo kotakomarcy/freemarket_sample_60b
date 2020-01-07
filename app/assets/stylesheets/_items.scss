@@ -1,0 +1,142 @@
+.upper-info {
+  width: 100vw;
+  height: 134px;
+  box-sizing: border-box;
+
+  &__title {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 28px; 
+    font-weight: 600;
+    line-height: 28px;
+    padding-top: 56px;
+  }
+
+  &__category-lists {
+    font-size: 14px;
+    list-style: none;
+    text-align: center;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+
+    &__ladies {
+      background-color: rgb(245,245,245);
+      border-radius: 15px;
+      padding: 8px 16px;
+      
+    }
+
+    &__mens {
+      background-color: rgb(245,245,245);
+      margin-left: 10px;
+      border-radius: 15px;
+      padding: 8px 16px;
+    }
+
+    &__camera {
+      background-color: rgb(245,245,245);
+      margin-left: 10px;
+      border-radius: 15px;
+      padding: 8px 16px;
+    }
+
+    &__toy {
+      background-color: rgb(245,245,245);
+      margin-left: 10px;
+      border-radius: 15px;
+      padding: 8px 16px;
+    }
+  }
+}
+
+
+
+.item-wrapper{
+  margin-top: 30px;
+  background-color: grey;
+  width: 100%;
+  background-color: rgb(245,245,245);
+}
+.item-section {
+  width: 1020px;
+  margin-left: 210px;
+  margin-right: 210px;
+  padding-top: 42px;
+  
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+
+    &__title{
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    
+    .indexlink {
+      text-decoration: none;
+      color:rgb(0, 149, 238);
+      font-weight: 600;
+    }
+    a:visited {
+      color: rgb(0, 149, 238);
+    }
+ 
+  }  
+
+  &__groups {
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+
+    
+    &__unit {
+      padding: 10px;
+      width: 20%;
+      height: 240px;
+      text-decoration: none;
+      position: relative;
+
+      .itemlink{
+        text-decoration: none;
+      }
+      
+      &__image {
+        background-color:rgba(228, 110, 208, 0.4);
+        
+      }
+      
+      &__price {
+        display: inline-block;
+        background-color:rgba(0,0,0,.4);
+        color: white;
+        align-items: center;
+        padding: 0 12px;
+        font-size: 17px;
+        border-radius: 0 14px 14px 0;
+        position: absolute;
+        top: 130px;
+      
+      }      
+      
+      
+      &__title {
+        background-color: white;
+        color: black;
+        height: 64px;
+        padding: 10px;
+        
+        
+        
+        &--caption{
+          font-size: 14px;
+        }
+      }
+    }
+  }  
+}
+
+
