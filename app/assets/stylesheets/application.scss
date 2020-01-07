@@ -6,6 +6,7 @@
 @import "./mixins/mixin";
 @import "./configs/variable";
 @import "./header";
+@import "./items";
 @import "./sell_​​button";
 @import "./index";
 
@@ -14,6 +15,7 @@
 }
 
 body{
+  height: 100vh;
   position: relative;
   min-height: 100%;
   font-size: 14px;
