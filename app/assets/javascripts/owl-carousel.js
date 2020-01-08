@@ -8,4 +8,8 @@ $(function(){
     autoplayHoverPause:true,
     smartSpeed: 1000
   });
+
+  $('.slide-banner .owl-dot').hover(function(){
+    $(this).click();
+  }, function() {});
 });

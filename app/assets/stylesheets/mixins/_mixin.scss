@@ -22,13 +22,6 @@
   float:left;
 }
 
-@mixin category-topic() {
-  background-color: rgb(245,245,245);
-  border-radius: 15px;
-  padding: 8px 16px;
-
-}
-
 @mixin left-caption() {
   float: right;
   text-decoration: none;
@@ -36,7 +29,24 @@
   font-weight: bold;
 }
 
-@mixin slide-background() {
+@mixin slide-background($background-image) {
+  background: image_url($background-image);
   background-size: auto 100%;
   background-position: center;
+}
+
+@mixin slide-nav-btn() {
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: traslateY(-23px);
+  transform: translateY(-23px);
+}
+
+@mixin category-topic() {
+  background-color: rgb(245,245,245);
+  border-radius: 15px;
+  padding: 8px 16px;
 }
