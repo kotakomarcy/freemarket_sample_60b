@@ -1,7 +1,7 @@
 .upper-info {
-  width: 100vw;
+  width: 100%;
   height: 134px;
-  box-sizing: border-box;
+  margin-bottom: 30px;
 
   &__title {
     margin-bottom: 16px;
@@ -17,57 +17,44 @@
     list-style: none;
     text-align: center;
     font-weight: 600;
-    display: flex;
-    justify-content: center;
+    @include flex-center;
 
     &__ladies {
-      background-color: rgb(245,245,245);
-      border-radius: 15px;
-      padding: 8px 16px;
-      
+      @include category-topic;
     }
 
     &__mens {
-      background-color: rgb(245,245,245);
+      @include category-topic;
       margin-left: 10px;
-      border-radius: 15px;
-      padding: 8px 16px;
     }
 
     &__camera {
-      background-color: rgb(245,245,245);
+      @include category-topic;
       margin-left: 10px;
-      border-radius: 15px;
-      padding: 8px 16px;
     }
 
     &__toy {
-      background-color: rgb(245,245,245);
+      @include category-topic;
       margin-left: 10px;
-      border-radius: 15px;
-      padding: 8px 16px;
     }
   }
 }
 
-
-
 .item-wrapper{
-  margin-top: 30px;
+  margin: 0 auto;
   background-color: grey;
   width: 100%;
   background-color: rgb(245,245,245);
+  padding: 0 100px;
 }
+
 .item-section {
-  width: 1020px;
-  margin-left: 210px;
-  margin-right: 210px;
+  width: 100%;
+  margin: 0 auto;
   padding-top: 42px;
   
-
   &__header {
-    display: flex;
-    justify-content: space-between;
+    @include flex-between;
     margin-bottom: 18px;
 
     &__title{
@@ -75,24 +62,21 @@
       font-weight: 600;
     }
 
-    
     .indexlink {
       text-decoration: none;
       color:rgb(0, 149, 238);
       font-weight: 600;
     }
+
     a:visited {
       color: rgb(0, 149, 238);
     }
- 
   }  
 
   &__groups {
     font-weight: 400;
-    display: flex;
-    justify-content: space-between;
+    @include flex-between;
 
-    
     &__unit {
       padding: 10px;
       width: 20%;
@@ -106,7 +90,6 @@
       
       &__image {
         background-color:rgba(228, 110, 208, 0.4);
-        
       }
       
       &__price {
@@ -119,17 +102,13 @@
         border-radius: 0 14px 14px 0;
         position: absolute;
         top: 130px;
-      
       }      
-      
       
       &__title {
         background-color: white;
         color: black;
         height: 64px;
         padding: 10px;
-        
-        
         
         &--caption{
           font-size: 14px;

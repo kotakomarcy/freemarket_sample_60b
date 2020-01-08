@@ -1,12 +1,13 @@
 .aside {
   width: 100%;
-  margin: 0px auto;
+  margin: 0 auto;
   background-image: url(toppage-footer-back2.jpg);
   background-size: contain;
-  display: flex;
-  justify-content: center;
+  @include flex-center;
+
   &__left {
     padding: 40px 30px 30px 0;
+
     &__text1 {
       color: rgb(255, 255, 255);
       font-size: 24px;
@@ -14,19 +15,24 @@
       margin-bottom: 15px;
       display: block;
     }
+
     &__text2 {
       color: rgb(255, 255, 255);
       font-size: 35px;
       margin-bottom: 20px;
     }
+
     &__icon {
       // display: flex;
+
       &__logo {
         display: inline-block;
         margin-right: 20px;
       }
+
       &__logo2 {
         display: inline-block;
+
         img {
           padding-bottom: 10px;
           margin-right: 8px;
@@ -42,6 +48,7 @@
   background-color: rgb(34, 34, 34);
   font-size: 12px;
   padding: 0px 20px 10px;
+
   a, a:hover, a:visited {
     color: white;
     text-decoration: none;
@@ -50,11 +57,11 @@
   &__top {
     width: 1020px;
     display: flex;
-    margin: 0px auto;
+    margin: 0 auto;
   
     &__list {
       width: auto;
-      padding: 0px 40px 0px 0px;
+      padding-right: 40px;
       font-size: 16px;
       margin-top: 18px;
       text-align :left;
@@ -63,15 +70,18 @@
         color: rgb(255, 255, 255);
         opacity: 0.7;
         font-size: 12px;
+
         li {
           color: rgb(255, 255, 255);
           line-height: 1.4em;
-          margin: 16px 0px 0px;
+          margin-top: 16px;
         }
       }
+
       &__image {
         display: flex;
         margin-top: 30px;
+
         &__t, &__f {
           max-width: 100%;
           height: auto;
@@ -81,25 +91,30 @@
           font-size: 35px;
         }
       }
+
       &__box {
         display: flex;
+
         &__left {
-          padding: 0px 40px 0px 0px;
+          padding-right: 40px;
           width: 50%;
         }
       }
     }
   }
+
   &__bottom {
     width: 1020px;
     margin: 30px auto 20px;
     align-items: center;
     display: flex;
     color: white;
+
     img {
       color: white;
       background-color: yellowgreen;
     }
+
     &__logo {
       padding-left: 15px;
       width: 75%;

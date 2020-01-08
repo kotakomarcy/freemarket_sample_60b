@@ -11,10 +11,22 @@
   justify-content: space-between;
 }
 
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+}
+
 @mixin left-icon() {
   padding-right: 5px;
   color: red;
   float:left;
+}
+
+@mixin category-topic() {
+  background-color: rgb(245,245,245);
+  border-radius: 15px;
+  padding: 8px 16px;
+
 }
 
 @mixin left-caption() {
