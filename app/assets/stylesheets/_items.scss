@@ -80,7 +80,7 @@
     &__unit {
       padding: 10px;
       width: 20%;
-      height: 240px;
+      height: 260px;
       text-decoration: none;
       position: relative;
 
@@ -89,7 +89,13 @@
       }
       
       &__image {
+        height: 180px;
         background-color:rgba(228, 110, 208, 0.4);
+        
+        &--box {
+          height: 100%;
+          width: 100%;
+        }
       }
       
       &__price {
@@ -101,7 +107,7 @@
         font-size: 17px;
         border-radius: 0 14px 14px 0;
         position: absolute;
-        top: 130px;
+        top: 160px;
       }      
       
       &__title {
