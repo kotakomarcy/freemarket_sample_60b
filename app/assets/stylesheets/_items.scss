@@ -1,0 +1,127 @@
+.upper-info {
+  width: 100%;
+  height: 134px;
+  margin-bottom: 30px;
+
+  &__title {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 28px; 
+    font-weight: 600;
+    line-height: 28px;
+    padding-top: 56px;
+  }
+
+  &__category-lists {
+    font-size: 14px;
+    list-style: none;
+    text-align: center;
+    font-weight: 600;
+    @include flex-center;
+
+    &__ladies {
+      @include category-topic;
+    }
+
+    &__mens {
+      @include category-topic;
+      margin-left: 10px;
+    }
+
+    &__camera {
+      @include category-topic;
+      margin-left: 10px;
+    }
+
+    &__toy {
+      @include category-topic;
+      margin-left: 10px;
+    }
+  }
+}
+
+.item-wrapper{
+  margin: 0 auto;
+  background-color: $main-gray;
+  width: 100%;
+  background-color: $basic-white;
+  padding: 0 100px;
+}
+
+.item-section {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 42px;
+  
+  &__header {
+    @include flex-between;
+    margin-bottom: 18px;
+
+    &__title{
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .indexlink {
+      text-decoration: none;
+      color: $main-blue;
+      font-weight: 600;
+    }
+
+    a:visited {
+      color: $main-blue;
+    }
+  }  
+
+  &__groups {
+    font-weight: 400;
+    @include flex-between;
+
+    &__unit {
+      padding: 10px;
+      width: 20%;
+      height: 260px;
+      text-decoration: none;
+      position: relative;
+
+      .itemlink{
+        text-decoration: none;
+      }
+      
+      &__image {
+        height: 180px;
+        background-color:rgba(228, 110, 208, 0.4);
+        
+        &--box {
+          height: 100%;
+          width: 100%;
+        }
+      }
+      
+      &__price {
+        display: inline-block;
+        background-color:rgba(0,0,0,.4);
+        color: $basic-white;
+        align-items: center;
+        padding: 0 12px;
+        font-size: 17px;
+        border-radius: 0 14px 14px 0;
+        position: absolute;
+        top: 160px;
+      }      
+      
+      &__title {
+        background-color: $basic-white;
+        color: $font-black;
+        height: 64px;
+        padding: 10px;
+        
+        &--caption{
+          font-size: 14px;
+        }
+      }
+    }
+  }  
+}
+
+

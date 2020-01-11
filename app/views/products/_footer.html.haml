@@ -1,0 +1,120 @@
+.aside
+  .aside__left
+    .aside__left__text1
+      スマホでかんたんフリマアプリ
+    .aside__left__text2
+      今すぐ無料ダウンロード！
+    .aside__left__icon
+      .aside__left__icon__logo
+        = image_tag 'logo_red.svg', width: "50px"
+      .aside__left__icon__logo2
+        = link_to 'https://apps.apple.com/jp/app/%E3%83%A1%E3%83%AB%E3%82%AB%E3%83%AA-%E3%83%95%E3%83%AA%E3%83%9E%E3%82%A2%E3%83%97%E3%83%AA-%E3%82%B9%E3%83%9E%E3%83%9B%E6%B1%BA%E6%B8%88%E3%83%A1%E3%83%AB%E3%83%9A%E3%82%A4/id667861049', class: '' do
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg", alt: '', class: ''
+        = link_to 'https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja', class: '' do
+          = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg", alt: '', class: ''
+
+  .aside__right
+    = image_tag 'toppage-footer-front.png', height: "260px", width: "260px"
+
+.toppage__footer
+  .toppage__footer__top
+    .toppage__footer__top__list
+      メルカリについて
+      %ul
+        %li
+          = link_to root_path, class: '' do
+            会社概要（運営会社）
+        %li 
+          = link_to root_path, class: '' do
+            採用情報
+        %li 
+          = link_to root_path, class: '' do
+            プレスリリース
+        %li 
+          = link_to root_path, class: '' do
+            公式ブログ
+        %li 
+          = link_to root_path, class: '' do
+            メルカリロゴ利用ガイドライン
+      .toppage__footer__top__list__image
+        .toppage__footer__top__list__image__t
+          %i.fa.fa-twitter
+        .toppage__footer__top__list__image__f
+          %i.fa.fa-facebook-square
+
+    .toppage__footer__top__list
+      ヘルプ＆ガイド
+      %ul
+        %li 
+          = link_to root_path, class: '' do
+            メルカリガイド
+        %li 
+          = link_to root_path, class: '' do
+            らくらくメルカリ便
+        %li 
+          = link_to root_path, class: '' do
+            ゆうゆうメルカリ便
+        %li 
+          = link_to root_path, class: '' do
+            大型メルカリ便
+        %li 
+          = link_to root_path, class: '' do
+            車体取引ガイド
+        %li 
+          = link_to root_path, class: '' do
+            メルカリ安心・安全宣言！
+        %li 
+          = link_to root_path, class: '' do
+            偽ブランド品撲滅への取り組み
+        %li 
+          = link_to root_path, class: '' do
+            メルカリボックス
+      
+    .toppage__footer__top__list
+      プライバシーと利用規約
+      .toppage__footer__top__list__box
+        .toppage__footer__top__list__box__left
+          %ul
+            %li 
+              = link_to root_path, class: '' do
+                プライバシーポリシー
+            %li 
+              = link_to root_path, class: '' do
+                メルカリ利用規約
+            %li 
+              = link_to root_path, class: '' do
+                あんしんスマホサポート制度に関する利用特約
+            %li 
+              = link_to root_path, class: '' do
+                コンプライアンスポリシー
+        .toppage__footer__top__list__box__right
+          %ul
+            %li 
+              = link_to root_path, class: '' do
+                個人データの安全管理に係る基本方針
+            %li 
+              = link_to root_path, class: '' do
+                特定商取引に関する表記
+            %li 
+              = link_to root_path, class: '' do
+                資金決済法に基づく表示
+            %li 
+              = link_to root_path, class: '' do
+                法令順守と犯罪抑止のために
+
+    .toppage__footer__top__list
+      国
+      %ul
+        %li 
+          = link_to root_path, class: '' do
+            日本
+        %li 
+          = link_to root_path, class: '' do
+            UnitedStates
+
+  .toppage__footer__bottom
+    = link_to root_path, class: '' do
+      = image_tag('fmarket_logo_white.svg', width: '120px')
+    .toppage__footer__bottom__logo
+      © Mercari, Inc.
+  

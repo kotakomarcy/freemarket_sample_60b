@@ -1,0 +1,52 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin flex-between() {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-center() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin left-icon() {
+  padding-right: 5px;
+  color: $main-red;
+  float:left;
+}
+
+@mixin left-caption() {
+  float: right;
+  text-decoration: none;
+  color: $font-black;
+  font-weight: bold;
+}
+
+@mixin slide-background($background-image) {
+  background: image_url($background-image);
+  background-size: auto 100%;
+  background-position: center;
+}
+
+@mixin slide-nav-btn() {
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: traslateY(-23px);
+  transform: translateY(-23px);
+}
+
+@mixin category-topic() {
+  background-color: $basic-white;
+  border-radius: 15px;
+  padding: 8px 16px;
+}

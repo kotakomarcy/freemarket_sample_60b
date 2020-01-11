@@ -1,9 +1,15 @@
 @import "./reset";
 @import "font-awesome-sprockets";
 @import "./font-awesome";
+@import "owl.carousel";
+@import "owl.theme.default";
 @import "./mixins/mixin";
 @import "./configs/variable";
+@import "./index";
 @import "./header";
+@import "./footer";
+@import "./items";
+@import "./sell_​​button";
 
 * {
   box-sizing: border-box;
@@ -11,8 +17,8 @@
 
 body{
   position: relative;
-  min-height: 100%;
   font-size: 14px;
-  color: #333;
+  color: $font-black;
   line-height: 1;
+  table-layout: fixed;
 }
