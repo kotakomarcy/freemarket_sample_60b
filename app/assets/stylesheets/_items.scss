@@ -42,9 +42,9 @@
 
 .item-wrapper{
   margin: 0 auto;
-  background-color: grey;
+  background-color: $main-gray;
   width: 100%;
-  background-color: rgb(245,245,245);
+  background-color: $basic-white;
   padding: 0 100px;
 }
 
@@ -64,12 +64,12 @@
 
     .indexlink {
       text-decoration: none;
-      color:rgb(0, 149, 238);
+      color: $main-blue;
       font-weight: 600;
     }
 
     a:visited {
-      color: rgb(0, 149, 238);
+      color: $main-blue;
     }
   }  
 
@@ -101,7 +101,7 @@
       &__price {
         display: inline-block;
         background-color:rgba(0,0,0,.4);
-        color: white;
+        color: $basic-white;
         align-items: center;
         padding: 0 12px;
         font-size: 17px;
@@ -111,8 +111,8 @@
       }      
       
       &__title {
-        background-color: white;
-        color: black;
+        background-color: $basic-white;
+        color: $font-black;
         height: 64px;
         padding: 10px;
         

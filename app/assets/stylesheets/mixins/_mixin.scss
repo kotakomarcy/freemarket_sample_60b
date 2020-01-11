@@ -18,14 +18,14 @@
 
 @mixin left-icon() {
   padding-right: 5px;
-  color: red;
+  color: $main-red;
   float:left;
 }
 
 @mixin left-caption() {
   float: right;
   text-decoration: none;
-  color: black;
+  color: $font-black;
   font-weight: bold;
 }
 
@@ -46,7 +46,7 @@
 }
 
 @mixin category-topic() {
-  background-color: rgb(245,245,245);
+  background-color: $basic-white;
   border-radius: 15px;
   padding: 8px 16px;
 }
