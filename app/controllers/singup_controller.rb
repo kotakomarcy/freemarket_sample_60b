@@ -1,2 +1,0 @@
-class SingupController < ApplicationController
-end
