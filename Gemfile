@@ -79,4 +79,5 @@ gem 'pry'
 gem 'fog-aws'
 gem 'jquery-rails'
 gem 'owlcarousel-rails'
+gem 'payjp'
 
