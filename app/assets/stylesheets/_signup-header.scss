@@ -1,0 +1,233 @@
+.wapper{
+  background-color: $background_gray;
+  min-height: 100vh;
+   
+  .header{
+    text-align: center;
+    align-items: center;
+    height: 128px;
+    border: none;
+  }
+  .sign-up{
+    box-sizing: border-box;
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    text-align: center;
+    &__registration{
+      @include information;
+    }
+    .form{
+      position: relative;
+      height: 240px;
+      width: 350px;
+      margin: 0 auto;
+      font-size: 14px;
+      &__icon{
+        float: left;
+        font-size: 20px;
+        margin: 15px -15px 0 15px ;
+      }
+      &__link{
+        text-decoration: none;
+      }
+      &__mail{
+        @include box;
+      }
+      &__mail:hover{
+        background-color: #ff726b;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+      }
+      &__facebook{
+        @include box;
+        background-color: #385185;
+      }
+      &__facebook:hover{
+        background-color: #5c6c8d;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+      }
+        &__google{
+        @include box;
+        background-color: #fff;
+        color: $black;
+        border: solid 1px #979797;
+      }
+    }
+  }
+}
+.header{
+  display: flex;
+  justify-content: center;
+  .progress{
+    padding-left: 44px;
+    display: inline-block;
+    min-width: auto;
+    li{
+      margin: 0 40px 0 0;
+      position: relative;
+      display: inline-block;
+      min-width: 60px;
+      font-size: 12px;
+      color: $progress_text;
+    .progress-icon{
+      position: absolute;
+      left: 40%;
+      width: 12px;
+      height: 12px;
+      margin: 8px auto 0;
+      background: $progress_line;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    }
+    .progress-bar {
+      position: absolute;
+      left: 50%;
+      top: 30px;
+      bottom: 5px;
+      display: block;
+      width: 130px;
+      height: 2px;
+      background: $progress_line;
+      z-index: 1;
+    }
+  }
+  .done .progress-bar {
+    width: 0px;
+  }
+  .pay .progress-bar {
+    width: 100px;
+  }
+}
+#now{
+  font-weight: bold;
+  color: $progress_red;
+  .progress-icon{
+    background: $progress_red;
+  }
+}
+
+#end .progress-icon{
+  background: $progress_red;
+  }
+#end .progress-bar{
+  background: $progress_red;
+}
+
+.account-page{
+  width: 700px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: $progress_white;
+    .member-input{
+      @include information;
+      text-align: center;
+    }
+    .form{
+      box-sizing: border-box;
+      padding: 20px 0;
+      &__group{
+        margin: 0 auto;
+        padding-top: 20px;
+        width: 345px;
+        @include label;
+      }
+      &__group-required{
+        position: relative;
+        left: 100px;
+        top: -20px;
+        width: 32px;
+        text-align: center;
+        align-items: top;
+        color: $progress_white;
+        background-color: $progress_red;
+        border-radius: 3px;
+      }
+      &__group-input-long{
+        @include form-box-long;
+      }
+      &__group-input-middle{
+        @include form-box-middle;
+      }
+      #birthday_birthday_1i {
+        @include form-box-short;
+      }
+      #birthday_birthday_2i{
+        @include form-box-short;
+      }
+      #birthday_birthday_3i{
+        @include form-box-short;
+      }
+      .birthday{
+        font-size: 14px;
+      }
+      label{
+        font-weight: bold;
+      }
+      &__group-information{
+        @include group-information;
+      }
+      &__group-name{
+        margin-top: 20px;
+      }
+      &__message-note{
+        @include group-information;
+        margin-bottom: 40px;
+      }
+      &__message-next{
+        font-size: 14px;
+        text-align: center;
+      }
+      &__group-next{
+        margin-top: 20px;
+      }
+      .next-btn{
+        width: 340px;
+        height: 50px;
+        font-size: 14px;
+        background-color: $progress_red;
+        text-align: center;
+        align-items: center;
+        color: $progress_white;
+        cursor: pointer;
+      }
+    }
+    .check{
+      font-size: 14px;
+      &__message{
+        position: relative;
+        align-items: center;
+        left: 30px;
+        top: -20px;
+      }
+    }
+    .identification{
+      font-size: 16px;
+      margin-top: -10px;
+      font-weight: bold;
+      &__message{
+        font-size: 14px;
+        font-weight: normal;
+      }
+    }
+    .registration-information{
+      font-size: 14px;
+      margin-top: 20px;
+      text-align: right;
+    }
+    a{
+      text-decoration: none;
+      color: $progress_blue;
+    }
+    .protected-message{
+      width: 308px;
+      height: 40px;
+      padding: 8px 16px;
+      margin: 20px 0;
+      align-items: center;
+      background-color: $background_gray;
+      color: $progress_text;
+    }
+}

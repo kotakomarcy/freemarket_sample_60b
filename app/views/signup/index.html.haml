@@ -1,2 +1,25 @@
-%p.test
-  新規登録
+.wapper
+  .header
+    = link_to root_path do
+      = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+  .sign-up
+    .sign-up__registration
+      新規会員登録
+    .form
+      = link_to "signup-header" , class: "form__link" do
+        .form__mail
+          = fa_icon 'envelope', class: "form__icon"
+          %span<>
+          メールアドレスで登録する
+      = link_to "https://www.facebook.com/" , class: "form__link" do
+        .form__facebook
+          = fa_icon 'facebook-square', class: "form__icon"
+          %span<>
+          Facebookで登録する
+      = link_to "=" , class: "form__link" do
+        .form__google
+          = image_tag "google_icon.jpg", width:"20px", class: "form__icon"
+          %span<>
+          Googleで登録する
+  .footer
+    = render partial: 'signup-footer'
