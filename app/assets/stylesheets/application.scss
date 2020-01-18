@@ -4,15 +4,18 @@
 @import "./mixins/mixin";
 @import "./configs/variable";
 @import "./header";
+@import "./upload/sell_upload_header";
+@import "./upload/sell_upload_main";
+@import "./upload/sell_upload_footer";
 
-* {
-  box-sizing: border-box;
-}
+// * {
+//   box-sizing: border-box;
+// }
 
-body{
-  position: relative;
-  min-height: 100%;
-  font-size: 14px;
-  color: #333;
-  line-height: 1;
-}
+// body{
+//   position: relative;
+//   min-height: 100%;
+//   font-size: 14px;
+//   color: #333;
+//   line-height: 1;
+// }
