@@ -84,9 +84,9 @@
           }
         }
         #product_name {
-          width: 100%;
+          width: 590px;
           margin: 8px 0 0;
-          height: 48px;
+          height: 30px;
           padding: 10px 16px 8px;
           border-radius: 4px;
           border: 1px solid #ccc;
@@ -97,7 +97,7 @@
         #product_description {
           margin: 8px 0 0;
           display: block;
-          width: 100%;
+          width: 600px;
           max-width: 100%;
           min-height: 104px;
           padding: 10px;
@@ -173,7 +173,7 @@
         font-size: 14px;
         &__head {
           color: #888;
-          font-size: 14px;
+          font-size: 12px;
           a {
             margin-top: 3px;
             display: inline-block;
@@ -222,8 +222,8 @@
                 margin: 0 0 0 5%;
                 display: inline-block;
                 #price {
-                  width: 100%;
-                  height: 48px;
+                  width: 130px;
+                  height: 35px;
                   padding: 10px 16px 8px;
                   border-radius: 4px;
                   border: 1px solid #ccc;
@@ -305,6 +305,7 @@
             border: 1px solid transparent;
             cursor: pointer;
             text-align: center;
+            text-decoration: none;
           }
         }
       }
