@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   devise_scope :user do
     get 'users/signup/registration', to: 'users/registrations#new'
     get 'users/signup/phone_num', to: 'users/registrations#new_phone'
