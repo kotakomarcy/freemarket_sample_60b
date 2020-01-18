@@ -80,4 +80,4 @@ gem 'fog-aws'
 gem 'jquery-rails'
 gem 'owlcarousel-rails'
 gem 'payjp'
-
+gem 'recaptcha', require: "recaptcha/rails"
