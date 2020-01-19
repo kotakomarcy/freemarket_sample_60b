@@ -1,0 +1,11 @@
+<h2>new_payment</h2>
+
+<%= form_for(@payment, url: done_path, method: :get) do |f| %>
+
+
+   <div class="actions">
+    <%= f.submit "Next" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

@@ -30,13 +30,13 @@
       発送元・お届け先住所入力
     .address-form
       .address-form__group
-        = form_with model: @users, local: true do |f|
+        = form_for resource, as: resource_name, url: payments_path, method: :get do |f|
           .address-form__group-name
             = f.label :name, "お名前(全角)"
             .address-form__group-required
               必須
-            = f.text_field :lastname, class:"address-form__group-input", placeholder: "例)増川"
-            = f.text_field :firstname, class:"address-form__group-input", placeholder: "例)英明"
+            = f.text_field :last_name, class:"address-form__group-input", placeholder: "例)増川"
+            = f.text_field :first_name, class:"address-form__group-input", placeholder: "例)英明"
           .address-form__group-name-kana
             = f.label :name_kana, "お名前カナ(全角)"
             .address-form__group-required
