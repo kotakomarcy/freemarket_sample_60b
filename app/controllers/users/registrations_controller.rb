@@ -5,19 +5,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def new
-    @user = User.new
+    @user = User.new(params[:id])
   end
 
   def new_phone
-    @user = User.new
+    @user = User.new(params[:id])
   end
 
   def new_address
-    @address = Address.new
+    @user = User.new(params[:id])
+    @address = Address.new(params[:id])
   end
 
   def new_payment
-    @payment = Payment.new
+    @payment = Payment.new(params[:id])
   end
 
   def done

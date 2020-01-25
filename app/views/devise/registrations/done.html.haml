@@ -1,4 +1,3 @@
--# 貼り付け済み
 .wapper
   .header
     .logo
@@ -34,7 +33,8 @@
         %br
         会員登録が完了しました。
       .done-information__top
-        = form_with model: @users, local: true do |f|
-          = f.submit "メルカリをはじめる", class: 'top-btn'
+        = link_to root_path do
+          .top-btn
+            メルカリをはじめる
   .footer
     = render partial: './signup/signup-footer'

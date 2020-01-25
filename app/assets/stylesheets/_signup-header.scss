@@ -76,7 +76,7 @@
       left: 40%;
       width: 12px;
       height: 12px;
-      margin: 8px auto 0;
+      margin: 13px auto 0;
       background: $progress_line;
       border-radius: 50%;
       z-index: 2;
@@ -108,7 +108,6 @@
     background: $progress_red;
   }
 }
-
 #end .progress-icon{
   background: $progress_red;
   }
@@ -135,15 +134,7 @@
         @include label;
       }
       &__group-required{
-        position: relative;
-        left: 100px;
-        top: -20px;
-        width: 32px;
-        text-align: center;
-        align-items: top;
-        color: $progress_white;
-        background-color: $progress_red;
-        border-radius: 3px;
+        @include required;
       }
       &__group-input-long{
         @include form-box-long;
@@ -151,13 +142,13 @@
       &__group-input-middle{
         @include form-box-middle;
       }
-      #birthday_birthday_1i {
+      .year{
         @include form-box-short;
       }
-      #birthday_birthday_2i{
+      .month{
         @include form-box-short;
       }
-      #birthday_birthday_3i{
+      .day{
         @include form-box-short;
       }
       .birthday{
@@ -193,6 +184,12 @@
         color: $progress_white;
         cursor: pointer;
       }
+      .next-btn:hover{
+        background-color: #ff726b;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+      }
+
     }
     .check{
       font-size: 14px;
@@ -200,14 +197,15 @@
         position: relative;
         align-items: center;
         left: 30px;
-        top: -20px;
+        top: -12px;
       }
     }
     .identification{
       font-size: 16px;
-      margin-top: -10px;
+      margin-top: 10px;
       font-weight: bold;
       &__message{
+        margin-top: 10px;
         font-size: 14px;
         font-weight: normal;
       }
@@ -222,9 +220,10 @@
       color: $progress_blue;
     }
     .protected-message{
-      width: 308px;
-      height: 40px;
-      padding: 8px 16px;
+      font-size: 12px;
+      width: 340px;
+      height: 100%;
+      padding: 10px 16px;
       margin: 20px 0;
       align-items: center;
       background-color: $background_gray;
@@ -263,6 +262,9 @@
       align-items: center;
       color: $progress_white;
       cursor: pointer;
+      }
+    .sms-btn:hover{
+      @include hover;
       }
     &__notes{
       font-size: 14px;
@@ -312,38 +314,23 @@
     &__group-input{
       @include form-box-long;
     }
-    #prefecture_id{
+    #address_prefecture{
       @include form-box-long;
-      height: 48px;
-      width: 340px;
+      height: 46px;
+      width: 320px;
       background-color: $progress_white;
       -webkit-appearance: none;
       appearance: none;
       cursor: pointer;
     }
     &__group-required{
-      position: relative;
-      left: 100px;
-      top: -20px;
-      width: 32px;
-      text-align: center;
-      align-items: top;
-      color: $progress_white;
-      background-color: $progress_red;
-      border-radius: 3px;
+      @include required;
     }
     &__group-any{
-      position: relative;
-      left: 100px;
-      top: -20px;
-      width: 32px;
-      text-align: center;
-      align-items: top;
+      @include required;
       color: $progress_white;
       background-color: $progress_text;
-      border-radius: 3px;
     }
-
     &__group-next{
       margin-top: 20px;
     }
@@ -357,6 +344,9 @@
       color: $progress_white;
       cursor: pointer;
       margin-bottom: 20px;
+    }
+    .next-btn:hover{
+      @include hover;
     }
   }
 }
@@ -387,22 +377,14 @@
       @include form-box-long;
     }
     &__group-required{
-      position: relative;
-      left: 100px;
-      top: -20px;
-      width: 32px;
-      text-align: center;
-      align-items: top;
-      color: $progress_white;
-      background-color: $progress_red;
-      border-radius: 3px;
+      @include required;
     }
-    #_expiration_date_2i{
+    #payment_token_2i{
       @include form-box-short;
       width: 120px;
       margin-right: 10px;
     }
-    #_expiration_date_1i{
+    #payment_token_1i{
       @include form-box-short;
       width: 120px;
       margin-left: 10px;
@@ -429,6 +411,9 @@
       cursor: pointer;
       margin-bottom: 20px;
       }
+    .next-btn:hover{
+      @include hover;
+      }
     &__notes{
       font-size: 14px;
       color: $black;
@@ -449,7 +434,6 @@
     }
   }
 }
-
 .done-page{
   @include signup-frame-head;
   .done{
@@ -466,16 +450,24 @@
       text-align: center;
       margin: 20px 0 40px 0;
     }
+    &__top{
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
   .top-btn{
     width: 340px;
     height: 50px;
     font-size: 14px;
+    color: $progress_white;
     background-color: $progress_red;
     text-align: center;
-    align-items: center;
-    color: $progress_white;
-    cursor: pointer;
-    margin-bottom: 20px;
+    padding-top: 17px;
+    }
+  .top-btn:hover{
+    @include hover;
+    }
+    a{
+      text-decoration: none;
     }
   }
 }
@@ -532,9 +524,8 @@
       cursor: pointer;
     }
     &__facebook:hover{
+      @include hover;
       background-color: #5c6c8d;
-      -webkit-transition: 0.5s;
-      transition: 0.5s;
     }
     &__google{
       @include box;
@@ -552,13 +543,12 @@
       border-radius: 0;
     }
     .login-btn:hover{
-      background-color: #ff726b;
-      -webkit-transition: 0.5s;
-      transition: 0.5s;
+      @include hover;
     }
     &__mail{
       margin-top: 40px;
       border-radius: 0;
+      text-align: left;
     }
     &__input-long{
       @include form-box-long;
@@ -574,6 +564,9 @@
       text-decoration: none;
       color: $progress_blue;  
     }
+  }
+  .recaptcha{
+    margin-top: 10px;
   }
   label{
     font-weight: bold;

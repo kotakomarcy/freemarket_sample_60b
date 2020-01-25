@@ -39,12 +39,12 @@
           = f.label :email, "メールアドレス"
           .form__group-required
             必須
-          = f.text_field :email, class:"form__group-input-long", placeholder: "PC・携帯どちらでも可"
+          = f.email_field :email, class:"form__group-input-long", placeholder: "PC・携帯どちらでも可"
           .form__group-password
           = f.label :encrypted_password, "パスワード"
           .form__group-required
             必須
-          = f.text_field :encrypted_password, class:"form__group-input-long", placeholder: "7文字以上の半角英数字"
+          = f.password_field :encrypted_password, class:"form__group-input-long", placeholder: "7文字以上の半角英数字"
           .form__group-information
             ※英字と数字の両方を含めて設定してください
           .check

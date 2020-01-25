@@ -1,4 +1,3 @@
--# 貼り付け済み
 .wapper
   .header
     .logo
@@ -29,7 +28,7 @@
     .phone-number
       電話番号の確認
     .phone-form
-      = form_for resource, as: resource_name, url: addresses_path, method: :get do |f|
+      = form_for @user, url: users_signup_addresses_path, method: :get do |f|
         .phone-form__phone-number
           = f.label :phone, "携帯電話の番号"
           = f.text_field :phone_num, class:"phone-form__input", placeholder: "携帯電話の番号を入力"

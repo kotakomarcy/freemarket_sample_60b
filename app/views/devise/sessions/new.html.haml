@@ -28,7 +28,7 @@
           .login-form__password
           = f.text_field :encrypted_password, class:"login-form__input-long", placeholder: "パスワード"
       .recaptcha
-        -# = recaptcha_tags
+        = recaptcha_tags
       .login-form__submit
         = form_with model: @users, local: true do |f|
           = f.submit "ログイン", class: 'login-btn'
