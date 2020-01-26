@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :signup do
+  resources :signup, only:[:index] do
     collection do
       get 'index'
     end

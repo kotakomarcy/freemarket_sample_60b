@@ -5,11 +5,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   def new
-    @user = User.new(params[:id])
+    # Userインスタンス作成
+    @user = User.new
   end
 
   def new_phone
-    @user = User.new(params[:id])
+    @user = User.new(signe_up_params)
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    session
   end
 
   def new_address
@@ -22,6 +28,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def done
+    sign_in User.find(session[:id]) unless user_signed_in?
   end
   # POST /resource
   # def create
