@@ -9,11 +9,11 @@ class User < ApplicationRecord
   has_many :payments
 
   validates :nickname, presence: true, length: { maximum: 20 }
-  validates :last_name, presence: true, format: { /^[一-龥]+$/ }
-  validates :first_name, presence: true, format: { /^[一-龥]+$/ }
-  validates :last_name_kana, presence: true, format: { /^([ァ-ン]|ー)+$/ }
-  validates :first_name_kana, presence: true, format: { /^([ァ-ン]|ー)+$/ }
-  validates :first_name_kana, presence: true, format: { /^([ァ-ン]|ー)+$/ }
+  validates :last_name, presence: true, format: { with: /\A[一-龥]+\z/ }
+  validates :first_name, presence: true, format: { with: /\A[一-龥]+\z/ }
+  validates :last_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
+  validates :first_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
+  validates :first_name_kana, presence: true, format: { with: /\A([ァ-ン]|ー)+\z/ }
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
