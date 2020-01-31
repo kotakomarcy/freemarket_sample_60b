@@ -30,10 +30,10 @@
     .payment-form
       = form_for @payment, url: users_signup_done_path, method: :get do |f|
         .payment-form__card-id
-          = f.label :card_id, "カード番号"
+          = f.label :card_number, "カード番号"
           .payment-form__group-required
             必須
-          = f.text_field :card_id, class:"payment-form__input", placeholder: "半角数字のみ"
+          = f.text_field :card_number, class:"payment-form__input", placeholder: "半角数字のみ"
         %ul.card-icon
           %li
             = image_tag "visa.svg", size:"49x20"
@@ -53,12 +53,12 @@
           = f.label :limit, "有効期限"
           .payment-form__group-required
             必須
-          != sprintf(f.date_select(:token,with_css_classes:'expiration-date', prompt:"--" , order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+          != sprintf(f.date_select(:expiration_date,with_css_classes:'expiration-date', prompt:"--" , order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
         .payment-form__phone-number
-          = f.label :token, "セキュリティコード"
+          = f.label :card_cvc, "セキュリティコード"
           .payment-form__group-required#security
             必須
-          = f.text_field :token, class:"payment-form__input", placeholder: "カード背面4桁もしくは3桁の番号"
+          = f.text_field :card_cvc, class:"payment-form__input", placeholder: "カード背面4桁もしくは3桁の番号"
         .payment-form__information
           = link_to root_path do
             = fa_icon "question-circle", class: 'question'

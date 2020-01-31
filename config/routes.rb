@@ -10,9 +10,18 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :payment, only: [:new, :show] do
+    collection do
+      post 'show', to: 'payment#show'
+      post 'pay', to: 'payment#pay'
+      post 'delete', to: 'payment#delete'
+      get 'new', to: 'users/registrations#new_payment'
+    end
+  end
 
   devise_scope :user do
     get 'users/signup/registration', to: 'users/registrations#new'
+    post 'users/signup/registration', to: 'users/registrations#new'
     get 'users/signup/phone_num', to: 'users/registrations#new_phone'
     post 'users/signup/phone_num', to: 'users/registrations#new_phone'
     get 'users/signup/addresses', to: 'users/registrations#new_address'

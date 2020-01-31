@@ -314,7 +314,7 @@
     &__group-input{
       @include form-box-long;
     }
-    #address_prefecture{
+    #user_address_attributes_prefecture{
       @include form-box-long;
       height: 46px;
       width: 320px;

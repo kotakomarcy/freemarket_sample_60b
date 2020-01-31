@@ -6,30 +6,83 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
     # Userインスタンス作成
-    @user = User.new
+    @user = User.new(sign_up_params)
   end
 
   def new_phone
-    @user = User.new(signe_up_params)
-    unless @user.valid?
-      flash.now[:alert] = @user.errors.full_messages
-      render :new and return
-    end
-    session
+    # userデータをsessionに保存
+    session[:nickname] = params[:user][:nickname]
+    session[:email] = params[:user][:email]
+    session[:password] = params[:user][:password]
+    session[:last_name] = params[:user][:last_name]
+    session[:first_name] = params[:user][:first_name]
+    session[:last_name_kana] = params[:user][:last_name_kana]
+    session[:first_name_kana] = params[:user][:first_name_kana]
+    session[:birth_year] = params[:user][:birth_year]
+    session[:birth_month] = params[:user][:birth_month]
+    session[:birth_day] = params[:user][:birth_day]
+    # binding.pry
+    @user = User.new
+    render :new_phone
   end
 
   def new_address
-    @user = User.new(params[:id])
-    @address = Address.new(params[:id])
+    # userデータをsessionに保存
+    session[:phone_num] = params[:user][:phone_num]
+    @user = User.new
+    @user.build_address
+    # binding.pry
+    render :new_address
   end
 
   def new_payment
-    @payment = Payment.new(params[:id])
+    # addressデータをsessionに保存するパターン
+    session[:last_name] = params[:user][:last_name_kana]
+    session[:first_name] = params[:user][:first_name_kana]
+    session[:last_name_kana] = params[:user][:last_name_kana]
+    session[:first_name_kana] = params[:user][:first_name_kana]
+    session[:zip_code] = user_params[:address_attributes][:zip_code]
+    session[:prefecture] = user_params[:address_attributes][:prefecture]
+    session[:city] = user_params[:address_attributes][:city]
+    # binding.pry
+    session[:block] = user_params[:address_attributes][:block]
+    session[:phone_num] = params[:user][:phone_num]
+    # binding.pry
+    # redirect_to controller: 'payments', action: 'new'
+    # @user = User.new
+    # @user.build_payment
+    render :new_payment
+  end
+# -----ここまでOK------
+
+  def create
+    @user = User.new(
+      password_confirmation: session[:password_confirmation],
+      name: user_params[:name],
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      birth_day: session[:birth_day],
+    )
+    @user.build_address(user_params[:address_attributes])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to users_signup_done
+    else
+      render '/users/signup/registration'
+    end
   end
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
   end
+
   # POST /resource
   # def create
   #   super
@@ -60,6 +113,24 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
+  def user_params
+    params.require(:user).permit(
+      :nickname,
+      :email,
+      :password,
+      :last_name,
+      :first_name,
+      :last_name_kana,
+      :first_name_kana,
+      :birth_year,
+      :birth_month,
+      :birth_day,
+      :uid,
+      :provider,
+      address_attributes: [:id, :zip_code, :prefecture, :city, :block]
+    )
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
