@@ -51,6 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # redirect_to controller: 'payments', action: 'new'
     # @user = User.new
     # @user.build_payment
+    @payment = Payment.new
     render :new_payment
   end
 # -----ここまでOK------

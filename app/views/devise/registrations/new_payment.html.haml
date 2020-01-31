@@ -28,7 +28,7 @@
     .payment
       支払い方法
     .payment-form
-      = form_for @payment, url: users_signup_done_path, method: :get do |f|
+      = form_with url: new_payment_path, method: :post do |f|
         .payment-form__card-id
           = f.label :card_number, "カード番号"
           .payment-form__group-required
