@@ -10,11 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :payment, only: [:new, :show] do
+  resources :payments, only: [:new, :show] do
     collection do
-      post 'show', to: 'payment#show'
-      post 'pay', to: 'payment#pay'
-      post 'delete', to: 'payment#delete'
+      post 'show', to: 'payments#show'
+      post 'pay', to: 'payments#pay'
+      post 'delete', to: 'payments#delete'
       get 'new', to: 'users/registrations#new_payment'
     end
   end
