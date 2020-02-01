@@ -83,4 +83,4 @@ gem 'fog-aws'
 gem 'jquery-rails'
 gem 'owlcarousel-rails'
 gem 'enum_help'
-
+gem 'ancestry'

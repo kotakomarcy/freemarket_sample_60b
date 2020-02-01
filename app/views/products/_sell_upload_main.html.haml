@@ -15,7 +15,7 @@
             .sell-main__container__sell-form__upload-box__dropbox
               = f.label :images, class: 'label' do
                 = f.fields_for :images do |i|
-                  = i.file_field :src
+                  = i.file_field :image
               .sell-main__container__sell-form__upload-box__dropbox__text
                 %p
                   ドラッグアンドドロップ
