@@ -3,7 +3,7 @@
     .sell-main__container
       .sell-main__container__top
         商品の情報を入力
-      = form_with model: @product, local: true do |f|
+      = form_for @product, local: true do |f|
         .sell-main__container__sell-form
           .sell-main__container__sell-form__upload-box
             .sell-main__container__sell-form__upload-box__head
@@ -14,7 +14,8 @@
               最大10枚までアップロードできます
             .sell-main__container__sell-form__upload-box__dropbox
               = f.label :images, class: 'label' do
-                = f.file_field :images, multiple: true, class: 'hidden'
+                = f.fields_for :images do |i|
+                  = i.file_field :src
               .sell-main__container__sell-form__upload-box__dropbox__text
                 %p
                   ドラッグアンドドロップ
@@ -26,13 +27,13 @@
               商品名
               %span
                 必須
-          = f.text_field :product_name, placeholder: "商品名 (必須 40文字まで)"
+          = f.text_field :name, placeholder: "商品名 (必須 40文字まで)"
           .sell-main__container__sell-form__name__form-group
             %label
               商品の説明
               %span
                 必須
-          = f.text_area :product_description, placeholder: "商品の説明 (必須 1000文字以内) (色、素材、重さ、低下、注意点など) 例) 2010年頃に1万円で購入したハリボーです。色は様々で未開封のため痛んではいませんが消費期限は過ぎています。新たな世界の扉を開きたい方におすすめです。"
+          = f.text_area :description, placeholder: "商品の説明 (必須 1000文字以内) (色、素材、重さ、低下、注意点など) \n例) 2010年頃に1万円で購入したハリボーです。色は様々で未開封のため痛んではいませんが消費期限は過ぎています。新たな世界の扉を開きたい方におすすめです。"
         .sell-main__container__sell-form__detail
           .sell-main__container__sell-form__detail__head
             商品の詳細
@@ -42,13 +43,13 @@
                 カテゴリー
                 %span
                   必須
-            = f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
+            /= f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
             .sell-main__container__sell-form__detail__box__form-group
               %label
                 商品の状態
                 %span
                   必須
-            = f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
+            = f.select :condition, Product.conditions.keys, {prompt: '---'}, class: 'form'
         .sell-main__container__sell-form__delivery
           .sell-main__container__sell-form__delivery__head
             配送について
@@ -59,19 +60,19 @@
                 配送料の負担
                 %span
                   必須
-            = f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
+            = f.select :delivery_charge, Product.delivery_charges.keys, {prompt: '---'}, class: 'form'
             .sell-main__container__sell-form__delivery__box__form-group
               %label
                 発送元の地域
                 %span
                   必須
-            = f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
+            = f.collection_select :delivery_area, Prefecture.all, :id, :name, {prompt: '---'}, class: 'form'
             .sell-main__container__sell-form__delivery__box__form-group
               %label
                 発送までの日数
                 %span
                   必須
-            = f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
+            = f.select :delivery_days, Product.delivery_days.keys, {prompt: '---'}, class: 'form'
         .sell-main__container__sell-form__price
           .sell-main__container__sell-form__price__head
             販売価格(300〜9,999,999)
@@ -116,5 +117,5 @@
           .sell-main__container__sell-form__btn-box__exhibit-btn
             = f.submit "出品する", class: "submit-btn"
           .sell-main__container__sell-form__btn-box__back
-            = link_to '#' do
+            = link_to root_path do
               戻る
