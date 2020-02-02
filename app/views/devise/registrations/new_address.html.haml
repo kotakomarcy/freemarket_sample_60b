@@ -29,7 +29,7 @@
       発送元・お届け先住所入力
     .address-form
       .address-form__group
-        = form_for [@user,@address], url: users_signup_payments_path, method: :get do |f|
+        = form_for [@user,@address], url: users_signup_payments_path, method: :post do |f|
           .address-form__group-name
             %label お名前(全角)
             .address-form__group-required
@@ -51,7 +51,7 @@
             = f.label :prefecture, "都道府県"
             .address-form__group-required
               必須
-            = f.collection_select :prefecture?, Prefecture.all, :id, :name, prompt: "--"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
           .address-form__group-city
             = f.label :city, "市区町村"
             .address-form__group-required

@@ -2,23 +2,21 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :set_user,only: [:new,:new_phone]
+  before_action :set_address,only: [:new_address]
+  before_action :set_payment,only: [:set_payment]
   # before_action :configure_account_update_params, only: [:update]
 
   def new
-    @user = User.new(params[:id])
   end
 
   def new_phone
-    @user = User.new(params[:id])
   end
 
   def new_address
-    @user = User.new(params[:id])
-    @address = Address.new(params[:id])
   end
 
   def new_payment
-    @payment = Payment.new(params[:id])
   end
 
   def done
@@ -53,6 +51,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
+  def set_user
+    @user = User.new(params[:id])
+  end
+
+  def set_address
+    @user = User.new(params[:id])
+    @address = Address.new(params[:id])
+  end
+
+  def set_payment
+    @user = User.new(params[:id])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params

@@ -314,7 +314,7 @@
     &__group-input{
       @include form-box-long;
     }
-    #address_prefecture{
+    #address_prefecture_id{
       @include form-box-long;
       height: 46px;
       width: 320px;
@@ -379,12 +379,12 @@
     &__group-required{
       @include required;
     }
-    #payment_token_2i{
+    #_token_2i{
       @include form-box-short;
       width: 120px;
       margin-right: 10px;
     }
-    #payment_token_1i{
+    #_token_1i{
       @include form-box-short;
       width: 120px;
       margin-left: 10px;
