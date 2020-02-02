@@ -1,10 +1,12 @@
-class PaymentsController < ApplicationController
+class CardsController < ApplicationController
   require "payjp"
 
   def new
-    binding.pry
-    payment = Payment.where(user_id: current_user.id)
-    redirect_to action: "show" if payment.exists?
+    @user = User.new(session[:user])
+    @user.build_address(session[:address])
+    @user.save
+    card = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if card.exists?
   end
 
   def pay
@@ -26,6 +28,4 @@ class PaymentsController < ApplicationController
       end
     end
  end
-
-
 end

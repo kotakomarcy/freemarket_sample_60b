@@ -49,10 +49,10 @@
                 必須
               = a.text_field :zip_code, class:"address-form__group-input", placeholder: "例)123-0123"
             .address-form__group-prefecture
-              = a.label :prefecture, "都道府県"
+              = a.label :prefecture_id, "都道府県"
               .address-form__group-required
                 必須
-              = a.collection_select :prefecture?, Prefecture.all, :id, :name, prompt: "--"
+              = a.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
             .address-form__group-city
               = a.label :city, "市区町村"
               .address-form__group-required

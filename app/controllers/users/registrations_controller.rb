@@ -2,27 +2,27 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+  before_action :user_params, only:[:create]
+  before_action :validation_phone, only:[:new_phone]
   # before_action :configure_account_update_params, only: [:update]
 
   def new
     # Userインスタンス作成
-    @user = User.new(sign_up_params)
+    @user = User.new
   end
 
-  def new_phone
+  def new_phone(user_params)
     # userデータをsessionに保存
     session[:nickname] = params[:user][:nickname]
     session[:email] = params[:user][:email]
-    session[:password] = params[:user][:password]
+    session[:encrypted_password] = params[:user][:encrypted_password]
     session[:last_name] = params[:user][:last_name]
     session[:first_name] = params[:user][:first_name]
     session[:last_name_kana] = params[:user][:last_name_kana]
     session[:first_name_kana] = params[:user][:first_name_kana]
-    session[:birth_year] = params[:user][:birth_year]
-    session[:birth_month] = params[:user][:birth_month]
-    session[:birth_day] = params[:user][:birth_day]
-    # binding.pry
+    session[:birthday] = birthday_join
     @user = User.new
+    # binding.pry
     render :new_phone
   end
 
@@ -35,50 +35,81 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
-  def new_payment
-    # addressデータをsessionに保存するパターン
+  def new_payment(user_params)
+    # addressデータをsessionに保存
     session[:last_name] = params[:user][:last_name_kana]
     session[:first_name] = params[:user][:first_name_kana]
     session[:last_name_kana] = params[:user][:last_name_kana]
     session[:first_name_kana] = params[:user][:first_name_kana]
     session[:zip_code] = user_params[:address_attributes][:zip_code]
-    session[:prefecture] = user_params[:address_attributes][:prefecture]
+    session[:prefecture_id] = user_params[:address_attributes][:prefecture_id]
     session[:city] = user_params[:address_attributes][:city]
-    # binding.pry
     session[:block] = user_params[:address_attributes][:block]
+    session[:building_name] = user_params[:address_attributes][:building_name]
     session[:phone_num] = params[:user][:phone_num]
+    # session[:user] = session[:last_name,:first_name,:last_name_kana,:first_name_kana,:zip_code,:prefecture,:city,:block,:phone_num]
+    @user = User.new
+    @user.build_address
+    @user = User.create(nickname: session[:nickname],email: session[:email],encrypted_password: session[:password],birth_year: session[:birth_year],birth_month: session[:birth_month],birth_day: session[:birth_day],last_name: session[:last_name],first_name: session[:first_name],last_name_kana: session[:last_name_kana],first_name_kana: session[:first_name_kana],phone_num: session[:phone_num])
+    @address = Address.create(zip_code: session[:zip_code],prefecture_id: session[:prefecture_id],city: session[:city],block: session[:block],building_name: session[:building_name])
     # binding.pry
-    # redirect_to controller: 'payments', action: 'new'
+    @user.save
+    @address.save
+    # binding.pry
     # @user = User.new
     # @user.build_payment
-    @payment = Payment.new
+    # @payment = Payment.new
     render :new_payment
   end
-# -----ここまでOK------
 
-  def create
+  def validation_phone
+    # new_phone用バリデーション
+    session[:nickname] = params[:user][:nickname]
+    session[:email] = params[:user][:email]
+    session[:encrypted_password] = params[:user][:encrypted_password]
+    session[:last_name] = params[:user][:last_name]
+    session[:first_name] = params[:user][:first_name]
+    session[:last_name_kana] = params[:user][:last_name_kana]
+    session[:first_name_kana] = params[:user][:first_name_kana]
+    session[:birthday] = birthday_join
     @user = User.new(
-      password_confirmation: session[:password_confirmation],
-      name: user_params[:name],
       nickname: session[:nickname],
       email: session[:email],
-      password: session[:password],
+      encrypted_password: session[:encrypted_password],
+      birthday: session[:birthday],
       last_name: session[:last_name],
       first_name: session[:first_name],
       last_name_kana: session[:last_name_kana],
       first_name_kana: session[:first_name_kana],
-      birth_year: session[:birth_year],
-      birth_month: session[:birth_month],
-      birth_day: session[:birth_day],
-    )
-    @user.build_address(user_params[:address_attributes])
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to users_signup_done
-    else
-      render '/users/signup/registration'
-    end
+      phone_num: "01234567890")
+    binding.pry
+      render :new_phone unless @user.valid?
   end
+
+
+  # def create
+  #   @user = User.new(
+  #     password_confirmation: session[:password_confirmation],
+  #     name: user_params[:name],
+  #     nickname: session[:nickname],
+  #     email: session[:email],
+  #     password: session[:password],
+  #     last_name: session[:last_name],
+  #     first_name: session[:first_name],
+  #     last_name_kana: session[:last_name_kana],
+  #     first_name_kana: session[:first_name_kana],
+  #     birth_year: session[:birth_year],
+  #     birth_month: session[:birth_month],
+  #     birth_day: session[:birth_day],
+  #   )
+  #   @user.build_address(user_params[:address_attributes])
+  #   if @user.save
+  #     session[:user_id] = @user.id
+  #     redirect_to users_signup_done
+  #   else
+  #     render '/users/signup/registration'
+  #   end
+  # end
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
@@ -114,6 +145,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
+  def birthday_join
+    year = params[:user]["birthday(1i)"]
+    month = params[:user]["birthday(2i)"]
+    day = params[:user]["birthday(3i)"]
+    birthday = year.to_s + "-" + month.to_s + "-" + day.to_s
+    return birthday
+  end
 
   def user_params
     params.require(:user).permit(
