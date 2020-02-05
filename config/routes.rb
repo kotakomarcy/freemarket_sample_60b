@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'users/signup/payments', to: 'users/registrations#new_payment'
     post 'users/signup/payments', to: 'users/registrations#new_payment'
     get 'users/signup/done', to: 'users/registrations#done'
+    post 'users/signup/done', to: 'users/registrations#done'
   end
 
   root "products#index"
