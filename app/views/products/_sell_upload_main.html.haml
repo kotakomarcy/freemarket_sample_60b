@@ -48,6 +48,10 @@
           /= f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
           .sell-main__container__sell-form__detail__box__form-group
             %label
+              サイズ
+          = f.select :size, Product.sizes.keys, {prompt: '---'}, class: 'form'
+          .sell-main__container__sell-form__detail__box__form-group
+            %label
               商品の状態
               %span
                 必須
@@ -65,10 +69,16 @@
           = f.select :delivery_charge, Product.delivery_charges.keys, {prompt: '---'}, class: 'form'
           .sell-main__container__sell-form__delivery__box__form-group
             %label
+              配送の方法
+              %span
+                必須
+          = f.select :delivery_way, Product.delivery_ways.keys, {prompt: '---'}, class: 'form'
+          .sell-main__container__sell-form__delivery__box__form-group
+            %label
               発送元の地域
               %span
                 必須
-          = f.collection_select :delivery_area, Prefecture.all, :id, :name, {prompt: '---'}, class: 'form'
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: '---'}, class: 'form'
           .sell-main__container__sell-form__delivery__box__form-group
             %label
               発送までの日数
