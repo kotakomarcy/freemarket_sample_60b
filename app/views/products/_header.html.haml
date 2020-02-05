@@ -22,12 +22,36 @@
             = fa_icon "tag" , class: "header-bottom__left--blands-icon"
             %p.header-bottom__left--blands-caption 
             ブランドから探す
+
+      - if user_signed_in?
+        .header-bottom__right
+          .header-bottom__right__contents
+            .header-bottom__right__contents--good
+              = link_to "=", class: "header-bottom__right__contents--good-caption" do
+                = fa_icon "heart", class: "header-bottom__right__contents--good-icon"
+                %p.header-bottom__right__contents--good-caption
+                いいね！一覧
+            .header-bottom__right__contents--news
+              = link_to "=", class: "header-bottom__right__contents--news-caption" do
+                = fa_icon "bell", class: "header-bottom__right__contents--news-icon"
+                %p.header-bottom__right__contents--news-caption
+                お知らせ
+            .header-bottom__right__contents--todo
+              = link_to "=", class: "header-bottom__right__contents--todo-caption" do
+                = fa_icon "check", class: "header-bottom__right__contents--todo-icon"
+                %p.header-bottom__right__contents--todo-caption
+                やることリスト
+            .header-bottom__right__contents--mypage
+              = link_to "=", class: "header-bottom__right__contents--mypage-caption" do
+                %p.header-bottom__right__contents--mypage-caption
+                マイページ
       
-      .header-bottom__right
-        .header-bottom__right__contents
-          .header-bottom__right__contents--new-acount
-            = link_to signup_index_path, class: "header-bottom__right__contents--new-acount-btn" do
-              新規会員登録
-          .header-bottom__right__contents--login
-            = link_to new_user_session_path, class: "header-bottom__right__contents--login-btn" do
-              ログイン
+      - else
+        .header-bottom__right
+          .header-bottom__right__contents
+            .header-bottom__right__contents--new-acount
+              = link_to signup_index_path, class: "header-bottom__right__contents--new-acount-btn" do
+                新規会員登録
+            .header-bottom__right__contents--login
+              = link_to new_user_session_path, class: "header-bottom__right__contents--login-btn" do
+                ログイン

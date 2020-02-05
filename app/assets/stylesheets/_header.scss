@@ -101,6 +101,64 @@ input::placeholder{
     font-size: 15px;
     margin: 0 auto;
 
+    &--good{
+      padding-right: 20px;
+    }
+
+    &--good-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      margin-right: 5px;
+    }
+
+    &--good-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--news{
+      padding-right: 20px;
+    }
+
+    &--news-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      padding-right: 5px;
+    }
+
+    &--news-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--todo{
+      padding-right: 20px;
+    }
+
+    &--todo-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      margin-right: 5px;
+    }
+
+    &--todo-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--mypage{
+      padding-right: 20px;
+    }
+
+    &--mypage-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
     &--new-acount{
       height: 27px;
       width: 100px;
