@@ -172,7 +172,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new_payment unless @user.valid?
   end
 
-  protected_methods
+  private
 
   def birthday_join
     year = params[:birthday]["birthday(1i)"]
