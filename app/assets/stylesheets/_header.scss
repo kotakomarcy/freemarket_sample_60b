@@ -77,6 +77,9 @@ input::placeholder{
     &--categorys-caption{
       @include left-caption
     }
+    &--categorys-caption:hover{
+      @include icon-hover;
+    }
 
     &--categorys-list{
       display: block;
@@ -92,7 +95,10 @@ input::placeholder{
     }
 
     &--blands-caption{
-      @include left-caption
+      @include left-caption;
+    }
+    &--blands-caption:hover{
+      @include icon-hover;
     }
   }
 
@@ -111,10 +117,18 @@ input::placeholder{
       margin-right: 5px;
     }
 
+    &--good-icon:hover{
+      @include icon-hover;
+    }
+
     &--good-caption{
       color: black;
       float: right;
       text-decoration: none;
+    }
+
+    &--good-caption:hover{
+      @include icon-hover;
     }
 
     &--news{
@@ -127,10 +141,18 @@ input::placeholder{
       padding-right: 5px;
     }
 
+    &--news-icon:hover{
+      @include icon-hover;
+    }
+
     &--news-caption{
       color: black;
       float: right;
       text-decoration: none;
+    }
+
+    &--news-caption:hover{
+      @include icon-hover;
     }
 
     &--todo{
@@ -143,10 +165,18 @@ input::placeholder{
       margin-right: 5px;
     }
 
+    &--todo-icon:hover{
+      @include icon-hover;
+    }
+
     &--todo-caption{
       color: black;
       float: right;
       text-decoration: none;
+    }
+
+    &--todo-caption:hover{
+      @include icon-hover;
     }
 
     &--mypage{
@@ -157,6 +187,10 @@ input::placeholder{
       color: black;
       float: right;
       text-decoration: none;
+    }
+
+    &--mypage-caption:hover{
+      @include icon-hover;
     }
 
     &--new-acount{
