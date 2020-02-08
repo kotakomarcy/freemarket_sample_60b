@@ -4,7 +4,7 @@ $(function() {
     const html = `<label class="js-file_group" data-index="${num}" for="product_product_images_attributes_${num}_image">
                     <input class="js-file" type="file"
                     name="product[product_images_attributes][${num}][image]"
-                    id="product_product_images_attributes_${num}_image">
+                    id="product_product_images_attributes_${num}_image"></br>
                     <span class="js-remove">削除</span>
                   </label>`;
     return html;
@@ -12,7 +12,11 @@ $(function() {
 
   //プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px"></br>`;
+    const html = `<div class="previews">
+                    <img data-index="${index}" src="${url}" width="100px" height="100px"></br>
+                    <label for="product_product_images_attributes_${index}_img" class="js-edit" data-index="${index}">編集</label>
+                    <span class="js-remove">削除</span>
+                  </div>`;
     return html;
   }
 
@@ -33,7 +37,7 @@ $(function() {
 
     //該当indexを持つimgタグがあれば取得して変数imgに入れる（画像変更の処理）
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      img.setAttribute('image', blobUrl);
+      img.setAttribute('src', blobUrl);
     } else { //新規画像の処理
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使って、inputを生成

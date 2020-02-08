@@ -52,6 +52,8 @@
           .hidden {
             display: none;
           }
+
+          
           &__text {
             position: relative;
             text-align: center;
@@ -319,3 +321,21 @@
 ::-webkit-input-placeholder {
   font-size: 14px;
 }
+
+#previews{
+  width: 100px;
+  display: flex;
+
+  .previews{
+  padding: 5px;
+  display: block;
+ }
+}
+
+.js-file_group{
+  display: flex;
+}
+
+// .js-file{
+//   display: none;
+// }
