@@ -1,5 +1,9 @@
 require 'rails_helper'
 
+
+# RSpec.describe SignupController, type: :controller do
+# end
+
 describe Users::RegistrationsController do
   describe "GET #new" do
     it "リクエストが200になること" do

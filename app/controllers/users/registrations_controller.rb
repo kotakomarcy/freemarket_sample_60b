@@ -137,6 +137,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       first_name_kana: session[:first_name_kana],
       phone_num: session[:phone_num])
       @user.build_address(
+        # バリデーションをかけるため未入力項目を仮置き
         zip_code: "182-0014",
         prefecture_id: "13",
         city: "調布市",
