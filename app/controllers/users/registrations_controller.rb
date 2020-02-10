@@ -7,7 +7,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :validation_address, only:[:new_address]
   before_action :validation_payment, only:[:new_payment]
   before_action :create, only:[:done]
-  # before_action :configure_account_update_params, only: [:update]
 
   def new
     # Userインスタンス作成
@@ -25,7 +24,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:first_name_kana] = params[:user][:first_name_kana]
     session[:birthday] = birthday_join
     @user = User.new
-    # binding.pry
     render :new_phone
   end
 
@@ -34,7 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:phone_num] = params[:user][:phone_num]
     @user = User.new
     @user.build_address
-    # binding.pry
     render :new_address
   end
 
@@ -52,7 +49,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:phone_num] = params[:user][:phone_num]
     @user = User.new
     @user.build_address
-    # binding.pry
     render :new_payment
   end
 
@@ -77,10 +73,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if @user.save 
         session[:id] = @user.id
         sign_in User.find(session[:id]) unless user_signed_in?
-            else
-            binding.pry
-              redirect_to root_path
-            end
+        else
+          render :new
+        end
       end
   end
 
@@ -88,15 +83,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   sign_in User.find(session[:id]) unless user_signed_in?
   render :done
   end
-
-  # GET /resource/cancel
-  # Forces the session data which is usually expired after sign
-  # in to be expired now. This is useful if the user wants to
-  # cancel oauth signing in/up in the middle of the process,
-  # removing all OAuth session data.
-  # def cancel
-  #   super
-  # end
 
   def validation_phone
     # 会員情報用バリデーション
