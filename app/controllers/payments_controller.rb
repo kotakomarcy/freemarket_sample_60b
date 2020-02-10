@@ -2,7 +2,6 @@ class PaymentsController < ApplicationController
   require "payjp"
 
   def new
-    binding.pry
     payment = Payment.where(user_id: current_user.id)
     redirect_to action: "show" if payment.exists?
   end
