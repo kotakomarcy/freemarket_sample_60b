@@ -1,0 +1,76 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+    %ul.progress
+      %li.member#end
+        会員情報
+        .progress-icon
+        .progress-bar
+      %li.authentication#end
+        電話番号認証
+        .progress-icon
+        .progress-bar
+      %li.address#end
+        お届け先住所入力
+        .progress-icon
+        .progress-bar
+      %li.pay#now
+        支払い方法
+        .progress-icon
+        .progress-bar
+      %li.done
+        完了
+        .progress-icon
+        .progress-bar
+  .pay-page
+    .payment
+      支払い方法
+    .payment-form
+      = form_for @user, url: users_signup_done_path, method: :post do |f|
+        .payment-form__card-id
+          %label カード番号
+          -# = f.label :card_id, "カード番号"
+          .payment-form__group-required
+            必須
+          %input.input{card_id: "card_id", placeholder: "半角数字のみ",type: "text",class:"payment-form__input"}
+          -# = f.text_field :card_id, class:"payment-form__input", placeholder: "半角数字のみ"
+        %ul.card-icon
+          %li
+            = image_tag "visa.svg", size:"49x20"
+          %li
+            = image_tag "master-card.svg", size:"34x20"
+          %li
+            = image_tag "saison-card.svg", size:"30x20"
+          %li
+            = image_tag "jcb.svg", size:"32x20"
+          %li
+            = image_tag "american_express.svg", size:"21x20"
+          %li
+            = image_tag "dinersclub.svg", size:"32x20"
+          %li
+            = image_tag "discover.svg", size:"32x20"
+        .payment-form__expiration-date
+          %label 有効期限
+          -# = f.label :limit, "有効期限"
+          .payment-form__group-required
+            必須
+          %input.input{exp_month: "exp_month", placeholder: "--",type: "text",class:"payment-form__input"}
+          %input.input{exp_year: "exp_year", placeholder: "--",type: "text",class:"payment-form__input"}
+          -# != sprintf(f.date_select(:expiration_date,with_css_classes:'expiration-date', prompt:"--" , order:[:month,:year,:day], use_month_numbers:true, discard_day:true, start_year:Time.now.year-2000, end_year:Time.now.year-2000+10, date_separator:'%s'),'月') + '年'
+        .payment-form__phone-number
+          %label セキュリティコード
+          -# = f.label :customer_id, "セキュリティコード"
+          .payment-form__group-required#security
+            必須
+          %input.input{customer_id: "customer_id", placeholder: "カード背面4桁もしくは3桁の番号",type: "text",class:"payment-form__input"}
+          -# = f.text_field :customer_id, class:"payment-form__input", placeholder: "カード背面4桁もしくは3桁の番号"
+        .payment-form__information
+          = link_to root_path do
+            = fa_icon "question-circle", class: 'question'
+            カード裏面の番号とは？
+        .payment-form__group-next
+          = f.submit "次へ進む", class: 'next-btn'
+  .footer
+    = render partial: './signup/signup-footer'

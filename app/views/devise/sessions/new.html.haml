@@ -1,0 +1,38 @@
+.wapper
+  .header
+    = link_to root_path do
+      = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+  .login
+    .login__registration
+      .login__message
+        アカウントをお持ちで無い方はこちら
+      = link_to signup_index_path do
+        .login__new-registration
+          新規会員登録
+    .login-form
+      .login-form__facebook
+        = link_to "https://www.facebook.com/" , class: "login-form__link" do
+          = fa_icon 'facebook-square', class: "login-form__icon"
+        %span<>
+        Facebookでログイン
+      .login-form__google
+        = link_to "=" , class: "login-form__link" do
+          = image_tag "google_icon.jpg", width:"20px", class: "login-form__icon"
+        %span<>
+        Googleでログイン
+      .login-form__mail
+        = form_with model: @users, local: true do |f|
+          .login-form__address
+          = f.text_field :email, class:"login-form__input-long", placeholder: "メールアドレス"
+          .login-form__password
+          = f.text_field :encrypted_password, class:"login-form__input-long", placeholder: "パスワード"
+      .recaptcha
+        = recaptcha_tags
+      .login-form__submit
+        = form_with model: @users, local: true do |f|
+          = f.submit "ログイン", class: 'login-btn'
+      .password-forget
+        = link_to root_path do
+          パスワードをお忘れの方
+  .footer
+    = render partial: './signup/signup-footer'

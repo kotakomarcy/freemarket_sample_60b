@@ -1,0 +1,46 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+    %ul.progress
+      %li.member#end
+        会員情報
+        .progress-icon
+        .progress-bar
+      %li.authentication#now
+        電話番号認証
+        .progress-icon
+        .progress-bar
+      %li.address
+        お届け先住所入力
+        .progress-icon
+        .progress-bar
+      %li.pay
+        支払い方法
+        .progress-icon
+        .progress-bar
+      %li.done
+        完了
+        .progress-icon
+        .progress-bar
+  .phone-number-page
+    .phone-number
+      電話番号の確認
+    .phone-form
+      = form_for @user, url: users_signup_addresses_path, method: :get do |f|
+        .phone-form__phone-number
+          = f.label :phone, "携帯電話の番号"
+          = f.text_field :phone_num, class:"phone-form__input", placeholder: "携帯電話の番号を入力"
+          .phone-form__information
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          .phone-form__submit
+            = f.submit "SMSを送信", class: 'sms-btn'
+      .phone-form__notes
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      .phone-form__reason
+        = link_to root_path do
+          電話番号の確認が必要な理由
+          = fa_icon "chevron-right", class: 'chevron'
+  .footer
+    = render partial: './signup/signup-footer'
