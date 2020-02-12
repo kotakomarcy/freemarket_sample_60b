@@ -187,6 +187,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
     )
   end
 
+  def set_user
+    @user = User.new(params[:id])
+  end
+
+  def set_address
+    @user = User.new(params[:id])
+    @address = Address.new(params[:id])
+  end
+
+  def set_payment
+    @user = User.new(params[:id])
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])

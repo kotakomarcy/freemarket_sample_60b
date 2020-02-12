@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_104038) do
     t.integer "delivery_charge", null: false
     t.integer "delivery_way", null: false
     t.integer "prefecture_id", null: false
+    t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
     t.integer "price", null: false
     t.integer "status", null: false

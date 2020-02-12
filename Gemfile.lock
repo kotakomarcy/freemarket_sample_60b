@@ -110,6 +110,9 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    diff-lcs (1.3)
+    enum_help (0.0.17)
+      activesupport (>= 3.0.0)
     erubi (1.9.0)
     erubis (2.7.0)
     excon (0.71.1)
@@ -359,6 +362,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  enum_help
   factory_bot_rails
   fog-aws
   font-awesome-rails
@@ -376,6 +380,7 @@ DEPENDENCIES
   rails (~> 5.2.4)
   rails-controller-testing
   recaptcha
+  rails-controller-testing
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver

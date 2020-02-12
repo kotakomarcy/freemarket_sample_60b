@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   end
 
   root "products#index"
+
+  resources :products
 end
