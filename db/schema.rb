@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2020_02_05_104038) do
+ActiveRecord::Schema.define(version: 2020_02_08_090256) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "zip_code", null: false
@@ -50,10 +51,9 @@ ActiveRecord::Schema.define(version: 2020_02_05_104038) do
     t.integer "delivery_charge", null: false
     t.integer "delivery_way", null: false
     t.integer "prefecture_id", null: false
-    t.integer "delivery_area", null: false
     t.integer "delivery_days", null: false
     t.integer "price", null: false
-    t.integer "status", null: false
+    t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
