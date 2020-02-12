@@ -51,6 +51,12 @@
   padding: 8px 16px;
 }
 
+@mixin icon-hover(){
+  color: $progress_blue;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
 // 新規登録画面用
 @mixin registration() {
   padding: 0 40px 7px 0;

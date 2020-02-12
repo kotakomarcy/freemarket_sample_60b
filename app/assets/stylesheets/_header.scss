@@ -77,6 +77,9 @@ input::placeholder{
     &--categorys-caption{
       @include left-caption
     }
+    &--categorys-caption:hover{
+      @include icon-hover;
+    }
 
     &--categorys-list{
       display: block;
@@ -92,7 +95,10 @@ input::placeholder{
     }
 
     &--blands-caption{
-      @include left-caption
+      @include left-caption;
+    }
+    &--blands-caption:hover{
+      @include icon-hover;
     }
   }
 
@@ -100,6 +106,92 @@ input::placeholder{
     display: flex;
     font-size: 15px;
     margin: 0 auto;
+
+    &--good{
+      padding-right: 20px;
+    }
+
+    &--good-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      margin-right: 5px;
+    }
+
+    &--good-icon:hover{
+      @include icon-hover;
+    }
+
+    &--good-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--good-caption:hover{
+      @include icon-hover;
+    }
+
+    &--news{
+      padding-right: 20px;
+    }
+
+    &--news-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      padding-right: 5px;
+    }
+
+    &--news-icon:hover{
+      @include icon-hover;
+    }
+
+    &--news-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--news-caption:hover{
+      @include icon-hover;
+    }
+
+    &--todo{
+      padding-right: 20px;
+    }
+
+    &--todo-icon{
+      color: rgb(204, 204, 204);
+      float: left;
+      margin-right: 5px;
+    }
+
+    &--todo-icon:hover{
+      @include icon-hover;
+    }
+
+    &--todo-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--todo-caption:hover{
+      @include icon-hover;
+    }
+
+    &--mypage{
+      padding-right: 20px;
+    }
+
+    &--mypage-caption{
+      color: black;
+      float: right;
+      text-decoration: none;
+    }
+
+    &--mypage-caption:hover{
+      @include icon-hover;
+    }
 
     &--new-acount{
       height: 27px;
