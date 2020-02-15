@@ -84,6 +84,5 @@ gem 'jquery-rails'
 gem 'owlcarousel-rails'
 gem 'enum_help'
 gem 'ancestry'
-
 gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"

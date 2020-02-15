@@ -4,6 +4,8 @@ class Product < ApplicationRecord
 
     has_many :product_images
     accepts_nested_attributes_for :product_images, allow_destroy: true
+    belongs_to :user
+
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }

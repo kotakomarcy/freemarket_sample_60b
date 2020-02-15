@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :payments
   accepts_nested_attributes_for :address
   validates_associated :address
+  has_many :products
 
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :last_name, presence: true, format: { with: /\A[一-龥]+\z/ }
