@@ -4,18 +4,17 @@ $(function() {
     const html = `<label class="js-file_group" data-index="${num}" for="product_product_images_attributes_${num}_image">
                     <input class="js-file" type="file"
                     name="product[product_images_attributes][${num}][image]"
-                    id="product_product_images_attributes_${num}_image"></br>
-                    <span class="js-remove">削除</span>
+                    id="product_product_images_attributes_${num}_image"><br>
                   </label>`;
     return html;
   }
 
   //プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<div class="previews">
+    const html = `<div class="preview">
                     <img data-index="${index}" src="${url}" width="100px" height="100px"></br>
-                    <label for="product_product_images_attributes_${index}_img" class="js-edit" data-index="${index}">編集</label>
-                    <span class="js-remove">削除</span>
+                    <label for="product_product_images_attributes_${index}_src" class="js-edit" data-index="${index}">編集</label>
+                    <div class="js-remove" data-index="${index}">削除</div>
                   </div>`;
     return html;
   }
@@ -31,6 +30,7 @@ $(function() {
 
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
+    // $('.js-file_group').eq(targetIndex).addClass('none')
     // ファイルのブラウザ上でのURLを取得
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
