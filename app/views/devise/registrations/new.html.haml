@@ -1,0 +1,89 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+    %ul.progress
+      %li.member#now
+        会員情報
+        .progress-icon
+        .progress-bar
+      %li.authentication
+        電話番号認証
+        .progress-icon
+        .progress-bar
+      %li.address
+        お届け先住所入力
+        .progress-icon
+        .progress-bar
+      %li.pay
+        支払い方法
+        .progress-icon
+        .progress-bar
+      %li.done
+        完了
+        .progress-icon
+        .progress-bar
+  .account-page
+    .member-input
+      会員情報入力
+    .form
+      .form__group
+        = form_for @user, url: users_signup_phone_num_path, method: :get do |f|
+          .form__group-nickname
+          = f.label :nickname, "ニックネーム"
+          .form__group-required
+            必須
+          = f.text_field :nickname, class:"form__group-input-long", placeholder: "例)コタコマ太郎"
+          .form__group-mail
+          = f.label :email, "メールアドレス"
+          .form__group-required
+            必須
+          = f.email_field :email, class:"form__group-input-long", placeholder: "PC・携帯どちらでも可"
+          .form__group-password
+          = f.label :password, "パスワード"
+          .form__group-required
+            必須
+          = f.password_field :password, class:"form__group-input-long", placeholder: "7文字以上の半角英数字"
+          .form__group-information
+            ※英字と数字の両方を含めて設定してください
+          .check
+            = check_box :group, :user_ids, {class: "check"}, true, false
+            .check__message
+              パスワードを表示する
+          .identification
+            本人確認
+            .identification__message
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .form__group-name
+            = f.label :name, "お名前(全角)"
+            .form__group-required
+              必須
+            = f.text_field :last_name, class:"form__group-input-middle", placeholder: "例)増川"
+            = f.text_field :first_name, class:"form__group-input-middle", placeholder: "例)英明"
+          .form__group-name-kana
+            = f.label :name, "お名前カナ(全角)"
+            .form__group-required
+              必須
+            = f.text_field :last_name_kana, class:"form__group-input-middle", placeholder: "例)マシカワ"
+            = f.text_field :first_name_kana, class:"form__group-input-middle", placeholder: "例)ヒデアキ"
+          .form__group-birthday
+            = f.label :birthday, "生年月日"
+            .form__group-required
+              必須
+            .birthday
+              != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'form__group-input-short', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+          .form__message-note
+            ※本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .form__message-next
+            「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+          .form__group-next
+            = f.submit "次へ進む", class: 'next-btn'
+          .registration-information
+            = link_to root_path do
+              本人情報の登録について
+              = fa_icon "chevron-right", class: 'chevron'
+          .protected-message
+            This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
+  .footer
+    = render partial: './signup/signup-footer'

@@ -1,0 +1,79 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+    %ul.progress
+      %li.member#end
+        会員情報
+        .progress-icon
+        .progress-bar
+      %li.authentication#end
+        電話番号認証
+        .progress-icon
+        .progress-bar
+      %li.address#now
+        お届け先住所入力
+        .progress-icon
+        .progress-bar
+      %li.pay
+        支払い方法
+        .progress-icon
+        .progress-bar
+      %li.done
+        完了
+        .progress-icon
+        .progress-bar
+  .address-page
+    .address-top
+      発送元・お届け先住所入力
+    .address-form
+      .address-form__group
+        = form_for @user, url: users_signup_payments_path, method: :get do |f|
+          .address-form__group-name
+            = f.label :name, "お名前(全角)"
+            .address-form__group-required
+              必須
+            = f.text_field :last_name, class:"address-form__group-input", placeholder: "例)増川"
+            = f.text_field :first_name, class:"address-form__group-input", placeholder: "例)英明"
+          .address-form__group-name-kana
+            = f.label :name_kana, "お名前カナ(全角)"
+            .address-form__group-required
+              必須
+            = f.text_field :last_name_kana, class:"address-form__group-input", placeholder: "例)マシカワ"
+            = f.text_field :first_name_kana, class:"address-form__group-input", placeholder: "例)ヒデアキ"
+          = f.fields_for :address do |a|
+            .address-form__group-zip_code
+              = a.label :zip_code, "郵便番号"
+              .address-form__group-required
+                必須
+              = a.text_field :zip_code, class:"address-form__group-input", placeholder: "例)123-0123"
+            .address-form__group-prefecture
+              = a.label :prefecture_id, "都道府県"
+              .address-form__group-required
+                必須
+              = a.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+            .address-form__group-city
+              = a.label :city, "市区町村"
+              .address-form__group-required
+                必須
+              = a.text_field :city, class:"address-form__group-input", placeholder: "例)東京都調布市"
+            .address-form__group-block
+              = a.label :block, "番地"
+              .address-form__group-required
+                必須
+              = a.text_field :block, class:"address-form__group-input", placeholder: "例)青山1-2-3"
+            .address-form__group-building_name
+              = a.label :building_name, "建物名"
+              .address-form__group-any
+                任意
+              = a.text_field :building_name, class:"address-form__group-input", placeholder: "例)コタコマビル103"
+            .address-form__group-phone_num
+              = f.label :phone_num, "電話"
+              .address-form__group-any
+                任意
+              = f.text_field :phone_num, class:"address-form__group-input", placeholder: "例)08012345678"
+            .address-form__group-next
+              = a.submit "次へ進む", class: 'next-btn'
+  .footer
+    = render partial: './signup/signup-footer'

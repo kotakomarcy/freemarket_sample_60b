@@ -1,0 +1,40 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+    %ul.progress
+      %li.member#end
+        会員情報
+        .progress-icon
+        .progress-bar
+      %li.authentication#end
+        電話番号認証
+        .progress-icon
+        .progress-bar
+      %li.address#end
+        お届け先住所入力
+        .progress-icon
+        .progress-bar
+      %li.pay#end
+        支払い方法
+        .progress-icon
+        .progress-bar
+      %li.done#now
+        完了
+        .progress-icon
+        .progress-bar
+  .done-page
+    .done
+      会員登録完了
+    .done-information
+      .done-information__message
+        ありがとうございます。
+        %br
+        会員登録が完了しました。
+      .done-information__top
+        = link_to root_path do
+          .top-btn
+            メルカリをはじめる
+  .footer
+    = render partial: './signup/signup-footer'

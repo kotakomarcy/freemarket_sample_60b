@@ -50,3 +50,98 @@
   border-radius: 15px;
   padding: 8px 16px;
 }
+
+@mixin icon-hover(){
+  color: $progress_blue;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+// 新規登録画面用
+@mixin registration() {
+  padding: 0 40px 7px 0;
+  font-size: 12px;
+  color:#888888;
+}
+@mixin box(){
+  height: 50px;
+  margin-top: 20px;
+  line-height: 50px;
+  width: 350px;
+  border-radius: 5px;
+  color: white;
+  background-color: #ea352d;
+}
+@mixin information(){
+  line-height: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: solid 1px $background_gray;
+}
+@mixin label(){
+  font-size: 12px;
+}
+@mixin form-box-long(){
+  font-size: 16px;
+  border: solid 1px #ccc;
+  padding: 10px;
+  width: 320px;
+  border-radius: 5px;
+  margin:-10px 0 20px 0;
+}
+@mixin form-box-middle(){
+  font-size: 16px;
+  border: solid 1px #ccc;
+  padding: 10px;
+  margin:-10px 8px 20px 0;
+  width: 140px;
+  border-radius: 5px;
+}
+@mixin form-box-short(){
+  height: 48px;
+  width: 76px;
+  font-size: 16px;
+  border: solid 1px #ccc;
+  padding: 10px;
+  margin:-10px 0px 20px 0;
+  border-radius: 5px;
+  background-color: $progress_white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+@mixin group-information{
+  color: $progress_text;
+  font-size: 14px;
+  margin: -15px 0 10px 0;
+}
+@mixin signup-frame-head() {
+  width: 700px;
+  height: 100%;
+  margin: 0 auto;
+  background-color: $progress_white;
+}
+@mixin signup-frame-bottom(){
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+@mixin required(){
+  position: relative;
+  left: 100px;
+  top: -15px;
+  width: 32px;
+  height: 17px;
+  padding-top: 2px;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  color: $progress_white;
+  background-color: $progress_red;
+  border-radius: 2px;
+}
+@mixin hover{
+  background-color: #ff726b;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
