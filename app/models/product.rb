@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   validates :condition, presence: true
   validates :delivery_charge, presence:true
   validates :delivery_way, presence: true
-  validates :delivery_area, presence: true
+  validates :prefecture_id, presence: true
   validates :delivery_days, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :status, presence: true

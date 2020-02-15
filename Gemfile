@@ -82,6 +82,8 @@ gem 'pry'
 gem 'fog-aws'
 gem 'jquery-rails'
 gem 'owlcarousel-rails'
+gem 'enum_help'
+gem 'ancestry'
+
 gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"
-gem 'enum_help'
