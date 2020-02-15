@@ -70,6 +70,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       city: session[:city],
       block: session[:block],
       building_name: session[:building_name])
+      #binding.pry
       if @user.save 
         session[:id] = @user.id
         sign_in User.find(session[:id]) unless user_signed_in?
