@@ -1,0 +1,301 @@
+.background {
+  height: 100%;
+  width: 100%;
+  background-color: $main-gray;
+  padding-top: 50px;
+}
+
+.contents {
+  padding-bottom: 10px;
+}
+
+.product-info {
+  width: 55%;
+  background-color: white;
+  margin: 0 auto;
+  padding: 25px 50px;
+
+  &__title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  &__wapper {
+    display: flex;
+    padding: 20px 0;
+
+    &__exhibition {
+      width: 100%;
+      height: 100%;
+      border-collapse: collapse;
+      border: solid 1px;
+
+      th {
+        width: 40%;
+        height: 45px;
+        font-size: 12px;
+        background-color: $main-gray;
+        border-collapse: collapse;
+        border: solid 1px #f5f5f5;
+        padding-left: 15px;
+      }
+
+      td {
+        border-collapse: collapse;
+        border: solid 1px #f5f5f5;
+        padding: 10px 15px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__price {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+
+    &--tax {
+      font-size: 15px;
+      font-weight: normal;
+    }
+  }
+}
+
+.product-action {
+  padding: 10px;
+
+  .link-none {
+    text-decoration: none;
+  }
+  
+  &__btn{
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: #888;
+    padding: 20px;
+
+    &--edit {
+      @include product-action-topic;
+    }
+
+    &--choice {
+      text-align: center;
+      font-size: 25px;
+      margin: 10px 0;
+    }
+
+    &--cancel {
+      @include product-action-topic;
+    }
+
+    &--delete {
+      @include product-action-topic;
+    }
+
+    &--soldout {
+      @include product-action-topic;
+    }
+
+    &__buy {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: $main-red;
+    padding: 20px;
+
+      &--text{
+        @include product-action-topic;
+      }
+    }
+  }
+}
+
+.product-bottom {
+  margin-top: 10px;
+  padding: 10px;
+
+  &__detail {
+    font-size: 18px;
+  }
+  
+  &__links {
+    margin-top: 15px; 
+    display: flex;
+
+    &__like {
+      width: 17%;
+      height: 30px;
+      font-size: 13px;
+      display: flex;
+      background-color: $basic-white;
+      border-radius: 15px;
+      padding: 8px;
+
+      &--icon {
+        margin-right: 5px;
+      }
+
+      &--text {
+        margin-right: 7px;
+      }
+    }
+
+    &__report {
+      width: 28%;
+      height: 30px;
+      font-size: 13px;
+      display: flex;
+      margin-left: 10px;
+      background-color: $basic-white;
+      border-radius: 15px;
+      padding: 8px 0 0 15px;
+
+      &--icon {
+        margin-right: 8px;
+      }
+    }
+
+    .protect{
+      text-decoration: none;
+      color: $main-blue;
+    }
+    &__protect {
+      display: flex;
+      padding: 8px 0 0 0;
+      margin-left: 95px;
+
+      &--icon {
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.comment {
+  margin-top: 20px;
+  
+  &__container {
+    width: 55%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 15px 50px;
+
+    &__caution {
+      width: 100%;
+      padding: 5px;
+      background-color: #fff6de;
+
+      &--text {
+        font-size: 16px;
+      }
+    }
+
+    &__field {
+      margin-top: 10px;
+
+      &--textarea {
+        width: 100%;
+        height: 100px;
+      }
+    }
+
+    &__btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 60px;
+    margin-bottom: 10px;
+    background-color: #888;
+    padding: 20px;
+
+      &--text {
+        @include product-action-topic;
+      }
+    }
+  }
+}
+
+.product-moves {
+  margin-top: 15px;
+
+  &__wapper {
+    width: 55%;
+    margin:0 auto;
+    @include flex-between;
+
+    .link-color {
+      color: $main-blue;
+    }
+
+    &__previous {
+      font-size: 16px;
+    }
+
+    &__next {
+      font-size: 16px;
+    }
+  }
+}
+
+.sns-box {
+  margin: 10px 0;
+
+  &__container {
+    width: 55%;
+    height: 80px;
+    margin: 0 auto;
+    background-color: white;
+
+    &__content {
+      width: 30%;
+      padding-top: 15px;
+      display: flex;
+      margin: 0 auto;
+
+      &__facebook {
+        height: 50px;
+        width: 50px;
+        background-color: #385185;
+        border-radius: 3px;
+        margin-right: 8px;
+
+        &--icon {
+          font-size: 40px;
+          color: #f5f5f5;
+          padding: 4px 0 0 8px;
+        }
+      }
+
+      &__twitter {
+        height: 50px;
+        width: 50px;
+        background-color: $main-blue;
+        border-radius: 3px;
+        margin-right: 8px;
+
+        &--icon {
+          font-size: 40px;
+          color: #f5f5f5;
+          padding: 4px 0 0 8px;
+        }
+      }
+
+      &__pinterest {
+        height: 50px;
+        width: 50px;
+        background-color: #aa262a;
+        border-radius: 3px;
+
+        &--icon {
+          font-size: 40px;
+          color: #f5f5f5;
+          padding: 4px 0 0 8px;
+        }
+      }
+    }
+  }
+}
+
