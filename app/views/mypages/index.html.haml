@@ -1,0 +1,112 @@
+=render partial: "products/header"
+.mypage-wrapper
+  .mypage
+    = render partial: "mypage_sidebar"
+    .mypage__header
+      .mypage__profile
+        = link_to mypages_path do
+          = image_tag "bublle-ball.jpg", width:"500px", class: "mypage__profile-backgrounde-image"
+        .mypage__profile-contents
+          = link_to mypages_path do
+            .mypage__profile-image
+              = fa_icon "user", class: "mypage__profile-icon"
+            .mypage__profile-nickname
+              こたこまーしー
+            .mypage__profile-evaluation
+              評価&nbsp;0&nbsp;&nbsp;出品数&nbsp;0
+      .mypage__contents
+        = link_to mypages_path do
+          .mypage__news
+            お知らせ
+        = link_to mypages_path do
+          .mypage__todo-list
+            やることリスト
+      = link_to mypages_path do
+        .mypage__box
+          .mypage__box-image
+            = image_tag "logo_red.svg", width:"40px", class: "mypage__box-icon"
+            .mypage__box-text
+              【iD決済の設定】システムメンテナンスについて
+              .mypage__box-time
+                %i.fa.fa-clock-o
+                1日前
+          .mypage__box-angle-right
+            = fa_icon "angle-right"
+      = link_to mypages_path do
+        .mypage__box
+          .mypage__box-image
+            = image_tag "logo_red.svg", width:"40px", class: "mypage__box-icon"
+            .mypage__box-text
+              Googleログイン通知
+              .mypage__box-time
+                %i.fa.fa-clock-o
+                2日前
+          .mypage__box-angle-right
+            = fa_icon "angle-right"
+      = link_to mypages_path do
+        .mypage__box
+          .mypage__box-image
+            = image_tag "logo_red.svg", width:"40px", class: "mypage__box-icon"
+            .mypage__box-text
+              【アンケートご協力のお願い】素敵なメルカリストーリー、大募集！
+              .mypage__box-time
+                %i.fa.fa-clock-o
+                3日前
+          .mypage__box-angle-right
+            = fa_icon "angle-right"
+        .mypage__box-list
+          = link_to mypages_path do
+            .mypage__box-list-watch
+              一覧を見る
+      .purchased-products
+        .purchased-products__index
+          購入した商品
+        .purchased-products__transaction
+          = link_to mypages_path do
+            .purchased-products__during-trading
+              取引中
+          = link_to mypages_path do
+            .purchased-products__past-transactions
+              過去の取引
+        .purchased-products__contents
+          = link_to mypages_path do
+            .purchased-products__content
+              .purchased-products__product-name
+                【送料込】ドラムセット
+              .purchased-products__product-icon
+                .purchased-products__product-favorite
+                  %i.fa.fa-heart-o 5
+                .purchased-products__product-comment
+                  %i.fa.fa-comment-o 7
+                .purchased-products__product-status
+                  出品中
+              .purchased-products__box-angle-right
+                = fa_icon "angle-right"
+          = link_to mypages_path do
+            .purchased-products__content
+              .purchased-products__product-name
+                pearl ハイハット ツインペダルを購入しました。取引が完了しました。
+              .purchased-products__product-icon
+                .purchased-products__product-favorite
+                  %i.fa.fa-heart-o 1
+                .purchased-products__product-comment
+                  %i.fa.fa-comment-o 4
+                .purchased-products__product-status-done
+                  取引完了
+              .purchased-products__box-angle-right
+                = fa_icon "angle-right"
+          = link_to mypages_path do
+            .purchased-products__content
+              .purchased-products__product-name
+                ローランド 電子ドラム Roland V-DRUM
+              .purchased-products__product-icon
+                .purchased-products__product-favorite
+                  %i.fa.fa-heart-o 1
+                .purchased-products__product-comment
+                  %i.fa.fa-comment-o 4
+                .purchased-products__product-status-suspension
+                  公開停止中
+              .purchased-products__box-angle-right
+                = fa_icon "angle-right"
+= render partial: "products/sell_​​button"
+= render partial: "products/footer"

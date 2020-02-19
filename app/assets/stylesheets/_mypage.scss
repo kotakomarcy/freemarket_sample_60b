@@ -1,0 +1,365 @@
+.mypage-wrapper{
+  background-color: $background_gray;
+  box-sizing: border-box;
+  padding-top: 40px;
+  align-items: center;
+  width: 100%;
+  height: 1350px;
+}
+.mypage{
+  width: 1100px;
+  margin: 0 auto;
+  a {
+    @include linkline-none;
+    }
+  &__header{
+  margin: 0 0 0 320px;
+  @include mypage-main-size;
+  }
+  &__profile{
+    height: 200px;
+  }
+  &__profile-backgrounde-image{
+    position: relative;
+    width: 700px;
+    height: 200px;
+    z-index: 100;
+  }
+  &__profile-contents{
+    position: relative;
+    top: -160px;
+    text-align: center;
+    z-index: 200;
+    text-decoration: none;
+  }
+  &__profile-image{
+    font-size: 60px;
+    color: $mypage_icon;
+  }
+  &__profile-icon{
+    font-size: 60px;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    background-color: $mypage_gray;
+    border-radius: 50%;
+  }
+  &__profile-nickname{
+    padding: 5px;
+    font-weight: bold;
+  }
+  &__profile-evaluation{
+    padding-top: 5px;
+  }
+  &__contents{
+    @include mypage-main-size;
+    text-align: center;
+    display: flex;
+  }
+  &__news{
+    @include mypage-content-box;
+    background-color: $mypage_white;
+    border-top: solid 2px red;
+  }
+  &__news:hover{
+    color: $mypage_hover_black;
+  }
+  &__todo-list{
+    @include mypage-content-box;
+    background-color: $mypage_gray;
+    display: block;
+  }
+  &__todo-list:hover{
+    color: $mypage_hover_black;
+  }
+  &__box{
+    height: 80px;
+    width: 700px;
+    padding-left: 20px;
+    background-color: $mypage_white;
+    @include mypage-solid-line;
+  }
+  &__box:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__box-image{
+    float: left;
+    display: flex;
+  }
+  &__box-text{
+    padding: 20px 0;
+    @include mypage-box-text;
+  }
+  &__box-time{
+    @include mypage-box-text;
+    padding: 10px 5px 0 0;
+  }
+  &__box-angle-right{
+    @include mypage-arrow;
+  }
+  &__box-list{
+    width: 700px;
+    height: 80px;
+    background-color: $mypage_white;
+    padding: 15px 0 0 15px;
+  }
+  &__box-list-watch{
+    width: 670px;
+    height: 50px;
+    background-color: $mypage_gray;
+    padding-top: 15px;
+    text-align: center;
+  }
+  &__box-list-watch:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  .purchased-products{
+    @include mypage-main-size;
+    position: relative;
+    &__index{
+      width: 700px;
+      height: 70px;
+      margin-top: 40px;
+      background-color: $mypage_offwhite;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 30px 0 0 20px;
+    }
+    &__transactions{
+      @include mypage-main-size;
+    }
+    &__during-trading{
+      @include mypage-content-box;
+      background-color: $mypage_white;
+      border-top: solid 2px red;
+      text-align: center;
+    }
+    &__during-trading:hover{
+      color: $mypage_hover_black;
+    }
+    &__past-transactions{
+      @include mypage-content-box;
+      background-color: $mypage_gray;
+      text-align: center;
+      position: absolute;
+      right: 0;
+      top: 70px;
+    }
+    &__past-transactions:hover{
+      color: $mypage_hover_black;
+    }
+    &__contents{
+      @include mypage-main-size;
+      background-color: $mypage_white;
+    }
+    &__content{
+      padding: 25px 0 15px 35px;
+      height: 85px;
+      background-color: $mypage_white;
+    }
+    &__product-name{
+      background-color: $mypage_white;
+    }
+    &__product-icon{
+      display: flex;
+      margin-top: 15px;
+    }
+    &__product-favorite{
+      letter-spacing: 5px;
+    }
+    &__product-comment{
+      letter-spacing: 5px;
+    }
+    &__product-status{
+      @include mypage-status;
+    }
+    &__product-status-done{
+      @include mypage-status;
+      width: 70px;
+      background-color: $mypage_icon;
+    }
+    &__product-status-suspension{
+      @include mypage-status;
+      width: 75px;
+      background-color: $progress_red;
+    }
+    &__box-angle-right{
+      @include mypage-arrow;
+      margin-top: -55px;
+    }
+  }
+}
+.mypage_sidebar{
+  float: left;
+  width: 280px;
+  &__main{
+    position: relative;
+  }
+  &__mypage{
+    @include mypage-sidbar-content;
+    background-color: $mypage_gray;
+    font-weight: bold;
+  }
+  &__mypage:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  #mypage-angle-right{
+    @include mypage-sidbar-arrow;
+    color: black;
+  }
+  #mypage-angle-right:hover{
+    @include mypage-sidbar-arrow;
+    @include mypage-sidbar-arroe-hover;
+  }
+  &__angle-right{
+    @include mypage-sidbar-arrow;
+  }
+  &__angle-right:hover{
+    @include mypage-sidbar-arrow;
+    @include mypage-sidbar-arroe-hover;
+  }
+  &__notice{
+    @include mypage-sidbar-content;
+  }
+  &__notice:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__to-do-list{
+    @include mypage-sidbar-content;
+  }
+  &__to-do-list:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__list-likes{
+    @include mypage-sidbar-content;
+  }
+  &__list-likes:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__sell{
+    @include mypage-sidbar-content;
+  }
+  &__sell:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__exhibited-products-exhibiting{
+    @include mypage-sidbar-content;
+  }
+  &__exhibited-products-exhibiting:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__exhibited-during-trading{
+    @include mypage-sidbar-content;
+  }
+  &__exhibited-during-trading:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__exhibited-sold{
+    @include mypage-sidbar-content;
+  }
+  &__exhibited-sold:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__purchased-products-exhibiting{
+    @include mypage-sidbar-content;
+  }
+  &__purchased-products-exhibiting:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__purchased-products-past-transactions{
+    @include mypage-sidbar-content;
+  }
+  &__purchased-products-past-transactions:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__news{
+    @include mypage-sidbar-content;
+  }
+  &__news:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__evaluation{
+    @include mypage-sidbar-content;
+  }
+  &__evaluation:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__guide{
+    @include mypage-sidbar-content;
+  }
+  &__guide:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  &__contact{
+    @include mypage-sidbar-content;
+  }
+  &__contact:hover{
+    @include mypage-sidbar-content-hover;
+  }
+  .mypage_sidebar_pay{
+    @include mypage-sidbar-title;
+    &__sales{
+      @include mypage-sidbar-content;
+    }
+    &__sales:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__point{
+      @include mypage-sidbar-content;
+    }
+    &__point:hover{
+      @include mypage-sidbar-content-hover;
+    }
+  }
+  .mypage_sidebar-configuration{
+    @include mypage-sidbar-title;
+    &__contents{
+      @include mypage-sidbar-content;
+    }
+    &__contents:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__profile{
+      @include mypage-sidbar-content;
+    }
+    &__profile:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__change-address{
+      @include mypage-sidbar-content;
+    }
+    &__change-address:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__payment-method{
+      @include mypage-sidbar-content;
+    }
+    &__payment-method:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__password{
+      @include mypage-sidbar-content;
+    }
+    &__password:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__identity-information{
+      @include mypage-sidbar-content;
+    }
+    &__identity-information:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__confirm-phone-number{
+      @include mypage-sidbar-content;
+    }
+    &__confirm-phone-number:hover{
+      @include mypage-sidbar-content-hover;
+    }
+    &__logout{
+      @include mypage-sidbar-content;
+    }
+    &__logout:hover{
+      @include mypage-sidbar-content-hover;
+    }
+  }
+}

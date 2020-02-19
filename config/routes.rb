@@ -24,6 +24,12 @@ Rails.application.routes.draw do
   end
 
   root "products#index"
-
   resources :products
+  resources :mypages,only: [:index]
+
+  # mypage
+  get '/mypage/identification', to: 'mypages#identification'
+  get '/mypage/profile', to: 'mypages#profile'
+  get '/mypage/card', to: 'mypages#card'
+  get '/mypage/card/new', to: 'mypages#card_new'
 end
