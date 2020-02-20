@@ -10,7 +10,7 @@
 }
 
 .product-info {
-  width: 55%;
+  width: 700px;
   background-color: white;
   margin: 0 auto;
   padding: 25px 50px;
@@ -117,7 +117,7 @@
     display: flex;
 
     &__like {
-      width: 17%;
+      width: 110px;
       padding: 8px;
       @include bottom-radius;
 
@@ -147,8 +147,8 @@
     }
     &__protect {
       display: flex;
-      padding: 8px 0 0 0;
-      margin-left: 95px;
+      padding-top: 8px;
+      margin-left: 70px;
 
       &--icon {
         margin-right: 5px;
@@ -161,7 +161,7 @@
   margin-top: 20px;
   
   &__container {
-    width: 55%;
+    width: 700px;
     background-color: white;
     margin: 0 auto;
     padding: 15px 50px;
@@ -201,7 +201,7 @@
   margin-top: 15px;
 
   &__wapper {
-    width: 55%;
+    width: 700px;
     margin:0 auto;
     @include flex-between;
 
@@ -223,13 +223,13 @@
   margin: 10px 0;
 
   &__container {
-    width: 55%;
+    width: 700px;
     height: 80px;
     margin: 0 auto;
     background-color: white;
 
     &__content {
-      width: 30%;
+      width: 24%;
       padding-top: 15px;
       display: flex;
       margin: 0 auto;
