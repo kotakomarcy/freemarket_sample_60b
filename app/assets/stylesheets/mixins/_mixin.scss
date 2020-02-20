@@ -145,3 +145,78 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
+
+// mypage画面用
+@mixin mypage-main-size {
+  width: 700px;
+  height: 100%;
+}
+@mixin mypage-content-box {
+  width: 350px;
+  height: 75px;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 30px;
+}
+@mixin linkline-none {
+  text-decoration: none;
+  color: $font-black;
+}
+@mixin mypage-solid-line {
+  border-bottom: solid 2px $mypage_gray;
+}
+@mixin mypage-box-text {
+  text-align: left;
+  padding-left: 20px;
+}
+@mixin mypage-arrow {
+  font-size: 24px;
+  float: right;
+  padding:20px 20px 0 0;
+  font-weight: bold;
+}
+@mixin mypage-status {
+  color: $mypage_white;
+  width: 50px;
+  height: 25px;
+  background-color: $main-blue;
+  text-align: center;
+  padding-top: 5px;
+  margin: -5px 0 0 5px;
+  border-radius: 6%;
+}
+@mixin mypage-sidbar-arrow {
+  width: 280px;
+  height: 48px;
+  font-size: 24px;
+  text-align: right;
+  color: $mypage_gray;
+  position: absolute;
+  right: 20px;
+  margin-top: -20px;
+  font-weight: bold;
+}
+@mixin mypage-sidbar-arroe-hover {
+  right: 15px;
+  color: black;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+@mixin mypage-sidbar-content {
+  width: 280px;
+  height: 48px;
+  background-color: $mypage_white;
+  border-bottom: solid 1px $mypage_gray;
+  padding: 16px 0 0 20px;
+  font-size: 14px;
+}
+@mixin mypage-sidbar-content-hover {
+  background-color: $mypage_hover_gray;
+}
+@mixin mypage-sidbar-title {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
