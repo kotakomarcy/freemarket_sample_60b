@@ -21,16 +21,15 @@
         %span<>
         Googleでログイン
       .login-form__mail
-        = form_with model: @users, local: true do |f|
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .login-form__address
           = f.text_field :email, class:"login-form__input-long", placeholder: "メールアドレス"
           .login-form__password
-          = f.text_field :encrypted_password, class:"login-form__input-long", placeholder: "パスワード"
-      .recaptcha
-        = recaptcha_tags
-      .login-form__submit
-        = form_with model: @users, local: true do |f|
-          = f.submit "ログイン", class: 'login-btn'
+          = f.password_field :password, class:"login-form__input-long", placeholder: "パスワード"
+          .recaptcha
+            = recaptcha_tags
+          .login-form__submit
+            = f.submit "ログイン", class: 'login-btn'
       .password-forget
         = link_to root_path do
           パスワードをお忘れの方

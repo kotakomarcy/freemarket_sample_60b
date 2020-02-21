@@ -1,0 +1,10 @@
+=render partial: "products/header"
+.mypage-wrapper
+  .mypage
+    =render partial: "mypages/mypage_sidebar"
+    .logout
+      = link_to  destroy_user_session_path, method: :delete do
+        .logout__btn
+          ログアウト
+= render partial: "products/sell_​​button"
+= render partial: "products/footer"
