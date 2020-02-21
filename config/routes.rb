@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   root "products#index"
   resources :products
+  resources :logouts, only: [:index]
   resources :mypages,only: [:index] do
     collection do
       get '/mypage/identification', to: 'mypages#identification'

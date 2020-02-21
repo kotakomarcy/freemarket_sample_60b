@@ -23,13 +23,13 @@
     position: relative;
     width: 700px;
     height: 200px;
-    z-index: 100;
+    z-index: 1;
   }
   &__profile-contents{
     position: relative;
     top: -160px;
     text-align: center;
-    z-index: 200;
+    z-index: 2;
     text-decoration: none;
   }
   &__profile-image{
@@ -197,8 +197,6 @@
   }
   &__mypage{
     @include mypage-sidbar-content;
-    background-color: $mypage_gray;
-    font-weight: bold;
   }
   &__mypage:hover{
     @include mypage-sidbar-content-hover;
@@ -361,5 +359,21 @@
     &__logout:hover{
       @include mypage-sidbar-content-hover;
     }
+  }
+}
+.logout{
+    margin-left: 320px;
+    width: 700px;
+    height: 180px;
+    background-color: $mypage_white;
+    padding-top: 60px;
+  &__btn{
+    width: 320px;
+    height: 50px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 16px;
+    background-color: $progress_red;
+    color: $mypage_white;
   }
 }
