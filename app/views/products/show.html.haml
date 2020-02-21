@@ -6,26 +6,28 @@
   
     .product-info
       .product-info__title
-        スルメイカ
-        -# = @product.name サーバーサイド連結用
+        = @product.name
       
       .product-info__wapper
         .product-info__wapper__photos
           .product-info__wapper__photos__main
-            = image_tag "logo_red.svg", width: "300px", height: "300px" 
-            -#= image_tag @product_images.image.to_s, width: 300px, height: 300px サーバサイド連結用
+            = image_tag "#{@product.product_images.first.image}", width: "280px", height: "280px"
           .product-info__wapper__photos__sub
             .product-info__wapper__photos__sub--views
-              = image_tag "logo_red.svg", width: "100px", height: "100px"
-              -#- @product.product_images.each.with_index do |product_image, i| サーバーサイド連結用
+              - if @product.product_images.second
+                = image_tag "#{@product.product_images.second.image}", class: "image-content", width: "75", height: "75"
+              - if @product.product_images.third
+                = image_tag "#{@product.product_images.third.image}", class: "image-content", width: "75", height: "75"
+              - if @product.product_images.fourth
+                = image_tag "#{@product.product_images.fource.image}", class: "image-content", width: "75", height: "75"
 
         %table.product-info__wapper__exhibition
           %tbody
             %tr
               %th 出品者
               %td.product-info__exhibition--content
-                makurahumi
-                -# = @product.user.nickname サーバーサイド連結用
+                = link_to mypages_path, class: "link-color" do
+                  = @product.user.nickname
             %tr
               %th カテゴリー
               %td.product-info__wapper__exhibition--content
@@ -42,91 +44,97 @@
               %td
                 = link_to "#" do
                   その他
-            -# - if @product.size.present? サーバーサイド連結用
-            %tr
-              %th サイズ
-              %td.product-info__wapper__exhibition--content
-                L
-                -#= @product.size
+            - if @product.size.present?
+              %tr
+                %th サイズ
+                %td.product-info__wapper__exhibition--content
+                  = @product.size
             %tr
               %th 商品の状態
               %td.product-info__wapper__exhibition--content
-                新品？
-                -# = @product.condition サーバサイド連結用
+                = @product.condition
             %tr
               %th 配送料の負担
               %td.product-info__wapper__exhibition--content
-                なし
-                -# = @product.delivery_charge サーバーサイド連結用
+                = @product.delivery_charge
             %tr
               %th 配送の方法
               %td.product-info__wapper__exhibition--content
-                メルカリ便
-                -# = @product.delivery_way サーバーサイド連結用
+                = @product.delivery_way
             %tr
               %th 発送元の地域
               %td.product-info__wapper__exhibition--content
-                シンガポール
-                -# = @product.prefecture_id サーバーサイド連結用
+                = @product.prefecture.name
             %tr
               %th 配送日の目安
               %td.product-info__wapper__exhibition--content
-                １ヶ月
-                -# = @product.delivery_days サーバーサイド連結用
+                = @product.delivery_days
       
       .product-info__price
-        ¥ 1,000
-        -# ¥ #{@product.price} サーバーサイド連結用
+        ¥ #{@product.price}
         %span.product-info__price--tax
           (税込)
     
 
       .product-action
-        = link_to "=", class: "link-none" do
+      - if user_signed_in?
+        - if @product.user_id == current_user.id
+          = link_to "=", class: "link-none" do
+            .product-action__btn
+              %p.product-action__btn--edit
+                商品の編集
+          %p.product-action__btn--choice
+            or
           .product-action__btn
-            %p.product-action__btn--edit
-              商品の編集
-        %p.product-action__btn--choice
-          or
-        .product-action__btn
-          %p.product-action__btn--cancel
-            出品を一時停止する
-        .product-action__btn
-          %p.product-action__btn--delete
-            この商品を削除する
-        
-        .product-action__btn
-          .product-action__btn--soldout
-            売り切れました
-        
-        = link_to "#", class: "link-none" do
-          .product-action__btn__buy
-            .product-action__btn__buy--text
-              購入画面に進む
+            %p.product-action__btn--cancel
+              出品を一時停止する
+          .product-action__btn
+            %p.product-action__btn--delete
+              この商品を削除する
+        - else
+          - if @product.status == 0
+            = link_to "#", class: "link-none" do
+              .product-action__btn__buy
+                .product-action__btn__buy--text
+                  購入画面に進む
+          - else
+            .product-action__btn
+              .product-action__btn--soldout
+                売り切れました
+      - else
+        - if @product.status == 0
+          = link_to "#", class: "link-none" do
+            .product-action__btn__buy
+              .product-action__btn__buy--text
+                購入画面に進む
+        - else
+          .product-action__btn
+            .product-action__btn--soldout
+              売り切れました
       
-      .product-bottom
-        .product-bottom__detail
-          映像研には手を出すな……
-          -# = @product.description サーバーサイド連結用
-        .product-bottom__links
-          .product-bottom__links__like
-            .product-bottom__links__like--icon
-              = fa_icon "heart"
-            %p.product-bottom__links__like--text
-              いいね！
-            .product-bottom__links__like--count
-              0
-          .product-bottom__links__report
-            .product-bottom__links__report--icon
-              = fa_icon "flag"
-            %p.product-bottom__links__report--text
-              不適切な商品の報告
-          = link_to "#", class: "protect" do
-            .product-bottom__links__protect
-              .product-bottom__links__protect--icon
-                = fa_icon "lock"
-              %p.product-bottom__links__protect--text
-                あんしん・あんぜんへの取り組み
+      - unless user_signed_in? && @product.user_id == current_user.id
+        .product-bottom
+          .product-bottom__detail
+            = @product.description
+          .product-bottom__links
+            .product-bottom__links__like
+              .product-bottom__links__like--icon
+                = fa_icon "heart"
+              %p.product-bottom__links__like--text
+                いいね！
+              .product-bottom__links__like--count
+                0
+            .product-bottom__links__report
+              .product-bottom__links__report--icon
+                = fa_icon "flag"
+              %p.product-bottom__links__report--text
+                不適切な商品の報告
+            = link_to "#", class: "protect" do
+              .product-bottom__links__protect
+                .product-bottom__links__protect--icon
+                  = fa_icon "lock"
+                %p.product-bottom__links__protect--text
+                  あんしん・あんぜんへの取り組み
 
     .comment
       .comment__container

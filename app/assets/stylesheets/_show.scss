@@ -9,6 +9,10 @@
   padding-bottom: 10px;
 }
 
+.image-content {
+  margin-right: 3px;
+}
+
 .product-info {
   width: 700px;
   background-color: white;
@@ -24,6 +28,18 @@
   &__wapper {
     display: flex;
     padding: 20px 0;
+
+    &__photos {
+      padding-right: 25px;
+
+      &__sub {
+        padding-top: 7px;
+
+        &--views {
+          display: flex;
+        }
+      }
+    }
 
     &__exhibition {
       width: 100%;
@@ -60,12 +76,17 @@
   }
 }
 
+.link-color {
+  text-decoration: none;
+  color: $main-blue;
+}
+
+.link-none {
+  text-decoration: none;
+}
+
 .product-action {
   padding: 10px;
-
-  .link-none {
-    text-decoration: none;
-  }
   
   &__btn{
     background-color: #888;
@@ -199,15 +220,11 @@
 
 .product-moves {
   margin-top: 15px;
-
+  
   &__wapper {
     width: 700px;
     margin:0 auto;
     @include flex-between;
-
-    .link-color {
-      color: $main-blue;
-    }
 
     &__previous {
       font-size: 16px;
