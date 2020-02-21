@@ -7,17 +7,17 @@
     .product-info
       .product-info__title
         スルメイカ
-        -# = @product.name
+        -# = @product.name サーバーサイド連結用
       
       .product-info__wapper
         .product-info__wapper__photos
           .product-info__wapper__photos__main
             = image_tag "logo_red.svg", width: "300px", height: "300px" 
-            -#= image_tag @product_images.image.to_s, width: 300px, height: 300px
+            -#= image_tag @product_images.image.to_s, width: 300px, height: 300px サーバサイド連結用
           .product-info__wapper__photos__sub
             .product-info__wapper__photos__sub--views
               = image_tag "logo_red.svg", width: "100px", height: "100px"
-              -#- @product.product_images.each.with_index do |product_image, i|
+              -#- @product.product_images.each.with_index do |product_image, i| サーバーサイド連結用
 
         %table.product-info__wapper__exhibition
           %tbody
@@ -25,7 +25,7 @@
               %th 出品者
               %td.product-info__exhibition--content
                 makurahumi
-                -# = @product.user.nickname
+                -# = @product.user.nickname サーバーサイド連結用
             %tr
               %th カテゴリー
               %td.product-info__wapper__exhibition--content
@@ -42,7 +42,7 @@
               %td
                 = link_to "#" do
                   その他
-            -# - if @product.size.present?
+            -# - if @product.size.present? サーバーサイド連結用
             %tr
               %th サイズ
               %td.product-info__wapper__exhibition--content
@@ -52,31 +52,31 @@
               %th 商品の状態
               %td.product-info__wapper__exhibition--content
                 新品？
-                -# = @product.condition
+                -# = @product.condition サーバサイド連結用
             %tr
               %th 配送料の負担
               %td.product-info__wapper__exhibition--content
                 なし
-                -# = @product.delivery_charge
+                -# = @product.delivery_charge サーバーサイド連結用
             %tr
               %th 配送の方法
               %td.product-info__wapper__exhibition--content
                 メルカリ便
-                -# = @product.delivery_way
+                -# = @product.delivery_way サーバーサイド連結用
             %tr
               %th 発送元の地域
               %td.product-info__wapper__exhibition--content
                 シンガポール
-                -# = @product.prefecture_id
+                -# = @product.prefecture_id サーバーサイド連結用
             %tr
               %th 配送日の目安
               %td.product-info__wapper__exhibition--content
                 １ヶ月
-                -# = @product.delivery_days
+                -# = @product.delivery_days サーバーサイド連結用
       
       .product-info__price
         ¥ 1,000
-        -# ¥ #{@product.price}
+        -# ¥ #{@product.price} サーバーサイド連結用
         %span.product-info__price--tax
           (税込)
     
@@ -107,7 +107,7 @@
       .product-bottom
         .product-bottom__detail
           映像研には手を出すな……
-          -# = @product.description
+          -# = @product.description サーバーサイド連結用
         .product-bottom__links
           .product-bottom__links__like
             .product-bottom__links__like--icon
