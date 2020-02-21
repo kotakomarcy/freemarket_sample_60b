@@ -16,6 +16,7 @@
   justify-content: center;
 }
 
+//トップページヘッダー用
 @mixin left-icon() {
   padding-right: 5px;
   color: $main-red;
@@ -29,6 +30,7 @@
   font-weight: bold;
 }
 
+//トップページスライダー用
 @mixin slide-background($background-image) {
   background: image_url($background-image);
   background-size: auto 100%;
@@ -146,6 +148,47 @@
   transition: 0.5s;
 }
 
+//商品詳細ページ用
+@mixin tabel-solid() {
+  border-collapse: collapse;
+  border: solid 2px #f5f5f5;
+  font-size: 12px;
+}
+
+@mixin product-show-btn() {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+
+@mixin product-action-topic() {
+  font-size: 18px;
+  color: #f5f5f5;
+  text-align: center;
+  font-weight: bold;
+}
+
+@mixin bottom-radius() {
+  height: 30px;
+  font-size: 13px;
+  display: flex;
+  background-color: $basic-white;
+  border-radius: 15px;
+}
+
+@mixin sns-icon-outer() {
+  height: 50px;
+  width: 50px;
+  border-radius: 3px;
+}
+
+@mixin sns-icon-inner() {
+  font-size: 40px;
+  color: #f5f5f5;
+  padding: 4px 0 0 8px;
+}
+  
 // mypage画面用
 @mixin mypage-main-size {
   width: 700px;

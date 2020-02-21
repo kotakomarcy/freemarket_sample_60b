@@ -1,0 +1,167 @@
+=render partial: "header"
+
+.background
+  
+  .contents
+  
+    .product-info
+      .product-info__title
+        スルメイカ
+        -# = @product.name サーバーサイド連結用
+      
+      .product-info__wapper
+        .product-info__wapper__photos
+          .product-info__wapper__photos__main
+            = image_tag "logo_red.svg", width: "300px", height: "300px" 
+            -#= image_tag @product_images.image.to_s, width: 300px, height: 300px サーバサイド連結用
+          .product-info__wapper__photos__sub
+            .product-info__wapper__photos__sub--views
+              = image_tag "logo_red.svg", width: "100px", height: "100px"
+              -#- @product.product_images.each.with_index do |product_image, i| サーバーサイド連結用
+
+        %table.product-info__wapper__exhibition
+          %tbody
+            %tr
+              %th 出品者
+              %td.product-info__exhibition--content
+                makurahumi
+                -# = @product.user.nickname サーバーサイド連結用
+            %tr
+              %th カテゴリー
+              %td.product-info__wapper__exhibition--content
+                = link_to "#" do
+                  メンズ
+                %br
+                = link_to "#" do
+                  >トップス
+                %br
+                = link_to "#" do
+                  >Tシャツ/カットソー(半袖/袖なし)
+            %tr
+              %th ブランド
+              %td
+                = link_to "#" do
+                  その他
+            -# - if @product.size.present? サーバーサイド連結用
+            %tr
+              %th サイズ
+              %td.product-info__wapper__exhibition--content
+                L
+                -#= @product.size
+            %tr
+              %th 商品の状態
+              %td.product-info__wapper__exhibition--content
+                新品？
+                -# = @product.condition サーバサイド連結用
+            %tr
+              %th 配送料の負担
+              %td.product-info__wapper__exhibition--content
+                なし
+                -# = @product.delivery_charge サーバーサイド連結用
+            %tr
+              %th 配送の方法
+              %td.product-info__wapper__exhibition--content
+                メルカリ便
+                -# = @product.delivery_way サーバーサイド連結用
+            %tr
+              %th 発送元の地域
+              %td.product-info__wapper__exhibition--content
+                シンガポール
+                -# = @product.prefecture_id サーバーサイド連結用
+            %tr
+              %th 配送日の目安
+              %td.product-info__wapper__exhibition--content
+                １ヶ月
+                -# = @product.delivery_days サーバーサイド連結用
+      
+      .product-info__price
+        ¥ 1,000
+        -# ¥ #{@product.price} サーバーサイド連結用
+        %span.product-info__price--tax
+          (税込)
+    
+
+      .product-action
+        = link_to "=", class: "link-none" do
+          .product-action__btn
+            %p.product-action__btn--edit
+              商品の編集
+        %p.product-action__btn--choice
+          or
+        .product-action__btn
+          %p.product-action__btn--cancel
+            出品を一時停止する
+        .product-action__btn
+          %p.product-action__btn--delete
+            この商品を削除する
+        
+        .product-action__btn
+          .product-action__btn--soldout
+            売り切れました
+        
+        = link_to "#", class: "link-none" do
+          .product-action__btn__buy
+            .product-action__btn__buy--text
+              購入画面に進む
+      
+      .product-bottom
+        .product-bottom__detail
+          映像研には手を出すな……
+          -# = @product.description サーバーサイド連結用
+        .product-bottom__links
+          .product-bottom__links__like
+            .product-bottom__links__like--icon
+              = fa_icon "heart"
+            %p.product-bottom__links__like--text
+              いいね！
+            .product-bottom__links__like--count
+              0
+          .product-bottom__links__report
+            .product-bottom__links__report--icon
+              = fa_icon "flag"
+            %p.product-bottom__links__report--text
+              不適切な商品の報告
+          = link_to "#", class: "protect" do
+            .product-bottom__links__protect
+              .product-bottom__links__protect--icon
+                = fa_icon "lock"
+              %p.product-bottom__links__protect--text
+                あんしん・あんぜんへの取り組み
+
+    .comment
+      .comment__container
+        .comment__container__caution
+          %p.comment__container__caution--text
+            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        .comment__container__field
+          %input.comment__container__field--textarea
+        .comment__container__btn
+          .comment__container__btn--text
+            コメントする
+
+    .product-moves
+      .product-moves__wapper
+        .product-moves__wapper__previous
+          = link_to "#", class: "link-color" do
+            < 前の商品へ
+        .product-moves__wapper__next
+          = link_to "#", class: "link-color"  do
+            次の商品へ >
+    
+    .sns-box
+      .sns-box__container
+        .sns-box__container__content
+          .sns-box__container__content__facebook
+            = link_to "#" do
+              .sns-box__container__content__facebook--icon
+                = fa_icon "facebook-square"
+          .sns-box__container__content__twitter
+            = link_to "#" do
+              .sns-box__container__content__twitter--icon
+                = fa_icon "twitter-square"
+          .sns-box__container__content__pinterest
+            = link_to "#" do
+              .sns-box__container__content__pinterest--icon
+                = fa_icon "pinterest-square"
+
+=render partial: "footer"

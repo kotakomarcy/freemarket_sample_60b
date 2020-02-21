@@ -10,12 +10,14 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    #binding.pry
     if @product.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private
