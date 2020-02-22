@@ -15,7 +15,7 @@
             #image-box
               #previews
                 - if @product.persisted?
-                  - @product.product_images.each_with_index do |image, i|
+                  - @product.product_images.each_with_index do |product_image, i|
                     = image_tag product_image.image.url, data:{ index: i }, width: "100", height: "100"
                 = f.fields_for :product_images do |image|
                   = image.label :image, 'ドラッグアンドドロップまたはクリックしてファイルをアップロード', class:"js-file_group", "data-index": image.index do
