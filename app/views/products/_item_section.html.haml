@@ -7,12 +7,7 @@
         もっと見る＞
 
   .item-section__groups
-    = render "item_unit"
-    = render "item_unit"
-    = render "item_unit"
-    = render "item_unit"
-    = render "item_unit"
-
+    = render partial: "products/item_unit", collection: @products
 
   .item-section__groups
     = render "item_unit"
