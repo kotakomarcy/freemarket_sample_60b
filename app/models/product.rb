@@ -22,5 +22,5 @@ class Product < ApplicationRecord
   enum delivery_charge: { '送料込み（出品者負担）': 1, '着払い（購入者負担）': 2 }
   enum delivery_way:  { '未定': 1, 'らくらくメルカリ便': 2, 'ゆうメール': 3, 'クロネコヤマト': 4 }
   enum delivery_days: { '１〜２日で発送': 1, '２〜４日で発送': 2, '４〜７日で発送': 3 }
-  enum status: { '出品中': 0, '出品停止': 1, '交渉中': 2, '売却済': 3 }
+  enum status: { 出品中: 0, 出品停止: 1, 交渉中: 2, 売却済: 3 }
 end

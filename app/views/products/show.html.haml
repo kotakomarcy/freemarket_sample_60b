@@ -77,22 +77,32 @@
     
 
       .product-action
-      - if user_signed_in?
-        - if @product.user_id == current_user.id
-          = link_to "=", class: "link-none" do
+        - if user_signed_in?
+          - if @product.user_id == current_user.id
+            = link_to "=", class: "link-none" do
+              .product-action__btn
+                %p.product-action__btn--edit
+                  商品の編集
+            %p.product-action__btn--choice
+              or
             .product-action__btn
-              %p.product-action__btn--edit
-                商品の編集
-          %p.product-action__btn--choice
-            or
-          .product-action__btn
-            %p.product-action__btn--cancel
-              出品を一時停止する
-          .product-action__btn
-            %p.product-action__btn--delete
-              この商品を削除する
+              %p.product-action__btn--cancel
+                出品を一時停止する
+            .product-action__btn
+              %p.product-action__btn--delete
+                この商品を削除する
+          - else
+            -if @product.status == "出品中"
+              = link_to "#", class: "link-none" do
+                .product-action__btn__buy
+                  .product-action__btn__buy--text
+                    購入画面に進む
+            - else
+              .product-action__btn
+                .product-action__btn--soldout
+                  売り切れました
         - else
-          - if @product.status == 0
+          -if @product.status == "出品中"
             = link_to "#", class: "link-none" do
               .product-action__btn__buy
                 .product-action__btn__buy--text
@@ -101,16 +111,6 @@
             .product-action__btn
               .product-action__btn--soldout
                 売り切れました
-      - else
-        - if @product.status == 0
-          = link_to "#", class: "link-none" do
-            .product-action__btn__buy
-              .product-action__btn__buy--text
-                購入画面に進む
-        - else
-          .product-action__btn
-            .product-action__btn--soldout
-              売り切れました
       
       - unless user_signed_in? && @product.user_id == current_user.id
         .product-bottom
