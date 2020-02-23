@@ -30,7 +30,6 @@ $(function() {
 
   $('#image-box').on('change', '.js-file', function(e) {
     const targetIndex = $(this).parent().data('index');
-    // $('.js-file_group').eq(targetIndex).addClass('none')
     // ファイルのブラウザ上でのURLを取得
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
@@ -39,14 +38,15 @@ $(function() {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else { //新規画像の処理
-      $('#previews').append(buildImg(targetIndex, blobUrl));
+      $('.js-file_group:last').append(buildImg(targetIndex,blobUrl));
       // fileIndexの先頭の数字を使って、inputを生成
-      $('#image-box').append(buildFileField(fileIndex[0]));
+      $('#previews').append(buildFileField(fileIndex[0]));
       fileIndex.shift();
       //末尾に１足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
   });
+
 
   $('#image-box').on('click', '.js-remove', function() {
     const targetIndex = $(this).parent().data('index');
@@ -55,7 +55,7 @@ $(function() {
     //もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop("checked", true);
 
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     //画像入力欄が0にならないようにしておく

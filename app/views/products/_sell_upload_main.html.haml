@@ -14,18 +14,16 @@
           .sell-main__container__sell-form__upload-box__dropbox
             #image-box
               #previews
-                - if @product.persisted?
-                  - @product.product_images.each_with_index do |product_image, i|
-                    = image_tag product_image.image.url, data:{ index: i }, width: "100", height: "100"
                 = f.fields_for :product_images do |image|
                   = image.label :image, 'ドラッグアンドドロップまたはクリックしてファイルをアップロード', class:"js-file_group", "data-index": image.index do
                     = image.file_field :image, class: "js-file"
                   - if @product.persisted?
-                    = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+                    - @product.product_images.each_with_index do |product_image, i|
+                      = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+                      = image_tag product_image.image.url, data:{ index: i }, class: ""width: "100", height: "100"
                 - if @product.persisted?
                   .js-file_group{"data-index" => "#{@product.product_images.count}"}
-                    = file_field_tag :image, name: "product[product_images_attributes][#{@product.product_images.count}][image]", class: "js-file"
-                    .js-remove 削除
+                  = file_field_tag :image, name: "product[product_images_attributes][#{@product.product_images.count}][image]", class: "js-file"
       .sell-main__container__sell-form__name
         .sell-main__container__sell-form__name__form-group
           %label
@@ -48,7 +46,7 @@
               カテゴリー
               %span
                 必須
-          /= f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form'
+          /= f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form' カテゴリー機能未実装のため、コメントアウト
           .sell-main__container__sell-form__detail__box__form-group
             %label
               サイズ
