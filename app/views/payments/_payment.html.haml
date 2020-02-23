@@ -1,0 +1,51 @@
+.maypage-pay
+  .maypage-pay__contents
+    クレジットカード情報入力
+  = form_with id: "charge-form", url: pay_payments_path, method: :post, action: :create, local: true do |f|
+    .maypage-payment
+      .maypage-payment__card
+        %label
+          カード番号
+        .maypage-payment__group-required
+          必須
+        = f.text_field :number, class: "maypage-payment__input",  placeholder: "半角英数のみ",maxlength: "16",id: "number"
+        %ul.maypage-payment__icon
+          %li
+            = image_tag "visa.svg", size:"49x20"
+          %li
+            = image_tag "master-card.svg", size:"34x20"
+          %li
+            = image_tag "saison-card.svg", size:"30x20"
+          %li
+            = image_tag "jcb.svg", size:"32x20"
+          %li
+            = image_tag "american_express.svg", size:"21x20"
+          %li
+            = image_tag "dinersclub.svg", size:"32x20"
+          %li
+            = image_tag "discover.svg", size:"32x20"
+      .maypage-payment__expiration-date
+        %label
+          有効期限
+        .maypage-payment__group-required
+          必須
+      .maypage-payment__month-year
+        .maypage-payment__month
+          = f.select :exp_month,[["01"], ["02"], ["03"], ["04"], ["05"], ["06"], ["07"], ["08"], ["09"], ["10"], ["11"], ["12"]],id:"exp_month"
+          %span
+            月
+        .maypage-payment__year
+          = f.select :exp_year,[["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]],id: "exp_year"
+          %span
+            年
+      .maypage-payment__security-code
+        %label
+          セキュリティーコード
+        .maypage-payment__group-required#security
+          必須
+        = f.text_field :cvc, class: "maypage-payment__input",  placeholder: "カード背面4桁もしくは3桁の番号",id:"cvc"
+      .maypage-payment__information
+        = link_to new_payment_path do
+          = fa_icon "question-circle", class: 'question'
+          カード裏面の番号とは？
+      = f.submit "追加する", class:"add-btn",id: "token_submit", type: "submit"
