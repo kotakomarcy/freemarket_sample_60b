@@ -1,6 +1,7 @@
 class PaymentsController < ApplicationController
   require "payjp"
-  
+  before_action :set_product, only:[:confirmation, :complete]
+
   def new
     @payment = Payment.where(user_id: current_user.id)
     redirect_to action: "show" if @payment.exists?
@@ -8,16 +9,15 @@ class PaymentsController < ApplicationController
 
   def show
     @payment = Payment.where(user_id: current_user.id).first
-    if @payment.blank?
-    else
-      Payjp.api_key = "sk_test_09c484c2295eb1744967f104"
+    if @payment.present?
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(@payment.customer_id)
       @default_card_information = customer.cards.retrieve(@payment.card_id)
     end
   end
 
   def pay
-    Payjp.api_key = "sk_test_09c484c2295eb1744967f104"
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -37,9 +37,8 @@ class PaymentsController < ApplicationController
 
   def delete
     payment = Payment.where(user_id: current_user.id).first
-    if payment.blank?
-    else
-      Payjp.api_key = "sk_test_09c484c2295eb1744967f104"
+    if payment.present?
+      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
       customer = Payjp::Customer.retrieve(payment.customer_id)
       customer.delete
       payment.delete
@@ -48,15 +47,12 @@ class PaymentsController < ApplicationController
   end
 
   def confirmation
-    @product = Product.find(params[:product_id])
-    @addresses = Address.find_by(user_id: current_user.id)
-    card_information
   end
 
   def complete
-    @product = Product.find(params[:product_id])
-    @addresses = Address.find_by(user_id: current_user.id)
-    card_information
+  end
+
+  def set_product
   end
 
   private
@@ -68,5 +64,13 @@ class PaymentsController < ApplicationController
   def card_params
     params.permit('payjp-token',:product_id)
   end
-  
+
+  def set_product
+    @product = Product.find(params[:product_id])
+    @address = Address.find_by(user_id: current_user.id)
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+    customer = Payjp::Customer.retrieve(@payment.customer_id)
+    @default_card_information = customer.cards.retrieve(@payment.card_id)
+  end
+
 end
