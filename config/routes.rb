@@ -34,4 +34,12 @@ Rails.application.routes.draw do
       get '/mypage/card/new', to: 'mypages#card_new'
     end
   end
+  resources :payments do
+    collection do
+      post 'show', to: 'payments#show'
+      post 'new', to: 'payments#new'
+      post 'pay', to: 'payments#pay'
+      delete 'delete', to: 'payments#delete'
+    end
+  end
 end

@@ -263,3 +263,7 @@
   font-size: 16px;
   font-weight: bold;
 }
+@mixin mypage-payment-solid {
+  border-bottom: solid 2px $background_gray;
+  padding: 30px;
+}

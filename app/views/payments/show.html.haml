@@ -1,0 +1,37 @@
+=render partial: "products/header"
+.mypage-wrapper
+  .mypage
+    = render partial: "mypages/mypage_sidebar"
+    .maypage-pay
+      .maypage-pay__contents
+        支払い方法
+      .maypage-pay__form
+        .maypage-pay__list
+          クレジットカード一覧
+        - if @payment.present?
+          .maypage-pay__card-contents
+            %ul.maypage-payment__icon
+              %li
+                = image_tag "visa.svg", size:"49x20"
+            .maypage-pay__text
+              = "**** **** ****"+ "#{@default_card_information.last4}"
+              %br
+                - exp_month = @default_card_information.exp_month.to_s
+                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                = exp_month + " / " + exp_year
+            .maypage-pay__remove-btn
+              = link_to delete_payments_path, method: :delete do
+                %span 削除する
+        - else
+          .maypage-pay__add-card
+            = link_to new_payment_path do
+              .maypage-pay__add-card-link
+                .maypage-pay__add-contents
+                  = fa_icon 'credit-card'
+                  クレジットカードを登録する
+      .maypage-pay__about-payment
+        =link_to payments_path do
+          支払い方法について
+          = fa_icon "angle-right"
+= render partial: "products/sell_​​button"
+= render partial: "products/footer"
