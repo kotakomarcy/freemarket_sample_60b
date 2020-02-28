@@ -75,6 +75,8 @@
 
   &__groups {
     font-weight: 400;
+    flex-direction: row;
+    flex-wrap: wrap;
     @include flex-between;
 
     &__unit {
@@ -90,7 +92,6 @@
       
       &__image {
         height: 180px;
-        background-color:rgba(228, 110, 208, 0.4);
         
         &--box {
           height: 100%;
