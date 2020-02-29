@@ -4,6 +4,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only:[:confirmation, :complete]
   before_action :card_information, only:[:show,:confirmation, :complete]
+  before_action :create, only:[:complete]
 
   def new
     @payment = Payment.where(user_id: current_user.id)
@@ -34,17 +35,15 @@ class PaymentsController < ApplicationController
 
   def create
     product = Product.find(card_params[:product_id])
-      redirect_to "/products/#{product.id}" if product.status != "出品中"
-      payment = Payment.where(user_id: current_user.id).first
-      Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
-      Payjp::Charge.create(
-      amount:  product.price,
-      customer: payment.customer_id,
-      currency: 'jpy',
-      )
-      product[:status] = "売却済"
-      product.save
-     redirect_to action: 'complete'
+    payment = Payment.where(user_id: current_user.id).first
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+    Payjp::Charge.create(
+    amount:  product.price,
+    customer: payment.customer_id,
+    currency: 'jpy',
+    )
+    product[:status] = "売却済"
+    product.save
   end
 
   def delete
@@ -59,6 +58,7 @@ class PaymentsController < ApplicationController
   end
 
   def confirmation
+    card_exist
   end
 
   def complete
