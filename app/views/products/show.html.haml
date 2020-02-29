@@ -79,7 +79,7 @@
       .product-action
         - if user_signed_in?
           - if @product.user_id == current_user.id
-            = link_to "=", class: "link-none" do
+            = link_to edit_product_path(@product), class: "link-none" do
               .product-action__btn
                 %p.product-action__btn--edit
                   商品の編集
