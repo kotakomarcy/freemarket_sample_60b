@@ -7,7 +7,32 @@
   
 =render partial: "upper_info"
 .item-wrapper
-  =render partial: "item_section"
+  .item-section
+  .item-section__header
+    .item-section__header__title
+      %h3 レディース新着アイテム
+    .item-section__header__link
+      = link_to "#", class: "indexlink" do
+        もっと見る＞
+
+  .item-section__groups
+    - @products.each do |product|
+      = render partial: "item_unit", locals: { product: product }
+
+
+  .item-section
+    .item-section__header
+      .item-section__header__title
+        %h3 メンズ新着アイテム
+      .item-section__header__link
+        = link_to "#", class: "indexlink" do
+          もっと見る＞
+
+    .item-section__groups
+      
+
+    .item-section__groups
+    
 
 = render partial: "sell_​​button"
 = render partial: "footer"

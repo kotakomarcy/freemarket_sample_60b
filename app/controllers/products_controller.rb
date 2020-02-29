@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
+    @products = Product.includes(:product_images).order("created_at DESC").limit(10)
   end
 
   def new
