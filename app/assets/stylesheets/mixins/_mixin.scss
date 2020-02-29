@@ -267,3 +267,21 @@
   border-bottom: solid 2px $background_gray;
   padding: 30px;
 }
+
+// 購入画面用
+@mixin confirmation-solid {
+  border-bottom: solid 1px $mypage_gray;
+}
+@mixin confirmation-contents {
+  margin: 0 auto;
+  width: 343px;
+  padding: 32px 0;
+}
+@mixin confirmation-link {
+  position: absolute;
+  right: 180px;
+  font-weight: normal;
+  color: $progress_blue;
+  font-size: 14px;
+  z-index: 10;
+}

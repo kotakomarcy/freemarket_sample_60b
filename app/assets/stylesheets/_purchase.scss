@@ -1,0 +1,196 @@
+.confirmation{
+  @include mypage-main-size;
+  background-color: $mypage_white;
+  margin: 0 auto;
+  box-sizing: border-box;
+  &__contents{
+    padding: 40px;
+    width: 700px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    @include confirmation-solid;
+  }
+  &__item{
+    width: 700px;
+    height: 145px;
+    padding: 32px 16px;
+    @include confirmation-solid;
+  }
+  &__item-image{
+    margin-left: 200px;
+    margin-right: 20px;
+    float: left;
+  }
+  &__item-title{
+    padding-top: 5px;
+  }
+  &__item-price{
+    font-weight: bold;
+    padding-top: 15px;
+    
+  }
+  &__payment-screen{
+    position: relative;
+    width: 700px;
+    padding: 32px 16px 48px;
+  }
+  &__payment-text{
+    @include confirmation-contents;
+    @include confirmation-solid;
+    font-size: 18px;
+    font-weight: bold;
+    }
+  &__amount-money{
+    position: absolute;
+    right: 180px;
+    top: 60px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+  &__point{
+    position: absolute;
+    top: 108px;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(180, 180, 180);
+    border-radius: 3px;
+  }
+  &__point-text{
+    font-size: 14px;
+    font-weight: normal;
+    padding: 30px 0 0 30px;
+  }
+  &__payment-method{
+    @include confirmation-contents;
+    @include confirmation-solid;
+    font-weight: bold;
+  }
+  &__payment-list{
+    font-weight: normal;
+    margin: 10px 0 20px;
+    line-height:1.5;
+  }
+  &__address{
+    @include confirmation-contents;
+    @include confirmation-solid;
+    font-weight: bold;
+  }
+  &__address-list{
+    padding-top: 16px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height:1.5;
+  }
+  &__payment-change{
+    @include confirmation-link;
+    top: 190px;
+  }
+  &__address-change{
+    @include confirmation-link;
+    top: 390px;
+  }
+  &__purchase{
+    @include confirmation-contents;
+    width: 343px;
+    height: 30px;
+    margin-top: 30px;
+    background-color: $progress_red;
+    padding-top: 18px;
+  }
+  &__purchase-btn{
+    text-align: center;
+    align-items: center;
+  }
+  a{
+    text-decoration: none;
+    color: $mypage_white;
+    font-size: 16px;
+  }
+}
+.complete{
+  @include mypage-main-size;
+  background-color: $mypage_white;
+  margin: 0 auto;
+  box-sizing: border-box;
+  &__shipping{
+    width: 700px;
+    height: 120px;
+    text-align: center;
+    background-color: $complete_yellow;
+  }
+  &__shipping-info{
+    color: $progress_red;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 40px 0 10px 0;
+  }
+  &__contents{
+    padding: 40px;
+    width: 700px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    align-items: center;
+    @include confirmation-solid;
+  }
+  &__item{
+    width: 700px;
+    padding: 32px 16px;
+    align-items: center;
+    text-align: center;
+    @include confirmation-solid;
+  }
+  &__item-title{
+    padding-top: 10px;
+  }
+  &__item-price{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  &__payment-screen{
+    position: relative;
+    width: 700px;
+    padding: 32px 16px 48px;
+  }
+  &__payment-text{
+    @include confirmation-contents;
+    @include confirmation-solid;
+    font-size: 18px;
+    font-weight: bold;
+    }
+  &__amount-money{
+    position: absolute;
+    right: 180px;
+    top: 60px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+  &__payment-method{
+    @include confirmation-contents;
+    @include confirmation-solid;
+    font-weight: bold;
+  }
+  &__payment-list{
+    font-weight: normal;
+    margin: 10px 0 20px;
+    line-height:1.5;
+  }
+  &__address{
+    @include confirmation-contents;
+    @include confirmation-solid;
+    font-weight: bold;
+  }
+  &__address-list{
+    padding-top: 16px;
+    font-weight: normal;
+    line-height:1.5;
+  }
+  &__address-change{
+    position: absolute;
+    right: 180px;
+    top: 270px;
+  }
+}

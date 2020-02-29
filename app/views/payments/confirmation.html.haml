@@ -1,0 +1,59 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+  .confirmation
+    .confirmation__contents
+      購入内容の確認
+    .confirmation__item
+      .confirmation__item-image
+        = image_tag "#{@product.product_images.first.image}", width: "80px", height: "80px"
+      .confirmation__item-title
+        = @product.name
+      .confirmation__item-price
+        = "¥""#{@product.price}"
+        = @product.delivery_charge
+    .confirmation__payment-screen
+      .confirmation__payment-text
+        支払金額
+        .confirmation__amount-money
+          = "¥""#{@product.price}"
+        .confirmation__point
+        .confirmation__point-text
+          ポイントを使用(所持ポイント:P0)
+      .confirmation__payment-method
+        支払方法
+        .confirmation__payment-list
+          クレジットカード
+          %br
+          = "**** **** ****"+ "#{@default_card_information.last4}"
+          %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = "有効期限" + exp_month + " / " + exp_year
+        %ul.maypage-payment__icon
+          %li
+            = image_tag "visa.svg", size:"49x20"
+        = link_to "#" do
+          .confirmation__payment-change
+            変更する
+      .confirmation__address
+        配送先
+        .confirmation__address-list
+          = "〒""#{@address.zip_code}"
+          = @address.prefecture.name
+          = @address.city
+          = @address.block
+          = @address.building_name
+          %br
+          = @user.last_name
+          = @user.first_name
+        = link_to "#" do
+          .confirmation__address-change
+            変更する
+      = link_to product_payment_complete_path(@product) do
+        .confirmation__purchase
+          .confirmation__purchase-btn
+            購入する
+  = render partial: "signup/signup-footer"

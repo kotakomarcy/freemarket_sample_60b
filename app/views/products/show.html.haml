@@ -93,7 +93,7 @@
                 この商品を削除する
           - else
             -if @product.status == "出品中"
-              = link_to "#", class: "link-none" do
+              = link_to product_payment_confirmation_path(@product,@payment), class: "link-none" do
                 .product-action__btn__buy
                   .product-action__btn__buy--text
                     購入画面に進む
