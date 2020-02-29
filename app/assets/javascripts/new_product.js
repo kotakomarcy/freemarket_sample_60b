@@ -47,15 +47,26 @@ $(function() {
     }
   });
 
-
+//新規投稿画像削除用
   $('#image-box').on('click', '.js-remove', function() {
+    const targetIndex = $(this).parent().data('index');
+
+    $(this).parent().parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
+
+    //画像入力欄が0にならないようにしておく
+    if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+  });
+
+//編集画面画像削除用
+  $('#image-box').on('click', '.js-remove__edit', function() {
     const targetIndex = $(this).parent().data('index');
     //該当indexを振られているチェックボックスを取得
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     //もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop("checked", true);
 
-    $(this).parent().parent().remove();
+    $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     //画像入力欄が0にならないようにしておく
