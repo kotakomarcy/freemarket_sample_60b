@@ -3,7 +3,13 @@ crumb :root do
 end
 
 crumb :mypage do
-  link "マイページ", maypeges_path
+  link "マイページ", mypages_path
+  parent :root
+end
+
+crumb :card do
+  link "支払い状況", payment_path
+  parent :mypage
 end
 
 # crumb :projects do
