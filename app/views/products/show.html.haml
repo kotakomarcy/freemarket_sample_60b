@@ -89,8 +89,9 @@
               %p.product-action__btn--cancel
                 出品を一時停止する
             .product-action__btn
-              %p.product-action__btn--delete
-                この商品を削除する
+              = link_to product_path(@product), class: "link-none", method: :delete do
+                %p.product-action__btn--delete
+                  この商品を削除する
           - else
             -if @product.status == "出品中"
               = link_to "#", class: "link-none" do
