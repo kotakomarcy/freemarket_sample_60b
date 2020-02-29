@@ -1,13 +1,14 @@
-.footer__notes
-  .footer__notes-list
-    = link_to root_path , class: "footer__link" do
-      プライバシーポリシー
-    = link_to root_path , class: "footer__link" do
-      メルカリ利用規約
-    = link_to root_path , class: "footer__link" do
-      特定商取引に関する表記
-.footer__logo
-  = link_to root_path do
-    = image_tag "logo_gray.svg", width:"80px", class: "footer__logo-image"
-.footer__company
-  &#9426;&nbsp;Freemarket,Inc
+.footer
+  .footer__notes
+    .footer__notes-list
+      = link_to root_path , class: "footer__link" do
+        プライバシーポリシー
+      = link_to root_path , class: "footer__link" do
+        メルカリ利用規約
+      = link_to root_path , class: "footer__link" do
+        特定商取引に関する表記
+  .footer__logo
+    = link_to root_path do
+      = image_tag "logo_gray.svg", width:"80px", class: "footer__logo-image"
+  .footer__company
+    &#9426;&nbsp;Freemarket,Inc

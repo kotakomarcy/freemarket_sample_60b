@@ -24,7 +24,12 @@ Rails.application.routes.draw do
   end
 
   root "products#index"
-  resources :products
+  resources :products do
+    get 'payment/create', to:'payments#create'
+    get 'payment/confirmation', to:'payments#confirmation'
+    get 'payment/complete', to:'payments#complete'
+  end
+
   resources :logouts, only: [:index]
   resources :mypages,only: [:index] do
     collection do
