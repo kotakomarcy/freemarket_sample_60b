@@ -1,0 +1,47 @@
+.wapper
+  .header
+    .logo
+      = link_to root_path do
+        = image_tag "fmarket_logo_red.svg", width:"185px", class: "header__logo"
+  .complete
+    .complete__shipping
+      .complete__shipping-info
+        発送をお待ちください
+      .complete__shipping-message
+        出品者からの発送通知をお待ちください
+    .complete__contents
+      購入が完了しました
+    .complete__item
+      .complete__item-image
+        = image_tag "#{@product.product_images.first.image}", width: "80px", height: "80px"
+      .complete__item-title
+        = @product.name
+      .complete__item-price
+        = "¥""#{@product.price}"
+        = @product.delivery_charge
+    .complete__payment-screen
+      .complete__payment-method
+        支払方法
+        .complete__payment-list
+          クレジットカード
+          %br
+          = "**** **** ****"+ "#{@default_card_information.last4}"
+          %br
+            - exp_month = @default_card_information.exp_month.to_s
+            - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+            = "有効期限" + exp_month + " / " + exp_year
+        %ul.maypage-payment__icon
+          %li
+            = image_tag "visa.svg", size:"49x20"
+      .complete__address
+        配送先
+        .complete__address-list
+          = "〒""#{@address.zip_code}"
+          = @address.prefecture.name
+          = @address.city
+          = @address.block
+          = @address.building_name
+          %br
+          = @user.last_name
+          = @user.first_name
+  = render partial: "signup/signup-footer"
