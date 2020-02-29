@@ -86,3 +86,4 @@ gem 'enum_help'
 gem 'ancestry'
 gem 'payjp'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'gretel'
