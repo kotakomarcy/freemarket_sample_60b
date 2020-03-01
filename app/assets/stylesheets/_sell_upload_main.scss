@@ -43,27 +43,13 @@
           font-size: 12px;
         }
         &__dropbox {
+          height: 190px;
           width: 600px;
           margin: 16px auto 0;
           border: 1px dashed #ccc;
           background: #f5f5f5;
           padding: 10px;
           min-height: 162px;
-
-
-          
-          // &__text {
-          //   position: relative;
-          //   text-align: center;
-          //   vertical-align: middle;
-          //   p {
-          //     line-height: 1.5;
-          //     position: absolute;
-          //     top: 50%;
-          //     left: 16px;
-          //     right: 16px;
-          //   }
-          // }
         }
       }
       &__name {
@@ -320,17 +306,16 @@
   font-size: 14px;
 }
 
-#image-box {
+#image-box{
   display: flex;
 }
 
 #previews{
   display: flex;
+  position: absolute;
 }
 
-  
-
-
+//商品出品機能画像用
 .js-file_group{
   height: 162px;
   width: 130px;
@@ -344,12 +329,6 @@
   padding: 10px 0 0 15px;
   position: relative;
 }
-
-// .preview_js{
-//   width: 157px;
-//   height: 187px;
-//   position: relative;
-// }
 
 .js-edit{
   width: 60px;
@@ -370,4 +349,30 @@
 
 .js-file {
   display: none;
+}
+
+//商品編集機能画像用
+.edit-previews{
+  display: flex;
+  margin: 15px ;
+}
+
+.edit-preview{
+  position: relative;
+  z-index: 1;
+}
+
+.js-file_group--edit{
+  width: 130px;
+  background-color: #f5f5f5;
+  border: 0.5px dashed #ccc;
+  display: flex;
+}
+
+.js-append {
+  margin: 130px 0 0 20px;
+}
+
+.js-remove__edit {
+  margin: 130px 0 0 20px;
 }
