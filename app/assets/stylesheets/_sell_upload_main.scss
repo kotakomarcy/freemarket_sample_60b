@@ -306,6 +306,7 @@
   font-size: 14px;
 }
 
+//商品出品・商品編集共通部分
 #image-box{
   display: flex;
 }
@@ -313,6 +314,10 @@
 #previews{
   display: flex;
   position: absolute;
+}
+
+.js-file {
+  display: none;
 }
 
 //商品出品機能画像用
@@ -345,10 +350,6 @@
   position: absolute;
   margin-left: 40px;
   line-height: 30px;
-}
-
-.js-file {
-  display: none;
 }
 
 //商品編集機能画像用

@@ -112,9 +112,11 @@
       }      
       
       &__title {
-        background-color: $basic-white;
+        background-color: white;
+        box-shadow: 1px 1px 4px;
         color: $font-black;
         height: 64px;
+        width: 130px;
         padding: 10px;
         
         &--caption{
