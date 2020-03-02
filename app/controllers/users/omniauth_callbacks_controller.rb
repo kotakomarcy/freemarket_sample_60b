@@ -8,23 +8,31 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # def twitter
   # end
 
-  # More info at:
-  # https://github.com/plataformatec/devise#omniauth
+  def facebook
+    authorization(:facebook)
+  end
 
-  # GET|POST /resource/auth/twitter
-  # def passthru
-  #   super
-  # end
+  def google_oauth2
+    authorization(:google)
+  end
 
-  # GET|POST /users/auth/twitter/callback
-  # def failure
-  #   super
-  # end
+  def failure
+    redirect_to root_path
+  end
 
-  # protected
+  private
 
-  # The path used when OmniAuth fails
-  # def after_omniauth_failure_path_for(scope)
-  #   super(scope)
-  # end
+  def authorization(provider)
+    sns_info = User.from_omniauth(request.env["omniauth.auth"])
+    @user = sns_info[:user]
+
+    if @user.persisted?
+      sign_in_and_redirect @user, event: :authentication #this will throw if @user is not activated
+    else
+      @sns_id = sns_info[:sns]
+      session[:provider] = @sns_id[:provider]
+      session[:uid] = @sns_id[:uid]
+      render template: 'devise/registrations/new'
+    end
+  end
 end

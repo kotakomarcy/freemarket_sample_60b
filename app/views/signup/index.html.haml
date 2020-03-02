@@ -11,12 +11,12 @@
           = fa_icon 'envelope', class: "form__icon"
           %span<>
           メールアドレスで登録する
-      = link_to "https://www.facebook.com/" , class: "form__link" do
+      = link_to user_facebook_omniauth_authorize_path, method: :post , class: "form__link" do
         .form__facebook
           = fa_icon 'facebook-square', class: "form__icon"
           %span<>
           Facebookで登録する
-      = link_to "=" , class: "form__link" do
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post , class: "form__link" do
         .form__google
           = image_tag "google_icon.jpg", width:"20px", class: "form__icon"
           %span<>
