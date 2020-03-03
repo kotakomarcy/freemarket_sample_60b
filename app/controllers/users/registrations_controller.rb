@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require "payjp"
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
@@ -7,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   before_action :validation_address, only:[:new_address]
   before_action :validation_payment, only:[:new_payment]
   before_action :create, only:[:done]
+  before_action :create_payment, only:[:done]
 
   def new
     # Userインスタンス作成
@@ -227,6 +229,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  end
+
+  def create_payment
+    Payjp.api_key = Rails.application.credentials[:payjp][:PAYJP_PRIVATE_KEY]
+    customer = Payjp::Customer.create(
+    email: current_user.email,
+    card: params['payjp-token'],
+    metadata: {user_id: current_user.id}
+    )
+    @payment = Payment.new(user_id: session[:id], customer_id: customer.id, card_id: customer.default_card)
+    if @payment.save
+      render :done
+    else
+      redirect_to action: "new_payment"
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
