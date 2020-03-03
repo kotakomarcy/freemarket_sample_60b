@@ -379,16 +379,19 @@
     &__group-required{
       @include required;
     }
-    #_expiration_date_2i{
+    #exp_month{
       @include form-box-short;
-      width: 120px;
+      width: 290px;
       margin-right: 10px;
     }
-    #_expiration_date_1i{
+    #exp_year{
       @include form-box-short;
-      width: 120px;
-      margin-left: 10px;
+      width: 290px;
       margin-right: 10px;
+    }
+    &__security-code{
+      width: 345px;
+      font-size: 14px;
     }
     #security{
      left: 140px; 
