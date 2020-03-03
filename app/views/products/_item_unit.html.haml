@@ -1,7 +1,7 @@
 .item-section__groups__unit
   = link_to product_path(product.id) do
     .item-section__groups__unit__image
-      = image_tag "#{product.product_images.first.image}", width: "130px",height: "180px"
+      = image_tag "#{product.product_images.first.image}", class: "image-box", width: "130px",height: "180px"
     .item-section__groups__unit__price
       %h4.item-section__groups__unit__price--caption
         ¥ #{product.price}

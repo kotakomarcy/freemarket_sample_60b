@@ -92,6 +92,10 @@
       
       &__image {
         height: 180px;
+
+        .image-box {
+          box-shadow: 1px 1px 4px;
+        }
         
         &--box {
           height: 100%;
@@ -126,5 +130,3 @@
     }
   }  
 }
-
-
