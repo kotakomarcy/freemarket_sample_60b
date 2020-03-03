@@ -285,3 +285,13 @@
   font-size: 14px;
   z-index: 10;
 }
+
+//商品出品・編集画像操作ボタン
+@mixin images-controller-btn () {
+  height: 30px;
+  width: 50px;
+  background-color: white;
+  padding: 8px;
+  border-collapse: collapse;
+  border: solid 1px;
+}

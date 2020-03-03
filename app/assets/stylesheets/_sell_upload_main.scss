@@ -43,27 +43,13 @@
           font-size: 12px;
         }
         &__dropbox {
+          height: 190px;
           width: 600px;
           margin: 16px auto 0;
           border: 1px dashed #ccc;
           background: #f5f5f5;
           padding: 10px;
           min-height: 162px;
-
-
-          
-          // &__text {
-          //   position: relative;
-          //   text-align: center;
-          //   vertical-align: middle;
-          //   p {
-          //     line-height: 1.5;
-          //     position: absolute;
-          //     top: 50%;
-          //     left: 16px;
-          //     right: 16px;
-          //   }
-          // }
         }
       }
       &__name {
@@ -320,17 +306,21 @@
   font-size: 14px;
 }
 
-#image-box {
+//画像投稿機能共通部分
+#image-box{
   display: flex;
 }
 
 #previews{
   display: flex;
+  position: absolute;
 }
 
-  
+.js-file {
+  display: none;
+}
 
-
+//商品出品機能画像用
 .js-file_group{
   height: 162px;
   width: 130px;
@@ -345,29 +335,44 @@
   position: relative;
 }
 
-// .preview_js{
-//   width: 157px;
-//   height: 187px;
-//   position: relative;
-// }
-
 .js-edit{
-  width: 60px;
-  height: 30px;
-  text-align: center;
-  position: absolute;
-  line-height: 30px;
+  @include images-controller-btn;
+  position: absolute;  
 }
 
 .js-remove{
-  width: 60px;
-  height: 30px;
-  text-align: center;
+  @include images-controller-btn;
   position: absolute;
-  margin-left: 40px;
-  line-height: 30px;
+  margin-left: 50px;
 }
 
-.js-file {
-  display: none;
+
+//商品編集機能画像用
+.edit-previews{
+  display: flex;
+}
+
+.edit-preview{
+  position: relative;
+  margin: 15px;
+  z-index: 1;
+}
+
+.js-file_group--edit{
+  width: 130px;
+  background-color: #f5f5f5;
+  border: 0.5px dashed #ccc;
+  display: flex;
+}
+
+.js-append {
+  @include images-controller-btn;
+  margin: 114px 0 0 14px;
+  
+}
+
+.js-remove__edit {
+  @include images-controller-btn;
+  margin: 114px 0 0 0;
+  
 }

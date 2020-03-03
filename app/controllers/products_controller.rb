@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only:[:edit, :update, :show, :destroy]
 
   def index
-    @products = Product.includes(:product_images).order("created_at DESC").limit(10)
+    @products = Product.includes(:product_images).where(status: 0).order("created_at DESC").limit(10)
   end
 
   def new

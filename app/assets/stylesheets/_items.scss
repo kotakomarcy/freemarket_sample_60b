@@ -92,6 +92,10 @@
       
       &__image {
         height: 180px;
+
+        .image-box {
+          box-shadow: 1px 1px 4px;
+        }
         
         &--box {
           height: 100%;
@@ -112,9 +116,11 @@
       }      
       
       &__title {
-        background-color: $basic-white;
+        background-color: white;
+        box-shadow: 1px 1px 4px;
         color: $font-black;
         height: 64px;
+        width: 130px;
         padding: 10px;
         
         &--caption{
@@ -124,5 +130,3 @@
     }
   }  
 }
-
-
