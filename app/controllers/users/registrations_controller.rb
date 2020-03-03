@@ -11,6 +11,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     # Userインスタンス作成
     @user = User.new
+    session[:provider] = session[:provider]
+    session[:uid] = session[:uid]
   end
 
   def new_phone
@@ -53,31 +55,52 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    @user = User.new(
-      nickname: session[:nickname],
-      email: session[:email],
-      password: session[:password],
-      password_confirmation: session[:password],
-      birthday: session[:birthday],
-      last_name: session[:last_name],
-      first_name: session[:first_name],
-      last_name_kana: session[:last_name_kana],
-      first_name_kana: session[:first_name_kana],
-      phone_num: session[:phone_num])
-    @user.build_address(
-      zip_code: session[:zip_code],
-      prefecture_id: session[:prefecture_id],
-      city: session[:city],
-      block: session[:block],
-      building_name: session[:building_name])
-      #binding.pry
-      if @user.save 
-        session[:id] = @user.id
-        sign_in User.find(session[:id]) unless user_signed_in?
-        else
-          render :new
-        end
-      end
+    # SNS認証登録用
+    if session[:provider].present? && session[:uid].present?
+      password = Devise.friendly_token.first(7)
+      @user = User.create(nickname:session[:nickname],
+        nickname: session[:nickname],
+        email: session[:email],
+        password: password,
+        password_confirmation: password,
+        birthday: session[:birthday],
+        last_name: session[:last_name],
+        first_name: session[:first_name],
+        last_name_kana: session[:last_name_kana],
+        first_name_kana: session[:first_name_kana],
+        phone_num: session[:phone_num])
+      @user.build_address(
+        zip_code: session[:zip_code],
+        prefecture_id: session[:prefecture_id],
+        city: session[:city],
+        block: session[:block],
+        building_name: session[:building_name])  
+    else
+    # メールアドレス登録用
+      @user = User.new(
+        nickname: session[:nickname],
+        email: session[:email],
+        password: session[:password],
+        password_confirmation: session[:password],
+        birthday: session[:birthday],
+        last_name: session[:last_name],
+        first_name: session[:first_name],
+        last_name_kana: session[:last_name_kana],
+        first_name_kana: session[:first_name_kana],
+        phone_num: session[:phone_num])
+      @user.build_address(
+        zip_code: session[:zip_code],
+        prefecture_id: session[:prefecture_id],
+        city: session[:city],
+        block: session[:block],
+        building_name: session[:building_name])
+    end
+    if @user.save 
+      session[:id] = @user.id
+      sign_in User.find(session[:id]) unless user_signed_in?
+      else
+        render :new
+    end
   end
 
   def done
@@ -220,3 +243,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+end

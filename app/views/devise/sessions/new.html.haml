@@ -10,16 +10,16 @@
         .login__new-registration
           新規会員登録
     .login-form
-      .login-form__facebook
-        = link_to "https://www.facebook.com/" , class: "login-form__link" do
+      = link_to user_facebook_omniauth_authorize_path, method: :post , class: "login-form__link" do
+        .login-form__facebook
           = fa_icon 'facebook-square', class: "login-form__icon"
-        %span<>
-        Facebookでログイン
-      .login-form__google
-        = link_to "=" , class: "login-form__link" do
+          %span<>
+            Facebookでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post , class: "login-form__link" do
+        .login-form__google
           = image_tag "google_icon.jpg", width:"20px", class: "login-form__icon"
-        %span<>
-        Googleでログイン
+          %span<>
+            Googleでログイン
       .login-form__mail
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .login-form__address
