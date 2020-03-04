@@ -39,7 +39,7 @@ Rails.application.routes.draw do
       get '/mypage/card', to: 'mypages#card'
       get '/mypage/card/new', to: 'mypages#card_new'
       get '/address', to: 'mypages#address'
-    
+      
     end
   end
   resources :payments do

@@ -23,18 +23,18 @@
         .users-info__detaile__name
           %label お名前
           .users-info__detaile__name--full
-            = @user.name
+            = current_user.last_name + current_user.first_name
         .users-info__detaile__kana
           %label お名前カナ
           .users-info__detaile__kana--full
-            マクラ
+            = current_user.last_name_kana + current_user.first_name_kana
         .users-info__detaile__birth
           %label 生年月日
           .users-info__detaile__birth--num
-            1988/3/8
+            = current_user.birthday
 
       .users-info__address
-      = form_with model: @address, local: true do |f|
+      = form_with model: @address, url: address_mypages_path, local: true do |f|
         .address-form
           %label.users-info__address--caption 郵便番号
           .any-tag 任意
