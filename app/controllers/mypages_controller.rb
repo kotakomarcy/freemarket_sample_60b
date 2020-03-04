@@ -10,12 +10,9 @@ class MypagesController < ApplicationController
   end
 
   def address
-   # @address = Addresses.find_by(user_id: current_user.id)
+  #  @address = Addresses.find_by(user_id: current_user.id)
   end
 
-  def identification 
-    @address= Address.find_by(user_id: current_user.id)  
-  end
 
   private
     def set_address

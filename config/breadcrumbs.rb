@@ -18,7 +18,7 @@ crumb :logout do
 end
 
 crumb :address do
-  link "本人情報の確認", mypage_address_mypages_path
+  link "本人情報の確認", address_mypages_path
   parent :mypage
 end
 
