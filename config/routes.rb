@@ -32,14 +32,14 @@ Rails.application.routes.draw do
   end
 
   resources :logouts, only: [:index]
-  resources :mypages,only: [:index] do
+  resources :mypages,only: [:index, :address_update] do
     collection do
       get '/mypage/identification', to: 'mypages#identification'
       get '/mypage/profile', to: 'mypages#profile'
       get '/mypage/card', to: 'mypages#card'
       get '/mypage/card/new', to: 'mypages#card_new'
       get '/address', to: 'mypages#address'
-      
+      patch '/address_update', to: 'mypages#address'
     end
   end
   resources :payments do

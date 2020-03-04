@@ -1,6 +1,5 @@
 class MypagesController < ApplicationController
   before_action :authenticate_user!
-  # before_action :set_address, only:[:address]
 
   def index
     @user = current_user
@@ -15,7 +14,11 @@ class MypagesController < ApplicationController
   end
 
   def address_update
-    
+    if @address.update(set_address)
+      redirect_to address_mypages_path
+    else
+      render :address
+    end
   end
 
   private
