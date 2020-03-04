@@ -17,6 +17,11 @@ crumb :logout do
   parent :mypage
 end
 
+crumb :profile do
+  link "プロフィール", profile_mypages_path
+  parent :mypage
+end
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end
