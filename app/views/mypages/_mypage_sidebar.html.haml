@@ -69,10 +69,11 @@
         = fa_icon "angle-right"
     .mypage_sidebar-configuration
       設定
-    .mypage_sidebar-configuration__profile
-      プロフィール
-      .mypage_sidebar__angle-right
-        = fa_icon "angle-right"
+    = link_to profile_mypages_path do
+      .mypage_sidebar-configuration__profile
+        プロフィール
+        .mypage_sidebar__angle-right
+          = fa_icon "angle-right"
     .mypage_sidebar-configuration__change-address
       発送元・お届け先住所変更
       .mypage_sidebar__angle-right
