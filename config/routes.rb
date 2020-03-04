@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       get '/mypage/profile', to: 'mypages#profile'
       get '/mypage/card', to: 'mypages#card'
       get '/mypage/card/new', to: 'mypages#card_new'
+      get '/mypage/address/', to: 'mypages#address'
     end
   end
   resources :payments do
