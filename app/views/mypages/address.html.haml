@@ -1,0 +1,64 @@
+= render partial: "products/header"
+
+- breadcrumb :address
+= render "layouts/breadcrumbs"
+
+.mypage-wrapper
+  = render partial: "mypage_sidebar"
+  
+  .users-info
+    .users-info__caption
+      .users-info__caption--title
+        本人情報の登録
+    .users-info__attention
+      .users-info__attention--text
+        お客様の本人情報をご登録ください。
+        %br
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提示が必要になります。
+      .users-info__attention--link
+        = link_to "/", class: "link-color" do
+          本人確認書類のアップロードについて ＞
+    .users-info__detaile
+      .users-info__detaile__name
+        %label お名前
+        .users-info__detaile__name--full
+          makura
+          -# = @user.name
+      .users-info__detaile__kana
+        %label お名前カナ
+        .users-info__detaile__kana--full
+          マクラ
+      .users-info__detaile__birth
+        %label 生年月日
+        .users-info__detaile__birth--num
+          1988/3/8
+
+    .users-info__address
+    = form_with model: @address, local: true do |f|
+      .address-form
+        %label.users-info__address--zip 郵便番号
+        %span.any-tag 任意
+        %br
+        = f.text_field :zip_code, class: "address-form__input", placeholder: "例）123-0123"
+      .addres-form
+        %label.users-info__address--prefecture 都道府県
+        %span.any-tag 任意
+        %br
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--"
+      .address-form
+        %label.users-info__address--city 市区町村
+        %span.any-tag 任意
+        %br
+        = f.text_field :city, class: "address-form__input", placeholder: "例）青山1-2-3"
+      .address-form
+        %label.users-info__address--building_name
+        %span.any-tag 任意
+        %br
+        = f.text_field :building_name, class: "address-form_input", placeholder: "例）コタコマビル103" 
+      .users-info__address__btn
+        = f.submit "変更する", class: "users-info__address__btn--change"
+      .user-info__address--link
+        = link_to "/", class: "link-color" do
+          本人情報の登録について ＞
+
+= render partial: "products/footer"
