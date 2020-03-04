@@ -4,7 +4,7 @@
 = render "layouts/breadcrumbs"
 
 .mypage-wrapper
-  = render partial: "mypage_sidebar"
+  = render partial: "mypages/mypage_sidebar"
   
   .users
     .users-title
@@ -34,7 +34,7 @@
             = current_user.birthday
 
       .users-info__address
-      = form_with model: @address, url: address_mypages_path, mehotd: :patch, local: true do |f|
+      = form_with  model: @address, method: :patch, local: true do |f|
         .address-form
           %label.users-info__address--caption 郵便番号
           .any-tag 任意
