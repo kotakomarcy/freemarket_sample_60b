@@ -1,0 +1,19 @@
+=render partial: "products/header"
+- breadcrumb :profile
+= render "layouts/breadcrumbs"
+.mypage-wrapper
+  .mypage
+    = render partial: "mypage_sidebar"
+    .mypage__header
+      .mypage-profile__title
+        プロフィール
+        .mypage-profile__profile-wrapper
+          = image_tag "bublle-ball.jpg", width:"500px", class: "mypage-profile__backgrounde-image"
+          = form_with model: @user, url: profile_mypages_path, method: :patch, local: true do |f|
+            .mypage-profile__image
+              = fa_icon "user", class: "mypage-profile__icon"
+              = f.text_field :nickname, class: "mypage-profile__nickname", value: "#{@user.nickname}", placeholder: "例)kotakoma☆セール中"
+            = f.text_area :profile_text, class: "mypage-profile__text-box", value: "#{@user.profile_text}", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"
+            = f.submit "変更する", class:"mypage-profile__update"
+= render partial: "products/sell_​​button"
+= render partial: "products/footer"
