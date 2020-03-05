@@ -1,0 +1,69 @@
+= render partial: "products/header"
+
+- breadcrumb :address
+= render "layouts/breadcrumbs"
+
+.mypage-wrapper
+  = render partial: "mypages/mypage_sidebar"
+  
+  .users
+    .users-title
+      .users-title__text
+        本人情報の登録
+    .users-info      
+      .users-info__attention
+        .users-info__attention--text
+          お客様の本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提示が必要になります。
+        .users-info__attention--link
+          = link_to "/", class: "link-color" do
+            本人確認書類のアップロードについて ＞
+      .users-info__detaile
+        .users-info__detaile__name
+          %label お名前
+          .users-info__detaile__name--full
+            = current_user.last_name + current_user.first_name
+        .users-info__detaile__kana
+          %label お名前カナ
+          .users-info__detaile__kana--full
+            = current_user.last_name_kana + current_user.first_name_kana
+        .users-info__detaile__birth
+          %label 生年月日
+          .users-info__detaile__birth--num
+            = current_user.birthday
+
+      .users-info__address
+      = form_with  model: @address, method: :patch, local: true do |f|
+        .address-form
+          %label.users-info__address--caption 郵便番号
+          .any-tag 任意
+          %br
+          = f.text_field :zip_code, class: "address-form__input", placeholder: "例）123-0123"
+        .addres-form
+          %label.users-info__address--caption 都道府県
+          .any-tag 任意
+          %br
+          = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "--", class: "address-form__prefecture"
+        .address-form
+          %label.users-info__address--caption 市区町村
+          .any-tag 任意
+          %br
+          = f.text_field :city, class: "address-form__input", placeholder: "例）東京都調布市"
+        .address-form
+          %label.users-info__address--caption 番地
+          .any-tag 任意
+          %br
+          = f.text_field :block, class: "address-form__input", placeholder: "例）青山1-2-3" 
+        .address-form
+          %label.users-info__address--caption 建物名
+          .any-tag 任意
+          %br
+          = f.text_field :building_name, class: "address-form__input", placeholder: "例）コタコマビル103" 
+        .users-info__address__btn
+          = f.submit "変更する", class: "users-info__address__btn--change"
+        .users-info__address--link
+          = link_to "/", class: "link-color" do
+            本人情報の登録について ＞
+
+= render partial: "products/footer"

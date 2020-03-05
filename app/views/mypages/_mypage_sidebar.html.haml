@@ -87,10 +87,11 @@
       メール/パスワード
       .mypage_sidebar__angle-right
         = fa_icon "angle-right"
-    .mypage_sidebar-configuration__identity-information
-      本人情報
-      .mypage_sidebar__angle-right
-        = fa_icon "angle-right"
+    = link_to edit_address_path(current_user.id) do
+      .mypage_sidebar-configuration__identity-information
+        本人情報
+        .mypage_sidebar__angle-right
+          = fa_icon "angle-right"
     .mypage_sidebar-configuration__confirm-phone-number
       電話番号の確認
       .mypage_sidebar__angle-right

@@ -41,6 +41,9 @@ Rails.application.routes.draw do
       get '/mypage/card/new', to: 'mypages#card_new'
     end
   end
+
+  resources :addresses, only: [:edit, :update]
+  
   resources :payments do
     collection do
       post 'show', to: 'payments#show'

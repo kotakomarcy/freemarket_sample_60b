@@ -9,6 +9,7 @@ class MypagesController < ApplicationController
   def profile
   end
 
+
   def update
     if @user.update(profile_params)
       redirect_to profile_mypages_path
