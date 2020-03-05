@@ -13,12 +13,12 @@
     .header-bottom
       .header-bottom__left
         .header-bottom__left--categorys
-          = link_to "=", class:"header-bottom__left--categorys-caption" do
+          = link_to root_path, class:"header-bottom__left--categorys-caption" do
             = fa_icon "list-ul", class: "header-bottom__left--categorys-icon"
             %p.header-bottom__left--categorys-caption
             カテゴリーから探す
         .header-bottom__left--blands
-          = link_to "=", class:"header-bottom__left--blands-caption" do
+          = link_to root_path, class:"header-bottom__left--blands-caption" do
             = fa_icon "tag" , class: "header-bottom__left--blands-icon"
             %p.header-bottom__left--blands-caption 
             ブランドから探す
@@ -27,17 +27,17 @@
         .header-bottom__right
           .header-bottom__right__contents
             .header-bottom__right__contents--good
-              = link_to "=", class: "header-bottom__right__contents--good-caption" do
+              = link_to root_path, class: "header-bottom__right__contents--good-caption" do
                 = fa_icon "heart", class: "header-bottom__right__contents--good-icon"
                 %p.header-bottom__right__contents--good-caption
                 いいね！一覧
             .header-bottom__right__contents--news
-              = link_to "=", class: "header-bottom__right__contents--news-caption" do
+              = link_to root_path, class: "header-bottom__right__contents--news-caption" do
                 = fa_icon "bell", class: "header-bottom__right__contents--news-icon"
                 %p.header-bottom__right__contents--news-caption
                 お知らせ
             .header-bottom__right__contents--todo
-              = link_to "=", class: "header-bottom__right__contents--todo-caption" do
+              = link_to root_path, class: "header-bottom__right__contents--todo-caption" do
                 = fa_icon "check", class: "header-bottom__right__contents--todo-icon"
                 %p.header-bottom__right__contents--todo-caption
                 やることリスト

@@ -43,10 +43,10 @@
           商品の詳細
         .sell-main__container__sell-form__detail__box
           .sell-main__container__sell-form__detail__box__form-group
-            %label
-              カテゴリー
-              %span
-                必須
+            -# %label
+            -#   カテゴリー
+            -#   %span
+            -#     必須
           /= f.collection_select :upload, Upload.all, :id, :name, {prompt: '---'}, class: 'form' カテゴリー機能未実装のため、コメントアウト
           .sell-main__container__sell-form__detail__box__form-group
             %label
