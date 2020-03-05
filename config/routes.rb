@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   resources :mypages,only: [:index, :update] do
     collection do
       get '/mypage/identification', to: 'mypages#identification'
-      get '/mypage/profile', to: 'mypages#profile'
+      get '/profile', to: 'mypages#profile'
+      patch '/profile/update', to: 'mypages#profile/update'
       get '/mypage/card', to: 'mypages#card'
       get '/mypage/card/new', to: 'mypages#card_new'
     end
