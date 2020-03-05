@@ -42,8 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :addresses, only: [:edit, :update] do
-  end
+  resources :addresses, only: [:edit, :update]
   
   resources :payments do
     collection do
