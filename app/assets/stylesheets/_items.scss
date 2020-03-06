@@ -124,7 +124,11 @@
         padding: 10px;
         
         &--caption{
+          height: 45px;
+          width: 120px;  
+          padding: 5px 10px 10px 5px;
           font-size: 14px;
+          overflow: hidden;
         }
       }
     }
