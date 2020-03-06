@@ -64,7 +64,7 @@
             = f.text_field :first_name, class:"form__group-input-middle", placeholder: "例)英明"
           .form__group-name-kana
             = f.label :name, "お名前カナ(全角)"
-            .form__group-required
+            .form__group-required#kana
               必須
             = f.text_field :last_name_kana, class:"form__group-input-middle", placeholder: "例)マシカワ"
             = f.text_field :first_name_kana, class:"form__group-input-middle", placeholder: "例)ヒデアキ"

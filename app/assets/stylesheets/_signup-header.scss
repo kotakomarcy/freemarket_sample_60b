@@ -136,6 +136,9 @@
       &__group-required{
         @include required;
       }
+      #kana{
+        left: 120px; 
+      }
       &__group-input-long{
         @include form-box-long;
       }
@@ -325,6 +328,9 @@
     }
     &__group-required{
       @include required;
+    }
+    #kana{
+      left: 120px; 
     }
     &__group-any{
       @include required;
