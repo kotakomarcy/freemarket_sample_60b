@@ -35,13 +35,13 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 ## ユーザー
 
 ### ユーザー新規登録
-<img src="https://user-images.githubusercontent.com/55982558/79059132-a1925980-7cb1-11ea-8394-60e5f1bcf62d.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059132-a1925980-7cb1-11ea-8394-60e5f1bcf62d.gif" width=“450px”>
 
 - sessionを用いて複数のページの変遷可能な実装をしました。
 
 
 ### SNSアカウントでのログイン機能
-<img src="https://user-images.githubusercontent.com/55982558/79059299-3a75a480-7cb3-11ea-8ad4-7314dbb0aa47.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059299-3a75a480-7cb3-11ea-8ad4-7314dbb0aa47.gif" width=“450px”>
 
 - gem omniauthを用いて外部APIからユーザー情報を取得しました。
 - SNS認証の場合はgem deviseの機能を用いてパスワードを自動生成するようにしました。
@@ -54,14 +54,14 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 
 
 ### ユーザーマイページ
-<img src="https://user-images.githubusercontent.com/55982558/79059418-c805c400-7cb4-11ea-95d6-98dc36802521.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059418-c805c400-7cb4-11ea-95d6-98dc36802521.gif" width=“450px”>
 
 - ユーザーログイン後のマイページを作成しました。
 - ログイン後、マイページボタンより確認いただけます。
 
 
 ### ユーザープロフィール
-<img src="https://user-images.githubusercontent.com/55982558/79059436-f5527200-7cb4-11ea-9ff6-ada1ea1cd3a1.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059436-f5527200-7cb4-11ea-9ff6-ada1ea1cd3a1.gif" width=“450px”>
 
 - ログインユーザーのプロフィール変更画面を作成しました。
 - マイページのプロフィールより確認いただけます。
@@ -69,14 +69,14 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 
 
 ### ユーザーログアウト
-<img src="https://user-images.githubusercontent.com/55982558/79059446-1d41d580-7cb5-11ea-8516-54971f0baea7.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059446-1d41d580-7cb5-11ea-8516-54971f0baea7.gif" width=“450px”>
 
 - ログインユーザーのログアウト機能を作成しました。
 - マイページのログアウトボタンより確認いただけます。
 
 
 ### クレジットカード登録
-<img src="https://user-images.githubusercontent.com/55982558/79059471-6c880600-7cb5-11ea-8dd9-fe6873448370.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059471-6c880600-7cb5-11ea-8dd9-fe6873448370.gif" width=“450px”>
 
 - PAYJPを用いてユーザーのクレジットカード登録画面を作成しました。
 - テストカードを用いて登録をすることができます。
@@ -84,7 +84,7 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 ## 商品
 
 ### 商品購入確認
-<img src="https://user-images.githubusercontent.com/55982558/79059511-e02a1300-7cb5-11ea-8599-9ec851c9949b.gif" width=“600px”>
+<img src="https://user-images.githubusercontent.com/55982558/79059511-e02a1300-7cb5-11ea-8599-9ec851c9949b.gif" width=“450px”>
 
 - 購入者の商品購入画面を作成しました。
 - 購入者アカウントにて、トップページの商品を選択していただき、購入確認画面、購入完了画面を確認いただけます。
