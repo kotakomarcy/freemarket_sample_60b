@@ -25,7 +25,6 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
   - メールアドレス名: seller@seller.com
   - パスワード: seller123
 
-
 # kotakomarcyの担当箇所
 
 ## デプロイ
@@ -40,8 +39,10 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 
 - sessionを用いて複数のページの変遷可能な実装をしました。
 
+
 ### SNSアカウントでのログイン機能
 ![sns](https://user-images.githubusercontent.com/55982558/79059299-3a75a480-7cb3-11ea-8ad4-7314dbb0aa47.gif)
+
 - gem omniauthを用いて外部APIからユーザー情報を取得しました。
 - SNS認証の場合はgem deviseの機能を用いてパスワードを自動生成するようにしました。
 ```
@@ -49,53 +50,50 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
   if session[:provider].present? && session[:uid].present?
     password = Devise.friendly_token.first(7)
 ```
-- ※ドメイン取得をしていないため、ローカル環境のみで動作します。
-
-<!-- 
+- ※URL上ではSSL通信が必要なため、遷移できないようにしています。
 
 
-### ユーザーログアウト機能
+### ユーザーマイページ
+![mypage](https://user-images.githubusercontent.com/55982558/79059418-c805c400-7cb4-11ea-95d6-98dc36802521.gif)
 
-### ユーザー編集機能
+- ユーザーログイン後のマイページを作成しました。
+- ログイン後、マイページボタンより確認いただけます。
 
 
-## 商品出品
+### ユーザープロフィール
+![profile](https://user-images.githubusercontent.com/55982558/79059436-f5527200-7cb4-11ea-9ff6-ada1ea1cd3a1.gif)
 
-### 商品新規出品機能
+- ログインユーザーのプロフィール変更画面を作成しました。
+- マイページのプロフィールより確認いただけます。
+- ニックネームと、自己紹介テキストの登録・変更を行うことができます。
 
-![メルカリ商品出品 mov](https://user-images.githubusercontent.com/53807858/67621894-424da380-f84f-11e9-8749-e4d14e15d1bd.gif)
 
-- 商品情報を保存する**Productテーブル**と写真を保存する**Imageテーブル**のレコードを1ページで作成するように実装しました。
-  accepts_nested_attributes_forをmodelで定義し、1つのformで値を送れるように実装しました。
+### ユーザーログアウト
+![logout](https://user-images.githubusercontent.com/55982558/79059446-1d41d580-7cb5-11ea-8516-54971f0baea7.gif)
 
-```
-= form_for @product do |f|
-      ~省略〜
-  = f.fields_for :image do |image|
-    = image.label :image, for: "upload-image__btn" do
-        = image.file_field :image, type: "file", name: "product[images_attributes][0][image]"
-```
+- ログインユーザーのログアウト機能を作成しました。
+- マイページのログアウトボタンより確認いただけます。
 
-- jQueryを用いて、登録した写真のプレビューを見れるように実装しました。
-  また写真の削除を[非同期での通信](https://github.com/nakanishikeita03/freemarket_sample_58a/blob/master/app/assets/javascripts/sell.js)で可能にしました。
 
-![メルカリ商品出品画像 mov](https://user-images.githubusercontent.com/53807858/67622556-213c8100-f856-11e9-9dd9-a4efed4b496b.gif)
+### クレジットカード登録
+![payment](https://user-images.githubusercontent.com/55982558/79059471-6c880600-7cb5-11ea-8dd9-fe6873448370.gif)
 
-### 商品編集機能
-### 商品削除機能
-### トップページ(products#index)のビュー作成
+- PAYJPを用いてユーザーのクレジットカード登録画面を作成しました。
+- テストカードを用いて登録をすることができます。
 
-## その他 -->
+## 商品
 
-### DB設計
+### 商品購入確認
+![beying](https://user-images.githubusercontent.com/55982558/79059511-e02a1300-7cb5-11ea-8599-9ec851c9949b.gif)
 
-<!-- ![メルカリER図 (1)](https://user-images.githubusercontent.com/53807858/67630498-01e03b00-f8cc-11e9-8197-c37aba2f4a82.png) -->
+- 購入者の商品購入画面を作成しました。
+- 購入者アカウントにて、トップページの商品を選択していただき、購入確認画面、購入完了画面を確認いただけます。
 
-### スクラムマスター
+
+## スクラムマスター
   - スクラムマスターとして、チーム内の進捗状況の確認や、今後の実装方針について提案、実装していきました。
 
 # 使用技術一覧
-
 - Ruby 2.5.1
 - Ruby on Rails 5.2.4
 - MySQL 5.6.43
@@ -107,40 +105,49 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
   - S3
 - Github
 
-<!-- # README
 
+## DB設計
 ## Usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|unique: false|
-|mail|string|unique: false|
-|password|string|unique: false|
-|lastname|string|null: false|
-|firstname|string|null: false|
-|lastname_kana|string|null: false|
-|firstname_kana|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|email|string|unique: false|
+|encrypted_password|string|unique: false|
+|last_name|string|null: false|
+|first_name|string|null: false|
+|last_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birthday|date|null: false|
 |phone_num|integer|null: false|
 |authentication_code|string|null: false|
-|profiletext|string|null: false|
+|profile_text|string|
 ### Association
-- has_many :products　
+- has_many :sns_credentials
+- has_many :products
 - has_one :address, dependent: :destroy
 - has_many :payments
+
+## sns_credentialsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|provider|string|
+|uid|string|
+|password|string|unique: false|
+|user|references|null: false, foreign_key: true|
+### Association
+- belongs_to :user
 
 ## Adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |zip_code|string|null: false|
-|prefectures|string|null: false|
+|prefecture_id|string|null: false|
 |city|string|null: false|
 |block|string|null: false|
 |building_name|string|
+|user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
 
 ## Productsテーブル
 |Column|Type|Options|
@@ -151,34 +158,14 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 |condition|integer|null: false|
 |delivery_charge|integer|null: false|
 |delivery_way|integer|null: false|
-|delivery_area|integer|null: false|
+|prefecture_id|integer|null: false|
 |delivery_days|integer|null: false|
 |price|integer|null: false|
-|status|string|null: false|
+|status|string|default: 0,null: false|
 |user|references|null: false, foreign_key: true|
-|customer|references|null: false, foreign_key: true|
-|category|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :category
-- belongs_to :brand
 - has_many :product_image
-
-## Categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|ancestry|string|null: false|
-### Association
-- has_many :products
-
-## Brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
-
 
 ## Product_images
 |Column|Type|Options|
@@ -188,15 +175,12 @@ Basic認証をかけています。ご覧の際は以下のIDとPassを入力し
 ### Association
 - belongs_to :product
 
-
 ## Paymentsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card_num|integer|null: false|
-|use_year|integer|null: false|
-|use_month|integer|null: false|
+|customer_id|integer|null: false|
+|card_id|integer|null: false|
+|token|integer|null: false|
 |user|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-
-|security_code|integer|null: false| -->
